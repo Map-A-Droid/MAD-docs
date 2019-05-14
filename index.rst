@@ -10,14 +10,6 @@ Welcome to MAD's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
-
 Welcome to the MAD wiki!
 
 This is a collection of articles about setting up and running MAD.
