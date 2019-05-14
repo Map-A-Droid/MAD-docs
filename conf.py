@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u'MAD'
-copyright = u'2019, Grennith, cec, sn0opy'
-author = u'Grennith, cec, sn0opy'
+copyright = u'2019, MADdev Team'
+author = u'MADdev Team'
 
 # The short X.Y version
 version = u''
@@ -39,8 +39,6 @@ release = u''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.githubpages',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -131,7 +129,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'MAD.tex', u'MAD Documentation',
-     u'Grennith, cec, sn0opy', 'manual'),
+     u'MADdev Team', 'manual'),
 ]
 
 
@@ -173,11 +171,3 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
-
-# -- Extension configuration -------------------------------------------------
-
-# -- Options for intersphinx extension ---------------------------------------
-
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}

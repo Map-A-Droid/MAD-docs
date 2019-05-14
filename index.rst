@@ -1,5 +1,5 @@
 .. MAD documentation master file, created by
-   sphinx-quickstart on Tue May 14 16:39:20 2019.
+   sphinx-quickstart on Tue May 14 16:59:10 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -33,7 +33,7 @@ You will get notified about major (feature) releases in our [Discord Server](htt
 
 ```
 git pull
-pip3 install -r requirements.txt 
+pip3 install -r requirements.txt
 ```
 
 If you are encountering database issues, make sure to delete the version.json file and restart MAD.
