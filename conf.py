@@ -38,7 +38,13 @@ release = u''
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['recommonmark']
+extensions = []
+
+# Add markdown support
+from recommonmark.parser import CommonMarkParser
+source_parsers = {
+    '.md': CommonMarkParser,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -65,7 +71,7 @@ language = None
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -83,7 +89,7 @@ html_theme_options = {
     'logo_only': True,
     }
 
-html_logo = "images/mad_banner_trans.png"
+html_logo = "_static/mad_banner_trans.png"
 html_show_sourcelink = True
 
 # Add any paths that contain custom static files (such as style sheets) here,

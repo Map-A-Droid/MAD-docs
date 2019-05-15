@@ -4,7 +4,7 @@ This is a collection of articles about setting up and running MAD.
 
 ## First Install
 
-Head over to [Getting Started](getting-started.md)
+Head over to [Getting Started](setup/getting-started.md)
 
 ## Updating
 

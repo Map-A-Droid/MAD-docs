@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; MAD  documentation</title>
+  <title>How does MAD work? &mdash; MAD  documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MAD Server Setup" href="installation/1.getting-started.html" />
+    <link rel="prev" title="Welcome to the MAD wiki!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,8 +84,8 @@
             
             
               <p class="caption"><span class="caption-text">General</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="how-mad-works.html">How does MAD work?</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How does MAD work?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Installation</span></p>
 <ul>
@@ -150,12 +151,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>How does MAD work?</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/how-mad-works.md.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -167,24 +170,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="how-does-mad-work">
+<h1>How does MAD work?<a class="headerlink" href="#how-does-mad-work" title="Permalink to this headline">¶</a></h1>
+<p>MAD is a system to collect Data from Pokémon GO. It uses real Android smartphones and processes the data into a database. MAD is currently able to scan for Raids, Quests, Pokémon and its IVs.</p>
+<blockquote>
+<div>Note: Quests and Pokémon are only possible with the MITM method</div></blockquote>
+<div class="section" id="android-phone">
+<h2>Android phone<a class="headerlink" href="#android-phone" title="Permalink to this headline">¶</a></h2>
+<p>The phone needs to be rooted, pass the <a class="reference external" href="https://koz.io/inside-safetynet/">SafetyNet Check</a> and SELinux  must be permissive or moderate. In the most cases rooting with Magisk solves all those problems.</p>
+<div class="section" id="remote-gps-controller-rgc">
+<h3>Remote GPS Controller (RGC)<a class="headerlink" href="#remote-gps-controller-rgc" title="Permalink to this headline">¶</a></h3>
+<p>RGC is an app developed by the MAD team to control the phone in various ways. It handles the GPS spoofing, takes screenshots, restarts Pokémon GO, reboots the whole phone and more. This app is necessary for MAD.</p>
+</div>
+<div class="section" id="pogodroid">
+<h3>Pogodroid<a class="headerlink" href="#pogodroid" title="Permalink to this headline">¶</a></h3>
+<p>This app injects into the running Pokémon GO process and relays the <a class="reference external" href="https://github.com/Furtif/POGOProtos">Protos</a> sent to Pokémon GO to the MAD server. Pogodroid is only required when using the MITM method. A valid token is required to use it, you can purchase it on <a class="reference external" href="https://www.maddev.de/">the MAD website</a>.</p>
+</div>
+</div>
+<div class="section" id="mad-server">
+<h2>MAD server<a class="headerlink" href="#mad-server" title="Permalink to this headline">¶</a></h2>
+<p>MAD is a python application, so its able to run on Linux, Windows and Mac OS. It was developed on Linux only and no one can guarantee that it runs perfectly on other operating systems. We highly suggest to setup a Linux Virtual Machine when no native Linux is present.</p>
+<p><img alt="_images/concept.jpg" src="_images/concept.jpg" /></p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation/1.getting-started.html" class="btn btn-neutral float-right" title="MAD Server Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the MAD wiki!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -217,14 +240,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
