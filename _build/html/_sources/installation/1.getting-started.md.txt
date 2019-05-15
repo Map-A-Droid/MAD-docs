@@ -1,7 +1,7 @@
 ## MAD Server Setup
 Its basically just setting up a Database and fill in the MAD config.
 
-There is currently only a guide for Linux, but PRs for a Windows Documentation is welcome.
+There is currently only a guide for Linux, but PRs for a Windows Documentation are welcome.
 
 ### Ubuntu/Debian
 
@@ -20,8 +20,7 @@ mysql_secure_installation
 
 Log in to your Database and create an dedicated user for MAD, if you don't know how to, take a look at [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql).
 
-They are two supported Database Schemas: **Monocle** and **OSM-Rocketmap**, a [fork](https://github.com/cecpk/OSM-Rocketmap) to support OSM map titles.  
-If you want to use Monocle, create an empty database and import [this schema](https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql) like this:
+They are two supported Database Schemas: **Monocle** and **OSM-Rocketmap**, a [fork](https://github.com/cecpk/OSM-Rocketmap) to support OSM map titles. If you want to use Monocle, create an empty database and import [this schema](https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql) like this:
 ```bash
 mysql -u root -e "create database MonocleDB;"
 curl https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql | mysql -u root MonocleDB 
@@ -73,9 +72,7 @@ cp configs/config.ini.example configs/config.ini
 ```
 >The article [Config File](config-file.md) has more detailed descriptions about the available options.  
 
-Populate the config with at least the database configuration, runtype and the Pogoassets path.  
-The runtype is depending on the mode you want to use. OCR or MITM (learn more about this topic [here](/scanning-modes/modes.md)). If you want to use the MITM mode, uncomment `only_scan`. For OCR start two instances, one with `only_scan` and the other one with `only_ocr` and `ocr_multitask`.  
-The Pogoassets are necessary as well. Clone [this repository](https://github.com/ZeChrales/PogoAssets/) somewhere on your server and fill in the full path of it. For example: `pogoasset: /home/mad/PogoAssets`
+Populate the config with at least the database configuration, runtype and the Pogoassets path. The runtype is depending on the mode you want to use. OCR or MITM (learn more about this topic [here](/scanning-modes/modes.md)). If you want to use the MITM mode, uncomment `only_scan`. For OCR start two instances, one with `only_scan` and the other one with `only_ocr` and `ocr_multitask`. The Pogoassets are necessary as well. Clone [this repository](https://github.com/ZeChrales/PogoAssets/) somewhere on your server and fill in the full path of it. For example: `pogoasset: /home/mad/PogoAssets`
 
 Every other config option is optional and not needed for the first start.
 
@@ -96,6 +93,4 @@ python3 start.py
 ```
 
 ## Phone Setup
-
-
-fooo
+An Android Phone, rooted with Magisk is necessary. Check out [this list](https://github.com/Map-A-Droid/MAD-device-list) which phones are confirmed working. Phones that are not listed can work as well, but are not tested yet. Feel free to expand that list by adding your working phone models.

@@ -3,7 +3,7 @@ MAD is a system to collect Data from Pokémon GO. It uses real Android smartphon
 >Note: Quests and Pokémon are only possible with the MITM method
 
 ### Android phone
-The phone needs to be rooted, pass the [SafetyNet Check](https://koz.io/inside-safetynet/) and SELinux  must be permissive or moderate. In the most cases rooting with Magisk solves all those problems.
+The phone needs to be rooted, pass the [SafetyNet Check](https://koz.io/inside-safetynet/) and SELinux  must be permissive or moderate. In the most cases rooting with [Magisk](https://www.xda-developers.com/how-to-install-magisk/) solves all those problems.
 
 #### Remote GPS Controller (RGC)
 RGC is an app developed by the MAD team to control the phone in various ways. It handles the GPS spoofing, takes screenshots, restarts Pokémon GO, reboots the whole phone and more. This app is necessary for MAD. 

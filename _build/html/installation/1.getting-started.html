@@ -93,7 +93,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MAD Server Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#phone-setup">Phone Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config-file.html">Configfile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mappings.html">Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mappings.html">MADmin</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Common Issues</span></p>
 <ul>
@@ -174,7 +174,7 @@
   <div class="section" id="mad-server-setup">
 <h1>MAD Server Setup<a class="headerlink" href="#mad-server-setup" title="Permalink to this headline">¶</a></h1>
 <p>Its basically just setting up a Database and fill in the MAD config.</p>
-<p>There is currently only a guide for Linux, but PRs for a Windows Documentation is welcome.</p>
+<p>There is currently only a guide for Linux, but PRs for a Windows Documentation are welcome.</p>
 <div class="section" id="ubuntu-debian">
 <h2>Ubuntu/Debian<a class="headerlink" href="#ubuntu-debian" title="Permalink to this headline">¶</a></h2>
 <p>DISCLAIMER: This whole article assumes a fresh installed <a class="reference external" href="https://www.ubuntu.com/download/server">Ubuntu 18.04 Server</a>, located in the same network as your phones. There may be some difference to your setup. Please keep that in mind!</p>
@@ -193,7 +193,7 @@ mysql_secure_installation
 <blockquote>
 <div>If you not sure about the questions asked in <code class="docutils literal notranslate"><span class="pre">mysql_secure_installation</span></code>, just press enter for each question ;)</div></blockquote>
 <p>Log in to your Database and create an dedicated user for MAD, if you don’t know how to, take a look at <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql">this tutorial</a>.</p>
-<p>They are two supported Database Schemas: <strong>Monocle</strong> and <strong>OSM-Rocketmap</strong>, a <a class="reference external" href="https://github.com/cecpk/OSM-Rocketmap">fork</a> to support OSM map titles.If you want to use Monocle, create an empty database and import <a class="reference external" href="https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql">this schema</a> like this:</p>
+<p>They are two supported Database Schemas: <strong>Monocle</strong> and <strong>OSM-Rocketmap</strong>, a <a class="reference external" href="https://github.com/cecpk/OSM-Rocketmap">fork</a> to support OSM map titles. If you want to use Monocle, create an empty database and import <a class="reference external" href="https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql">this schema</a> like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u root -e <span class="s2">&quot;create database MonocleDB;&quot;</span>
 curl https://raw.githubusercontent.com/whitewillem/PMSF/master/sql/cleandb.sql <span class="p">|</span> mysql -u root MonocleDB 
 </pre></div>
@@ -251,7 +251,7 @@ Check if <code class="docutils literal notranslate"><span class="pre">pip</span>
 </div>
 <blockquote>
 <div>The article <a class="reference internal" href="config-file.html"><span class="doc">Config File</span></a> has more detailed descriptions about the available options.</div></blockquote>
-<p>Populate the config with at least the database configuration, runtype and the Pogoassets path.The runtype is depending on the mode you want to use. OCR or MITM (learn more about this topic <a class="reference internal" href="../scanning-modes/modes.html"><span class="doc">here</span></a>). If you want to use the MITM mode, uncomment <code class="docutils literal notranslate"><span class="pre">only_scan</span></code>. For OCR start two instances, one with <code class="docutils literal notranslate"><span class="pre">only_scan</span></code> and the other one with <code class="docutils literal notranslate"><span class="pre">only_ocr</span></code> and <code class="docutils literal notranslate"><span class="pre">ocr_multitask</span></code>.The Pogoassets are necessary as well. Clone <a class="reference external" href="https://github.com/ZeChrales/PogoAssets/">this repository</a> somewhere on your server and fill in the full path of it. For example: <code class="docutils literal notranslate"><span class="pre">pogoasset:</span> <span class="pre">/home/mad/PogoAssets</span></code></p>
+<p>Populate the config with at least the database configuration, runtype and the Pogoassets path. The runtype is depending on the mode you want to use. OCR or MITM (learn more about this topic <a class="reference internal" href="../scanning-modes/modes.html"><span class="doc">here</span></a>). If you want to use the MITM mode, uncomment <code class="docutils literal notranslate"><span class="pre">only_scan</span></code>. For OCR start two instances, one with <code class="docutils literal notranslate"><span class="pre">only_scan</span></code> and the other one with <code class="docutils literal notranslate"><span class="pre">only_ocr</span></code> and <code class="docutils literal notranslate"><span class="pre">ocr_multitask</span></code>. The Pogoassets are necessary as well. Clone <a class="reference external" href="https://github.com/ZeChrales/PogoAssets/">this repository</a> somewhere on your server and fill in the full path of it. For example: <code class="docutils literal notranslate"><span class="pre">pogoasset:</span> <span class="pre">/home/mad/PogoAssets</span></code></p>
 <p>Every other config option is optional and not needed for the first start.</p>
 </div>
 <div class="section" id="mappings">
@@ -274,7 +274,7 @@ Check if <code class="docutils literal notranslate"><span class="pre">pip</span>
 </div>
 <div class="section" id="phone-setup">
 <h1>Phone Setup<a class="headerlink" href="#phone-setup" title="Permalink to this headline">¶</a></h1>
-<p>fooo</p>
+<p>An Android Phone, rooted with Magisk is necessary. Check out <a class="reference external" href="https://github.com/Map-A-Droid/MAD-device-list">this list</a> which phones are confirmed working. Phones that are not listed can work as well, but are not tested yet. Feel free to expand that list by adding your working phone models.</p>
 </div>
 
 

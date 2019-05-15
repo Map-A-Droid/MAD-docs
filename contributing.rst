@@ -1,7 +1,7 @@
 Contributing to this Wiki
 ##############################
 
-.. note:: This article is about contributing pages and edits to this wiki. For contributing to MAD itself see :doc:`development`.
+.. note:: This article is about contributing pages and edits to this wiki.
 
 You can fork this documentation from the `MAD-docs`_ GitHub repository and open pull requests for changes.
 
