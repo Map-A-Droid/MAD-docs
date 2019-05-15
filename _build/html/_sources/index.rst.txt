@@ -10,6 +10,7 @@ This is a collection of articles about setting up and running MAD.
     :glob:
 
     /how-mad-works.md
+    /contributing.rst
 
 .. toctree::
     :titlesonly:

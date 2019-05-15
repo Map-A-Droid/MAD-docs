@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; MAD  documentation</title>
+  <title>Contributing to this Wiki &mdash; MAD  documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MAD Server Setup" href="installation/1.getting-started.html" />
+    <link rel="prev" title="How does MAD work?" href="how-mad-works.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,9 +84,9 @@
             
             
               <p class="caption"><span class="caption-text">General</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="how-mad-works.html">How does MAD work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to this Wiki</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to this Wiki</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Installation</span></p>
 <ul>
@@ -151,12 +152,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Contributing to this Wiki</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -168,24 +171,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="contributing-to-this-wiki">
+<h1>Contributing to this Wiki<a class="headerlink" href="#contributing-to-this-wiki" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This article is about contributing pages and edits to this wiki. For contributing to MAD itself see <span class="xref std std-doc">development</span>.</p>
+</div>
+<p>You can fork this documentation from the <cite>MAD-docs_</cite> GitHub repository and open pull requests for changes.</p>
+<div class="section" id="adding-or-editing-pages">
+<h2>Adding or Editing Pages<a class="headerlink" href="#adding-or-editing-pages" title="Permalink to this headline">¶</a></h2>
+<p>A few guidelines to help keep things clean and organized…</p>
+<p>Keep filenames short and to the point, for example: <code class="docutils literal notranslate"><span class="pre">installation.rst</span></code></p>
+<p>Always begin your new page with a title:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Awesome Wiki Page</span>
+<span class="gh">################</span>
+</pre></div>
+</div>
+<p>Titles will be shown at the top of a page and in the site navigation. A title should describe a page in a glance. The rest of the file is written in ReST or Markdown structured text. Here is a <a class="reference external" href="http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html">cheatsheet</a> for RST formatting, and one for <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a>.</p>
+<p>Once done editing your page, add it under one of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> sections in <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>.</p>
+<p>Now to preview your changes, open a terminal, go into the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory and use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean-auto</span> <span class="pre">auto</span></code>. This will start a local webserver with live updates pages as you save them.</p>
+<p>Finally, when you are finished, submit your changes as a Pull Request to be reviewed.</p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation/1.getting-started.html" class="btn btn-neutral float-right" title="MAD Server Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how-mad-works.html" class="btn btn-neutral float-left" title="How does MAD work?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -218,14 +240,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
