@@ -45,7 +45,7 @@ Those settings are not necessary but often used.
 +------------------------+-----------------------+
 | madmin_password        | Password for MADmin   |
 +------------------------+-----------------------+
-| log_file_rotation_size | Enables logrotaion    |
+| log_file_rotation_size | Enables logrotation   |
 +------------------------+-----------------------+
 
 .. _here: /scanning-modes/modes.md
