@@ -1,4 +1,4 @@
-## Blank RocketMap Databaseschema 
+## MAD Supported blank RocketMap databaseschema
 ### Fully supported by MAD (Includes quests, statistics and many more features)
 If you start from scratch, use this RocketMap (RM) databaseschema for your MAD-installation
 
