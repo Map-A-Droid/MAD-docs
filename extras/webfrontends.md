@@ -1,8 +1,12 @@
 ## Available Webfrontends
-foo 123
+tba
 
-### Rocketmap
-just use rocketmap, lol
+### RocketMap
+A powerful Python/Node Frontend (100% MAD confirm)
 
-### PMSF
-fancy PHP stuff with a fuckton of features
+[Check out the RocketMap Frontend](https://github.com/cecpk/OSM-Rocketmap)
+
+### PMSF (Pokemon Map Standalone Frontend)
+A powerful PHP Frontend
+
+[Check out the PMSF Frontend](https://github.com/whitewillem/PMSF)
