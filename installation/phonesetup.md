@@ -38,7 +38,7 @@ The Smali Patcher is a little program written in Java to patch a android file ca
 
 ### Pokémon Go
 
-Install the PoGo app from the Play Store and add PoGo to Magisk Hide via the magisk manager.
+Install the latest supported PoGo app from the Play Store or [apkmirror.com](https://www.apkmirror.com/apk/niantic-inc/pokemon-go/) and add PoGo to Magisk Hide via the magisk manager.
 
 >It's necessary to pass the Safetynet check to run the game on rooted phones. Check the Safetynet status in the MagiskManager App.
 
