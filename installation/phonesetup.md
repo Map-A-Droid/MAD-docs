@@ -105,7 +105,7 @@ Configure RGC:
 - **Disable external comm** = Off
 - **Post Destination** = `http://ipofyourserver:8000` (Default port is 8000, you can change that in the config.ini)
 - **Post Origin** = Make this match what you put in RGC.  
-- **Disable last sent notifications** = Your decision, but some devices pull up the navigation bar while showing the notifcation wich is is disturbing the questmode.
+- **Disable last sent notifications** = Your decision, but some devices pull up the navigation bar while showing the notification which causes issues with questmode.
 - **Auth** = optional, configure that via the mappings.
 
 #### App Section
