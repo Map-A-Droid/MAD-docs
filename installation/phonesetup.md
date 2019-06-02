@@ -88,7 +88,7 @@ Configure RGC:
 
 2. To login to PogoDroid you need to be a [Patreon supporter](https://www.patreon.com/user?u=14159560). Become a supporter and link your account to Discord.
 
-3. Click "Get Refresh Token", then when you get to the next page it will tell you to copy a password and API Token.  Copy both, put them in a notepad (if you dont have a notepad app, nows the time to get one).
+3. Click "Get Refresh Token", then when you get to the next page it will tell you to copy a password and API Token.  Copy both and put them in a notepad (if you don't have a notepad app, now is the time to get one).
 
 4. On next screen login with the password they just gave you.  
 
