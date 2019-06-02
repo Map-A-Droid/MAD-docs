@@ -55,7 +55,7 @@ RGC - Install [RGC (Remote GPS Controller)](https://github.com/Map-A-Droid/MAD/b
 
 - In Android go into `Settings`, `Developer Options`.  Click on `Select mock location App`, select RGC.
 
-- Open RGC, grant it super user rights if asked.  Select allow for anything it asks access for.
+- Open RGC, grant it superuser rights if asked. Select allow for anything it asks access for.
 
 Configure RGC:
 
