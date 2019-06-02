@@ -13,7 +13,7 @@ For a list of confirmed phones that working with MAD, check out [this list](http
 
 Your phone needs to have an unlocked bootloader and be able to support applications running as root. It is recommended that you install [Lineage OS](https://lineageos.org/). They have good installation instructions for each device.  Make sure to install the Play Store as described in the Lineage instructions. 
 If you feel confident to do so you can use a different OS, however, Lineage is recommended.
->Always check the exact version of the phone, some version does not work with some ROMs. For ex. Samsung has numerous versions numbers of the S5. Some are able to install Lineage and others are not. Lineage lists the phone version numbers that it is compatible with.
+>Always check the exact version of the phone, some versions do not work with some ROMs. For example, Samsung has numerous versions numbers of the S5. Some are able to install Lineage and others are not. Lineage lists the phone version numbers that it is compatible with.
 
 >Samsung S5 G900V and G900A are confirmed NOT to work. G900T DOES work.
 Moto G4 works, but the Amazon edition of the Moto G4 (Moto G4 Play) does NOT work.
