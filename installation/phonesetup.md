@@ -1,6 +1,6 @@
 # Phone Setup
 
-You need a phone, rooted with Magisk, Smali patched (optional, but recommended), PogoDroid (only for MITM mode) and RGC installed.
+You need a phone that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid (only for MITM mode) and RGC installed.
 
 - Install TWRP
 - Install Magisk
