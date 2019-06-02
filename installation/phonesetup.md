@@ -94,7 +94,7 @@ Configure RGC:
 
 5. Once logged in, click "Password management" on the top.
 
-6. On the password page it should tell you your Device Count allowed. Create a new device password and copy that.
+6. On the password page it should tell you your maximum allowed device count. Create a new device password and copy that.
 
 7. Go back to PogoDroid. Use your email address and that new "Device Password" you set up in the previous step.
 
