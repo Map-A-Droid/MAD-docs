@@ -11,7 +11,8 @@ You need a phone that is rooted with Magisk, Smali patched (optional, but recomm
 
 If you are not sure which phone is viable, check out [this list](https://github.com/Map-A-Droid/MAD-device-list). Some phones need to be a certain version number to work, see below.
 
-Your phone needs to have an unlocked bootloader and be able to support applications running as root. Its recommended that you install [Lineage OS](https://lineageos.org/).  They have good installation instructions for each device.  Make sure to install the Playstore as described in the Lineage instructions. If you are an expert you can use a different OS, if not use Lineage.
+Your phone needs to have an unlocked bootloader and be able to support applications running as root. It is recommended that you install [Lineage OS](https://lineageos.org/). They have good installation instructions for each device.  Make sure to install the Play Store as described in the Lineage instructions. 
+If you feel confident to do so you can use a different OS, however, Lineage is recommended.
 >Always check the exact version of the phone, some version does not work with some ROMs. For ex. Samsung has numerous versions numbers of the S5. Some are able to install Lineage and others are not. Lineage lists the phone version numbers that it is compatible with.
 
 >Samsung S5 G900V and G900A are confirmed NOT to work. G900T DOES work.
