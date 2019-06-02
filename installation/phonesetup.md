@@ -18,7 +18,7 @@ If you feel confident to do so you can use a different OS, however, Lineage is r
 >Samsung S5 G900V and G900A are confirmed NOT to work. G900T DOES work.
 Moto G4 works, but the Amazon edition of the Moto G4 (Moto G4 Play) does NOT work.
 
-Once you have Lineage installed and the Google Apps with the Playstore, move on to Magisk.
+Once you have Lineage installed and the Google Apps with the Play Store, move on to Magisk.
 
 ## Magisk
 
