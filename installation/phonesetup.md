@@ -96,7 +96,7 @@ Configure RGC:
 
 6. On the password page it should tell you your Device Count allowed. Create a new device password and copy that.
 
-7. Go back to PogoDroid.  Use your email address and that new "Device Password" you setup in the previous step.
+7. Go back to PogoDroid. Use your email address and that new "Device Password" you set up in the previous step.
 
 8. Now it's time to configure PogoDroid.
 
