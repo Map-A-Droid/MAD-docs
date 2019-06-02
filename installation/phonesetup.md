@@ -98,7 +98,7 @@ Configure RGC:
 
 7. Go back to PogoDroid. Use your email address and that new "Device Password" you set up in the previous step.
 
-8. Now it's time to configure PogoDroid.
+8. Now it is time to configure PogoDroid.
 
 #### External Communication Section
 
