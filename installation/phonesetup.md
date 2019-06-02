@@ -9,7 +9,7 @@ You need a phone that is rooted with Magisk, Smali patched (optional, but recomm
 
 ## Phone Install
 
-If you are not sure which phone is viable, check out [this list](https://github.com/Map-A-Droid/MAD-device-list). Some phones need to be a certain version number to work, see below.
+For a list of confirmed phones that working with MAD, check out [this list](https://github.com/Map-A-Droid/MAD-device-list). Some phones need to have a certain version number to work, see below.
 
 Your phone needs to have an unlocked bootloader and be able to support applications running as root. It is recommended that you install [Lineage OS](https://lineageos.org/). They have good installation instructions for each device.  Make sure to install the Play Store as described in the Lineage instructions. 
 If you feel confident to do so you can use a different OS, however, Lineage is recommended.
