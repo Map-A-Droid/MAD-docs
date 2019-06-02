@@ -29,7 +29,7 @@ Once you have Lineage installed and the Google Apps with the Play Store, move on
 
 ## Smali Patcher
 
-The Smali Patcher is a little program written in Java to patch a android file called `services.jar`. That will allow you to use the "mock location" feature from Android.
+The Smali Patcher is a little program written in Java to patch an Android file called `services.jar`. That will allow you to use the "mock location" feature within Android.
 
 1. Follow the instructions here to download and install it from the [Smali Patcher Forum](https://forum.xda-developers.com/apps/magisk/module-smali-patcher-0-7-t3680053)
 2. You can ether install it via TWRP or via the magisk module option in the magisk manager.
