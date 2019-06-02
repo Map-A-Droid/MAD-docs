@@ -122,5 +122,5 @@ Configure RGC:
 ## Final Steps
 
 - Go into Android Settings, Security, Lock Screen Swipe, change to None. You don't want a lock screen. Locking and unlocking your phone should bring you to the desktop.
-- If you want to scan quests with that device make sure to hide the navigationbar for PoGo: `adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`.
+- If you want to scan quests with that device make sure to hide the navigation bar for PoGo: `adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`.
 - Before we finish, go inside of Magisk and run the Safetynet Check one last time. You need to see all green before proceeding.
