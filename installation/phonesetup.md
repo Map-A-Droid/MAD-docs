@@ -49,7 +49,7 @@ RGC - Install [RGC (Remote GPS Controller)](https://github.com/Map-A-Droid/MAD/b
 
 - RGC must be converted to a system app after it is installed.  There are two ways to do this, Link2sd or Systemizer Magisk Module.  Start with Link2sd and then go to Systemizer if it doesn't work.
 
-- Install [Link2sd](https://play.google.com/store/apps/details?id=com.buak.Link2SD) to systemize RGC. Once installed go into Link2sd, you may be prompted to give it super user, if so do it.  Scroll down and find RGC.  Click on it, go to the menu and convert RGC to a system app.  It may ask you to reboot, if so do so.
+- Install [Link2sd](https://play.google.com/store/apps/details?id=com.buak.Link2SD) to systemize RGC. Once installed go into Link2sd, you may be prompted to give it superuser access, if so do accept this.  Scroll down and find RGC.  Click on it, go to the menu and convert RGC to a system app.  It may ask you to reboot if so do so.
 
 - If Link2sd didn't work try the Systemizer Magisk Module. You can find the download and instructions here [Systemizer Magisk Module](https://forum.xda-developers.com/apps/magisk/module-app-systemizer-t3477512)
 
