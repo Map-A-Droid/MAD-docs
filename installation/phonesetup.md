@@ -90,7 +90,7 @@ Configure RGC:
 
 3. Click "Get Refresh Token", then when you get to the next page it will tell you to copy a password and API Token.  Copy both and put them in a notepad (if you don't have a notepad app, now is the time to get one).
 
-4. On next screen login with the password they just gave you.  
+4. On the next screen, login with the password you just received.  
 
 5. Once logged in, click "Password management" on the top.
 
