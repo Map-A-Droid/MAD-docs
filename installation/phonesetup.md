@@ -67,7 +67,7 @@ Configure RGC:
 
 #### Rooted devices section
 
-- **Reset GMS data** = Start with it Off and turn it to on if you need to troubleshoot Rubberbanding issues.
+- **Reset GMS data** = Start with it Off and turn it to On if you need to troubleshoot Rubberbanding issues.
 - **Override OOM** = On. This will help to keep RGC running.
 
 #### Location Section
