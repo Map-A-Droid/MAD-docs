@@ -54,4 +54,4 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 
 ### RGC or Pogodroid are crashing randomly
 
-Diable battery optimisations in Android and enable the OOM override option in Pogodroid/RGC
+Disable battery optimisations in Android and enable the OOM override option in Pogodroid/RGC
