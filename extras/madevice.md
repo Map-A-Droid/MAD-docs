@@ -18,6 +18,3 @@ If you type `!status` in the channel set by `status_channel_id` in `servers.json
 For up-to-date installation steps visit MADevice's README
 
 [Link to README](https://github.com/georgeherby/MADevice)
-
-
-
