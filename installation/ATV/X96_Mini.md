@@ -1,4 +1,4 @@
-# Device: <strong>X96 Mini</strong> (<strong>S905W 2GB/16GB)</strong>
+# <strong>X96 Mini</strong> (<strong>S905W 2GB/16GB)</strong>
 
 <strong>Image: </strong>s905<strong>w</strong>_atvXperience_v2<strong>FF</strong>
 
