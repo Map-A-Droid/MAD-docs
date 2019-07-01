@@ -116,6 +116,7 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
  	<li>Toothpick -&gt; AVbutton + DC</li>
  	<li>After a while <strong>TWRP</strong> will show its gui</li>
  	<li>Put in SD Card</li>
+  <li><strong>If you don't see your SD card content, please boot into the OS and reboot via Magisk into Recoverymode (with inserted SD card!</strong></li>
 </ul>
 </li>
  	<li>Use <em>install</em>
@@ -126,7 +127,7 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
 </li>
  	<li>Remove SD Card</li>
  	<li>Install the MagiskManager.apk via the AppDrawer/Dateien and start Magisk</li>
- 	<li><strong>Important</strong>: Deactivate buildinroot (AppDrawer/Einstellungen/SuperUser/off)
+ 	<li><strong>Important</strong>: Deactivate buildinroot (AppDrawer/Settings/Root/off)
 <ul>
  	<li>Check SafetyNet</li>
 </ul>
