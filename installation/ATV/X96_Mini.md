@@ -116,7 +116,7 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
  	<li>Toothpick -&gt; AVbutton + DC</li>
  	<li>After a while <strong>TWRP</strong> will show its gui</li>
  	<li>Put in SD Card</li>
-  <li><strong>If you don't see your SD card content, please boot into the OS and reboot via MagiskManager into Recoverymode (with inserted SD card!</strong></li>
+  <li><strong>If you don't see your SD card content, please boot into the OS and reboot via MagiskManager into Recoverymode (with inserted SD card!)</strong></li>
 </ul>
 </li>
  	<li>Use <em>install</em>
