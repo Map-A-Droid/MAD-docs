@@ -97,13 +97,13 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
  	<li>Shutdown X96</li>
  	<li>Put your <strong>SD</strong> Card <strong>into</strong> the X96</li>
  	<li>Use a <strong>toothpick</strong> and <strong>hold</strong> the button <em>inside</em> the <strong>AV </strong>slot!</li>
- 	<li><strong>Add</strong> <strong>AC</strong></li>
- 	<li>X96 should boot directly into <strong>autoflashmode</strong></li>
+ 	<li><strong>Add</strong> <strong>DC</strong></li>
+ 	<li>X96 should boot directly into <strong>Flashingmode</strong></li>
  	<li><strong>release</strong> <strong>toothpick</strong></li>
  	<li>let the <strong>flash</strong> process end</li>
  	<li>X96 Mini should reboot</li>
 </ul>
-<strong>After a while (grab a <em>new</em> coffee) you'll see the 'Welcome message' - if so: you're good!</strong>
+<strong>After a while (grab a <em>new</em> coffee) you'll see a 'welcome message' - if so: you're good!</strong>
 
 <hr />
 
@@ -113,7 +113,7 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
 <ul>
  	<li>Shutdown X96</li>
  	<li>Remove SD Card (Important!)</li>
- 	<li>Toothpick -&gt; AVbutton + AC</li>
+ 	<li>Toothpick -&gt; AVbutton + DC</li>
  	<li>After a while <strong>TWRP</strong> will show its gui</li>
  	<li>Put in SD Card</li>
 </ul>
@@ -146,7 +146,7 @@ Make sure youre formatting your SD Card with a <strong>FAT16</strong> partitions
 <h3>Hint:</h3>
 <ul>
  	<li>Recommend RJ45 connection</li>
- 	<li><strong>If you want to scan quests</strong> - you need to flip your screen 90° (no joke!)</li>
+ 	<li><strong>If you want to scan quests</strong> - Use Portaitmode<li>
  	<li>Switch to 480p res if you're ready to go (Settings/Display/Screen Resolution/Display Mode)</li>
  	<li>Use Teamviewer.apk to remote control your games (Some games don't reacting on keyboards) or use <strong>scrcpy</strong>!</li>
  	<li>Uninstall all useless Apps on the X96 (pretty simple via Teamviewer)</li>
