@@ -22,6 +22,19 @@ PogoDroid can't fetch this kind of information automatically in init mode. The g
 
 If you see a green SUCCESS line with "Processing GMO" in it, then leave it alone - it's working!
 
+### Can i use multiple area fences in one area?
+
+Yes. Just add the second area to the same geofence file like this:
+
+```
+[area1]
+51.123, 9.234
+51.124, 9.235
+[area2]
+12.345, 1.234
+54.321, 2.345
+```
+
 ### Madmin has missing images
 
 Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/` on Linux) instead of a relative path.
