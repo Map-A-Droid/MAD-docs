@@ -4,7 +4,7 @@ OCR is short for "Optical Character Recognition". This mode will take screenshot
 
 # MITM
 
-MITM is short for "Man In The Middle". PogoDroid will inject into the running game process to the data which is beint sent from the game server to the game.
+MITM is short for "Man In The Middle". PogoDroid will inject into the running game process to read the data which is received from the game server.
 
 ## mon_mitm
 
@@ -18,7 +18,7 @@ This mode is relying on already scanned and active mon in your DB (via `mon_mitm
 
 You can use this mode for two things. Quest scanning or leveling. Both require the OCR requirements being installed (python-pip packages, tesseract and opencv), no visible navigation bar (see [Phone Setup](http://https://mad-docs.readthedocs.io/en/latest/installation/phonesetup.html#final-steps)) and Magisk prior version 19.1. Magisk 19.1 an above won't work!
 
-Quest scanning will walk on a pre-calculated route to every stop and spins it. When the area is set to `coords` in the walker, MAD will check every other stop in the area (even those who are not on the route). Those stops will be processed after the first round. This process will repeat itself three times. MAD is able to determinate the exact mon encounter and item type when picking up the quest.
+Quest scanning will walk on a pre-calculated route to every stop and spin it. When the area is set to `coords` in the walker, MAD will check every other stop in the area (even those who are not on the route). Those stops will be processed after the first round. This process will repeat itself three times. MAD is able to determinate the exact mon encounter and item type when picking up the quest.
 
 The level option is basically the quest mode but without constantly clearing out the quests in the queststack and MAD will check if that stop is unique for the worker. In case it's a stop that has been visited in the past, it will be skipped.
 
@@ -28,4 +28,4 @@ This mode is used to scan every gym and raid in a 490 meter radius. No interacti
 
 ## idle
 
-The phone will stop the game and does nothing.
+The phone will stop the game and do nothing.
