@@ -12,7 +12,7 @@ MITM is short for "man in the middle". PogoDroid will inject into the running Po
 
 ## iv_mitm
 
-This mode is relying on already scanned and active pokemon in your DB (by `mon_mitm` for example) and will jump directly to them to do a IV check. `iv_mitm` will build up a "fist in first out" queue. 
+This mode is relying on already scanned and active Pokémon in your DB (by `mon_mitm` for example) and will jump directly to them to do a IV check. `iv_mitm` will build up a "fist in first out" queue. 
 
 ## pokestops
 
@@ -24,7 +24,7 @@ The level option is basically the quest mode but without constantly clearing out
 
 ## raids_mitm
 
-This mode is used to scan every gym and raid in a 480 meter radius. No interaction with any ingame objects is needed. MAD will only scan the gym color, the current gym defender, free pokemon slots and the raid or egg if present. (More infos in the FAQ). 
+This mode is used to scan every gym and raid in a 480 meter radius. No interaction with any ingame objects is needed. MAD will only scan the gym color, the current gym defender, free Pokémon slots and the raid or egg if present. (More infos in the FAQ). 
 
 ## idle
 
