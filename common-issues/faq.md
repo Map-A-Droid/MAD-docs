@@ -68,3 +68,7 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 ### RGC or Pogodroid are crashing randomly
 
 Disable battery optimisations in Android and enable the OOM override option in Pogodroid/RGC
+
+### My workers aren't following my priority queue / route on the map
+
+In fact, they do. The RouteManager removes and entry from the prioq and assigns it to a worker. While the prio route has already been updated on the map, the worker position is only set when the worker arrives at its destination. Depending on your mode and your settings it can take several seconds before the worker marker arrives at the location where once has been a prioq coordinate.
