@@ -39,6 +39,29 @@ Yes. Just add the second area to the same geofence file like this:
 
 Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/` on Linux) instead of a relative path.
 
+### How can i regenerate a route?
+
+To renerate a route just delete the calc file in the `files` directory and restart MAD. It will notice that one or more files are missing and will recalculate them.
+
+### How can i remove Eventspawnpoints?
+
+Nia sometimes activates more spawnpoints for Community Day or other events. You shoud delete them after the event has ended so MAD will not consider them in the routecalc or PrioQ.
+
+```SQL
+DELETE FROM trs_spawn WHERE first_detection like '2019-01-01%'; 
+```
+Fill in a Date which is shortly after the event started but keep the `%`.
+
+If you want, you can backup those spawns and just temporary insert them for the events. (Google "mysqldump" if you want to know how)
+
+### How can i rescan quests?
+
+Delete the quests from the `trs_quest` table and restart MAD. 
+
+```SQL
+TRUNCATE TABLE trs_quest;
+```
+
 ## Game
 
 ### My character is stuck in the ocean and it's not moving
