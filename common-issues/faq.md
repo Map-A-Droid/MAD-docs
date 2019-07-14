@@ -12,6 +12,10 @@ Rule of thumb: while moving, the game requests data every 10 seconds. So it take
 
 No. Definetly not. To avoid drama *and* privacy concerns the main MAD developers decided leave out this kind of information from gym data.
 
+### Should i use the Rocketmap or the Monocle schema?
+
+You can use a new, empty Database if you dont have an existing. Choose Rocketmap, it's currently better supported by MAD itself and by the third party tools.
+
 ## MAD
 
 ### All my stop and gym names are "unknown"
