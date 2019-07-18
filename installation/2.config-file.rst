@@ -48,4 +48,4 @@ Those settings are not necessary but often used.
 | log_file_rotation_size | Enables logrotation   |
 +------------------------+-----------------------+
 
-.. _here: /scanning-modes/modes.md
+.. _here: ../scanning-modes/modes
