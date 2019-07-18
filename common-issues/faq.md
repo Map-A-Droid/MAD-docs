@@ -92,6 +92,10 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 - Check if you are using a correct Magisk version. 19.1, 19.2 and sometimes 19.3 blocking RGC to click on the screen. 19.0 will work just fine.
 - Check if you have a [navigation bar](https://material.io/design/platform-guidance/android-bars.html#android-navigation-bar) on your screen. If yes: disable it with this adb command: `adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`. It will then be hidden in the game.
 
+### Should i be worried about the popups on the phone?
+
+Popups from PoGo like "You are moving too fast" and "Dont drink and drive" doesn't matter except for quest scanning. But MAD will handle them.
+
 ### RGC or Pogodroid are crashing randomly
 
 Disable battery optimisations in Android and enable the OOM override option in Pogodroid/RGC
