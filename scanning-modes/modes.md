@@ -1,7 +1,3 @@
-# OCR
-
-OCR is short for "Optical Character Recognition". This mode will take screenshots of the screen, especially of the raid tab. MAD will compare the gym pictures with existing gym pictures in your database.
-
 # MITM
 
 MITM is short for "Man In The Middle". PogoDroid will inject into the running game process to read the data which is received from the game server.

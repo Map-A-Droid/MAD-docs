@@ -46,4 +46,4 @@ Areas
 | init             | Set this open true, if you scan that area for the first time        |
 +------------------+---------------------------------------------------------------------+
 
-There are some other parameters as well, but they are depening on the area mode.
+There are some other parameters as well, but they are depending on the area mode.
