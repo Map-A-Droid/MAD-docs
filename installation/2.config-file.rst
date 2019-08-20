@@ -10,7 +10,7 @@ value, it’s a necessary parameter!**
 .. note::  Make sure to leave a space after the colon if a value is needed. Example: ``example-setting-with: value``.
 
 A different config-files can be included directly in processes by
-``–config`` or ``-cf`` and path.
+``-–config`` or ``-cf`` and path.
 
 
 Mandatory parameters to run MAD
