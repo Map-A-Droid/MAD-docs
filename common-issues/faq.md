@@ -20,7 +20,7 @@ You can use a new, empty Database if you dont have an existing. Choose Rocketmap
 
 ### All my stop and gym names are "unknown"
 
-PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](https://mad-docs.readthedocs.io/en/latest/extras/scripts.html#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
+PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](https://mad-docs.readthedocs.io/en/latest/extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
 
 ### How can i check if MAD receives data?
 
