@@ -11,6 +11,7 @@ This is a collection of articles about setting up and running MAD.
 
     /how-mad-works.md
     /contributing.rst
+    /missing-topics.md
 
 .. toctree::
     :titlesonly:
