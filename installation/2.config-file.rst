@@ -35,6 +35,8 @@ Recommended settings
 ^^^^^^^^^^^^^^^^^^^^
 Those settings are not necessary but often used.
 
+.. warning:: Make sure to read the descriptions carefully. Some parameters like ports SHOULD be changed to custom ports!
+
 +---------------------------+---------------------------------------------------------------------------------------------------------+
 | Parameter                 | Description                                                                                             |
 +===========================+=========================================================================================================+
@@ -52,5 +54,7 @@ Those settings are not necessary but often used.
 +---------------------------+---------------------------------------------------------------------------------------------------------+
 | log_file_rotation_size    | Enables logrotation                                                                                     |
 +---------------------------+---------------------------------------------------------------------------------------------------------+
-| pogoassets                | Clone [this repository](https://github.com/ZeChrales/PogoAssets/) and fill in the full path of it.      |
+| pogoassets                | Clone `this repository`_ and fill in the full path of it.                                               |
 +---------------------------+---------------------------------------------------------------------------------------------------------+
+
+.. _this repository: https://github.com/ZeChrales/PogoAssets/
