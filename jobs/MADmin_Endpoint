@@ -6,7 +6,7 @@ All returning Values from jobs (manual or automatic started) will add to a new M
 
 **MADminip:port**/jobstatus
 
-## Retuning
+## Returning
 
 **JSON Format**
 

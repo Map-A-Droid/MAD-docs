@@ -1,6 +1,6 @@
 # Automatic Jobs
 
-You can setup automatic jobs (they will scheduled with MAD start)
+You can setup automatic jobs (they will be scheduled with MAD start)
 
 ## Job controller file
 
@@ -35,7 +35,7 @@ All contents of this file gets loaded with MAD start.
 ]
 ```
 
-## File Field description
+## Field description
 
 - `uniqueid` == Unique Job id (if you want a unique id for later selects)
 - `redo` == true: reschedule jobs after finish them - false: start job one time

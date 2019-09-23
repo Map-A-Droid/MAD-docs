@@ -30,12 +30,12 @@ This nested Job runs like a waterfall - from top to bottom.
 
 ##Behavior after scheduling the job
 
-MAD starts the first Job (STOP Pogo) and schedule the Memory Usage readout with a dealy of 3 minutes.
-Finally pogo gets starts.
+MAD starts the first Job (STOP Pogo) and will schedule the Memory Usage readout with a delay of 3 minutes.
+Finally Pogo starts.
 
 ##Job processing
 
 - If one of the jobs gets an error - all following jobs will be cancelled.
-- All subjobs in a newsted job will be show as single job in job monitor.
+- All subjobs in a nested job will be show as single job in job monitor.
 
 ![](../_static/jobs/MADmin_nested_jobs_monitor.png)

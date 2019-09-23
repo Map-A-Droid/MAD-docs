@@ -1,15 +1,14 @@
 # MAD Job Processor
 
 
-In the last MAD version a job processor was implemented. With this tool are you able to start manuall or automatic jobs for:
-
-- Delivery new Software
+In the last MAD version a job processor was implemented. With this tool are you able to start manual or automatic jobs.
+- Delivery of new Software
 - Start scripts on devices
-- Get informations about the device
+- Get information about the device
 
 ### Job Types
-- manually Jobs - start with MADmin
-- [automatically Jobs](/job/automatic_jobs)
+- Manual Jobs - start with MADmin
+- [Automatic Jobs](/job/automatic_jobs)
 
 ### Job Monitor
 
@@ -47,7 +46,7 @@ Upload APK directly in `upload_path` (config.ini)
 
 ## Add Job
 
- Create Folder `personal_commands` in MAD root. You could copy new jobs als `*.json` file in it.
+ Create Folder `personal_commands` in MAD root. You could copy new jobs as `*.json` file in it.
 
 MAD readout the new jobs with every restart.
 
@@ -67,7 +66,7 @@ MAD readout the new jobs with every restart.
 }
 ```
 
-This Job read the Version Number of Pogo.
+This Job will read the Version Number of Pogo.
 
 ### Field Description
 
@@ -75,7 +74,7 @@ This Job read the Version Number of Pogo.
 - `TYPE:` `jobType.PASSTHROUGH` == [Type of Job](/job/jobtypes)
 - `SYNTAX:` `dumpsys package com.nianticlabs.pokemongo | grep versionName` == Shell Command
 - `FIELDNAME:` `POGO_Version` == Fieldname for returning Value
-- `WAITTIME:` `5` == Wait 5 minutes before start the job
+- `WAITTIME:` 5 == Wait 5 minutes before starting the job
 
 You are able to start more then one command with one job --> [Nested Jobs](/job/nested_jobs)
 
