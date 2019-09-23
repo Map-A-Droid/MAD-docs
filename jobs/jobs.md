@@ -8,19 +8,19 @@ In the last MAD version a job processor was implemented. With this tool are you 
 
 ### Job Types
 - Manual Jobs - start with MADmin
-- [Automatic Jobs](/job/automatic_jobs)
+- [Automatic Jobs](job/automatic_jobs)
 
 ### Job Monitor
 
-see [Jobmonitor](/job/job_monitor)
+see [Jobmonitor](job/job_monitor)
 
 ### Discord Alert
 
-see [Discord Alert](/job/discord_alert)
+see [Discord Alert](job/discord_alert)
 
 ### MADmin Endpoint
 
-see [MADmin_Endpoint](/job/MADmin_Endpoint)
+see [MADmin_Endpoint](job/MADmin_Endpoint)
 
 -----------------------------------------------
 
@@ -71,7 +71,7 @@ This Job will read the Version Number of Pogo.
 ### Field Description
 
 - `Readout Pogo Version` == Name of Job
-- `TYPE:` `jobType.PASSTHROUGH` == [Type of Job](/job/jobtypes)
+- `TYPE:` `jobType.PASSTHROUGH` == [Type of Job](job/jobtypes)
 - `SYNTAX:` `dumpsys package com.nianticlabs.pokemongo | grep versionName` == Shell Command
 - `FIELDNAME:` `POGO_Version` == Fieldname for returning Value
 - `WAITTIME:` 5 == Wait 5 minutes before starting the job

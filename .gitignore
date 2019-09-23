@@ -11,7 +11,7 @@ _build
 *.exe
 *.o
 *.so
-
+.idea/*
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -24,6 +24,7 @@ _build
 *.rar
 *.tar
 *.zip
+
 
 # Logs and databases #
 ######################
