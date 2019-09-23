@@ -32,6 +32,19 @@ This is a collection of articles about setting up and running MAD.
 .. toctree::
     :titlesonly:
     :maxdepth: 1
+    :caption: MAD Jobs
+    :glob:
+
+    jobs/jobs.md
+    jobs/job_monitor.md
+    jobs/automatic_jobs.md
+    jobs/MADmin_Endpoint.md
+    jobs/nested_jobs.md
+    jobs/discord_alert.md
+
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
     :caption: Scanning Modes
     :glob:
 
