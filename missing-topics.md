@@ -8,6 +8,5 @@ This wiki lacks a few articles, please consider helping the whole community by a
 * PrioQ
 * How Spawnpoints work
 * WSL and Firewalls ([discord reference](https://discordapp.com/channels/465247740553592832/467318193141317659/613138833508401166))
-* Remove the Monocle part
 * Move stuff from the #faq Discord channel to the wiki
 * Move stuff from the GitHub wiki to this wiki
