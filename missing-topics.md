@@ -1,6 +1,6 @@
 # Missing Topics
 
-This wiki lacks a few articles, please consider helping the whole community by adding them or just parts. Read [here](contributing.rst) how to contribute.
+This wiki lacks a few articles, please consider helping the whole community by adding them or just parts. Read [here](contributing) how to contribute.
 
 * Mappings, especially about walkers and their modes
 * Login to PogoDroid, the backend in general
