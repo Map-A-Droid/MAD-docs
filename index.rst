@@ -36,6 +36,7 @@ This is a collection of articles about setting up and running MAD.
     :glob:
 
     jobs/jobs.md
+    jobs/jobtypes.md
     jobs/job_monitor.md
     jobs/automatic_jobs.md
     jobs/MADmin_Endpoint.md
