@@ -24,10 +24,10 @@ This is a collection of articles about setting up and running MAD.
 .. toctree::
     :titlesonly:
     :maxdepth: 1
-    :caption: Common Issues
+    :caption: Scanning Modes
     :glob:
 
-    common-issues/*
+    scanning-modes/*
 
 .. toctree::
     :titlesonly:
@@ -36,6 +36,7 @@ This is a collection of articles about setting up and running MAD.
     :glob:
 
     jobs/jobs.md
+    jobs/jobtypes.md
     jobs/job_monitor.md
     jobs/automatic_jobs.md
     jobs/MADmin_Endpoint.md
@@ -45,10 +46,10 @@ This is a collection of articles about setting up and running MAD.
 .. toctree::
     :titlesonly:
     :maxdepth: 1
-    :caption: Scanning Modes
+    :caption: Common Issues
     :glob:
 
-    scanning-modes/*
+    common-issues/*
 
 .. toctree::
     :titlesonly:
