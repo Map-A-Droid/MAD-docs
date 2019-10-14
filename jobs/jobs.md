@@ -58,8 +58,8 @@ MAD readout the new jobs with every restart.
     [
         {
             "TYPE": "jobType.PASSTHROUGH",
-            "SYNTAX": "dumpsys package com.nianticlabs.pokemongo | grep versionName"
-            "FIELDNAME": "POGO_Version"
+            "SYNTAX": "dumpsys package com.nianticlabs.pokemongo | grep versionName",
+            "FIELDNAME": "POGO_Version",
             "WAITTIME": 5
         }
     ]
