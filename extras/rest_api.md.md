@@ -21,7 +21,7 @@ If an error occurs, refer to the returned headers to find the issue.
 
 ## Global Headers
 The following global headers can be used when calling the API
-  - Content-type (str): incoming data format.  Default is application/json
+  - Content-Type (str): incoming data format.  Default is application/json
   - Accept (str): outgoing data format.  Default is application/json
   - X-Beautify (integer): Display the returned data in a human-readable format
    - 1: Format the response body
