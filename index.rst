@@ -57,7 +57,7 @@ This is a collection of articles about setting up and running MAD.
     :caption: API
     :glob:
 
-    /api/rest_api.md
+    api/rest_api.md
 
 .. toctree::
     :titlesonly:
