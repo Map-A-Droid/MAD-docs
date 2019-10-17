@@ -10,7 +10,8 @@ The following data-types have been implemented and can be used for Content-Type 
 
 # Using the API
 For all resource roots, GET functionality has been implemented.  Please refer to the section Global GET Parameters to view available options.
-For all sub-components, GET, PATCH, POST, and PUT have been implemented.
+For all sub-components, the following operations have been implemented.
+  - DELETE: Attempt to delete the resource.  It will fail if it is a dependency for another object.
   - GET: retrieve data
   - PATCH: update the resource but only modify the fields that have been sent
    - If you wish to append values to a list, use the header 'X-Append: 1'.  If this is not present, it will replace the list.
@@ -241,12 +242,6 @@ curl -v -H 'X-Beautify: 1' 'http://localhost:5000/api/walker?hide_resource=1&fet
 ### Creating a walker
 ```
 curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"], "walkername": "test"}' http://localhost:5000/api/walker
-Note: Unnecessary use of -X or --request, POST is already inferred.
-*   Trying ::1...
-* TCP_NODELAY set
-* connect to ::1 port 5000 failed: Connection refused
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 5000 (#0)
 > POST /api/walker HTTP/1.1
 > Host: localhost:5000
