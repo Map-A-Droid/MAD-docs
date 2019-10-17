@@ -54,6 +54,14 @@ This is a collection of articles about setting up and running MAD.
 .. toctree::
     :titlesonly:
     :maxdepth: 1
+    :caption: API
+    :glob:
+
+    /api/rest_api.md
+
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
     :caption: Extras
     :glob:
 
