@@ -23,7 +23,7 @@ Titles will be shown at the top of a page and in the site navigation. A title sh
 
 Once done editing your page, add it under one of the ``toctree`` sections in ``index.rst``.
 
-Now to preview your changes, open a terminal, go into the ``docs`` directory and use ``make clean-auto auto``. This will start a local webserver with live updates pages as you save them.
+Now to preview your changes, open a terminal and use ``make html``. This will generates html files in ``_build/html/``. You can see the final documentation by opening them up with a browser.
 
 Finally, when you are finished, submit your changes as a Pull Request to be reviewed.
 
