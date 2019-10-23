@@ -30,6 +30,6 @@ Now to preview your changes, open a terminal and use ``make html``. This will ge
 Finally, when you are finished, submit your changes as a Pull Request to be reviewed.
 
 .. _`MAD-docs`: https://github.com/Map-A-Droid/MAD-docs
--- _`Sphinx`: http://www.sphinx-doc.org/en/master/
+.. _`Sphinx`: http://www.sphinx-doc.org/en/master/
 .. _`cheatsheet`: http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
 .. _`markdown`: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
