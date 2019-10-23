@@ -1,5 +1,6 @@
+# Walker
+
 The following definition is available for Authentication resources
-# walker
 ## Fields
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |

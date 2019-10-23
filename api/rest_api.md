@@ -1,14 +1,14 @@
-#API
+# MADmin API
 A restful API has been created for interacting with MADmin settings.  This will standardize how MADmin and users will interact with the data to allow for a more consistent workflow between the two.
 
-#URI
+## URI
 The API will be available at /api (no trailing slash).
 
-#Implemented data types
+## Implemented data types
 The following data-types have been implemented and can be used for Content-Type or Accept headers
   - application/json
 
-#Using the API
+## Using the API
 For all resource roots, GET functionality has been implemented.  Please refer to the section Global GET Parameters to view available options.
 For all sub-components, the following operations have been implemented.
   - DELETE: Attempt to delete the resource.  It will fail if it is a dependency for another object.
@@ -20,7 +20,7 @@ For all sub-components, the following operations have been implemented.
 
 If an error occurs, refer to the returned headers to find the issue.
 
-##Global Headers
+### Global Headers
 The following global headers can be used when calling the API
   - Content-Type (str): incoming data format.  Default is application/json
   - Accept (str): outgoing data format.  Default is application/json
@@ -28,7 +28,7 @@ The following global headers can be used when calling the API
    - 1: Format the response body
    - All other options: no formatting
 
-##Global GET Parameters
+### Global GET Parameters
 The following parameters are available for all root resources
   - fetch_all (int): Fetch all data related to the object versus the display field
     - 1:  Fetch all data
@@ -38,14 +38,14 @@ The following parameters are available for all root resources
     - 1:  Hide any filtering information
     - All other options: return all information
 
-##Response Headers
+### Response Headers
 The following headers can be returned for all resources:
   - Location (str): Returned during a successful POST operation.  States the URI of the newly created resource
   - X-Status (str): Human-readable result of the command
   - X-Uri (str): Returned during a successful POST operation.  States the URI of the newly created resource
 
 
-##Status Codes
+### Status Codes
   - 200: Successfully found and returned the data
   - 201: Successfully created a new resource
   - 204: The resource has been successfully updated or replaced
@@ -54,66 +54,73 @@ The following headers can be returned for all resources:
   - 412: A dependency failed validation.  Refer to the body for a list of failed dependencies (list of objects containing uri / display_name).
   - 422: An error occured while creating the resource.  Refer to the body for the errors
 
-##Resources
+### Resources
 The following resources have been implemented to the API:
-  - [Areas](###Area)
-  - [Authentication](###Authentication)
-  - [Devices](###Devices)
-  - [Device Pools](###DevicePools)
-  - [Mon Lists](###MonLists)
-  - [Walkers](###Walkers)
-  - [Walker Area](###WalkerArea)
+  - [Areas](#Area)
+  - [Authentication](#authentication)
+  - [Devices](#devices)
+  - [Device Pools](#devicepools)
+  - [Mon Lists](#monlists)
+  - [Walkers](#walkers)
+  - [Walker Area](#walkerarea)
 
-###Area
+#### [Area](resources/area.md)
+
 URI: /api/area
-[Resource Definition](resources/area.md)
+
 The following is unique about areas:
   - A valid mode must be specified.  If a mode is not specified or is not valid, 412 will be returned
   - Dependencies
     - walkerarea
 
-###Authentication
+#### [Authentication](resources/auth.md)
+
 URI: /api/auth
-[Resource Definition](resources/auth.md)
+
 There is no special handling for authentication
 
-###Devices
+#### [Devices](resources/device.md)
+
 URI: /api/device
-[Resource Definition](resources/device.md)
+
 There is no special handling for devices
 
-###DevicePools
+#### [DevicePools](resources/devicesetting.md)
+
 URI: /api/devicesetting
-[Resource Definition](resources/devicesetting.md)
+
 The following is unique about device pools:
   - Dependencies
     - device
 
-###MonLists
+#### [MonLists](resources/monivlist.md)
+
 URI: /api/monivlist
-[Resource Definition](resources/monivlist.md)
+
 The following is unique about Mon Lists:
   - Dependencies
     - areas
 
-###Walkers
+#### [Walkers](resources/walker.md)
+
 URI: /api/walker
-[Resource Definition](resources/walker.md)
+
 The following is unique about Mon Lists:
   - Removing a walker will check and remove any walkerareas assigned to the walker that are no longer in use
   - Dependencies
     - device
 
-###WalkerArea
+#### [WalkerArea](resources/walkerarea.md)
+
 URI: /api/walkerarea
-[Resource Definition](resources/walkerarea.md)
+
 The following is unique about Mon Lists:
   - Dependencies
     - walker
 
-##Examples
-###Getting all auth
-####Using default sort field
+### Examples
+#### Getting all auth
+##### Using default sort field
 ```
 curl -H 'X-Beautify: 1' http://localhost:5000/api/auth
 * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -157,7 +164,7 @@ curl -H 'X-Beautify: 1' http://localhost:5000/api/auth
 * Closing connection 0
 ```
 
-####Using custom sort field
+##### Using custom sort field
 ```
 curl -v -H 'X-Beautify: 1' http://localhost:5000/api/auth?display_field=password
 * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -201,7 +208,7 @@ curl -v -H 'X-Beautify: 1' http://localhost:5000/api/auth?display_field=password
 }
 ```
 
-####Pulling all information resource information and hiding the resource fields
+##### Pulling all information resource information and hiding the resource fields
 ```
 curl -v -H 'X-Beautify: 1' 'http://localhost:5000/api/walker?hide_resource=1&fetch_all=1'
 * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -253,7 +260,7 @@ curl -v -H 'X-Beautify: 1' 'http://localhost:5000/api/walker?hide_resource=1&fet
 * Closing connection 0
 ```
 
-###Creating a walker
+#### Creating a walker
 ```
 curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"], "walkername": "test"}' http://localhost:5000/api/walker
 * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -284,7 +291,7 @@ curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: applicatio
 * Closing connection 0
 ```
 
-###Adding a walkerarea to a walker
+#### Adding a walkerarea to a walker
 ```
 curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X PATCH -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"]}' http://localhost:5000/api/walker/2
 * Connected to localhost (127.0.0.1) port 5000 (#0)

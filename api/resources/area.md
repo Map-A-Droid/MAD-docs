@@ -1,3 +1,5 @@
+# Area
+
 The following modes are available in the API:
  - [idle](#idle)
  - [iv_mitm](#iv_mitm)
@@ -5,16 +7,16 @@ The following modes are available in the API:
  - [pokestops](#pokestops)
  - [raids_mitm](#raids_mitm)
 
-# idle
-## Fields
-| Field Name | Type  | Required  | Description   |
-| --         | --    | --        | --            |
-|geofence_included|String|True|Including geofence for scanarea|
-|name|String|True|Name of area|
-|routecalc|String|True|Name of routefile|
+## idle
+### Fields
+| Field Name        | Type   | Required | Description                     |
+|-------------------|--------|----------|---------------------------------|
+| geofence_included | String | True     | Including geofence for scanarea |
+| name              | String | True     | Name of area                    |
+| routecalc         | String | True     | Name of routefile               |
 
-# iv_mitm
-## Fields
+## iv_mitm
+### Fields
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |geofence_excluded|String|False|Excluding geofence for scanarea|
@@ -22,7 +24,7 @@ The following modes are available in the API:
 |name|String|True|Name of area|
 |routecalc|String|True|Name of routefile. MAD will automatically append '.calc' to this name.|
 
-## Settings
+### Settings
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |delay_after_prio_event|Integer|False|Offset to be added to events such as spawns or raid starts. E.g. if you want to scan gyms at least a minute after an egg has hatched, set it to 60 (Default: empty)<br>Empty = Disable PrioQ|
@@ -34,8 +36,8 @@ The following modes are available in the API:
 |speed|Decimal|False|Speed of player in kmh|
 |starve_route|Boolean|False|Disable round-robin of route vs. priority queue events. If True,    your route may not be completed in time and e.g. only spawns will be scanned|
 
-# mon_mitm
-## Fields
+## mon_mitm
+### Fields
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |coords_spawns_known|Boolean|True|Scan all spawnpoints or just ones with unknown endtimes|
@@ -45,7 +47,7 @@ The following modes are available in the API:
 |name|String|True|Name of area|
 |routecalc|String|True|Name of routefile|
 
-## Settings
+### Settings
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |delay_after_prio_event|Integer|False|Offset to be added to events such as spawns or raid starts. E.g. if you want to scan gyms at least a minute after an egg has hatched, set it to 60 (Default: empty)<br>Empty = Disable PrioQ|
@@ -58,8 +60,8 @@ The following modes are available in the API:
 |speed|Decimal|False|Speed of player in kmh|
 |starve_route|Boolean|False|Disable round-robin of route vs. priority queue events. If True,    your route may not be completed in time and e.g. only spawns will be scanned|
 
-# pokestops
-## Fields
+## pokestops
+### Fields
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |geofence_excluded|String|False|Excluding geofence for scanarea|
@@ -70,7 +72,7 @@ The following modes are available in the API:
 |route_calc_algorithm|String|False|Method of calculation for routes. (Default optimized)|
 |routecalc|String|True|Name of routefile|
 
-## Settings
+### Settings
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |cleanup_every_spin|Boolean|False|Cleanup quest inventory every spinned stop|
@@ -78,8 +80,8 @@ The following modes are available in the API:
 |max_distance|Decimal|False|Max. distance of walking - otherwise teleport to new location|
 |speed|Decimal|False|Speed of player in kmh|
 
-# raids_mitm
-## Fields
+## raids_mitm
+### Fields
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |geofence_excluded|String|False|Excluding geofence for scanarea|
@@ -89,7 +91,7 @@ The following modes are available in the API:
 |name|String|True|Name of area|
 |routecalc|String|True|Name of routefile|
 
-## Settings
+### Settings
 | Field Name | Type  | Required  | Description   |
 | --         | --    | --        | --            |
 |delay_after_prio_event|Integer|False|Offset to be added to events such as spawns or raid starts. E.g. if you want to scan gyms at least a minute after an egg has hatched, set it to 60 (Default: empty)<br>Empty = Disable PrioQ|

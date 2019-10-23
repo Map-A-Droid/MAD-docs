@@ -1,3 +1,5 @@
+# Devicesetting
+
 The following definition is available for Device Pool resources
 ## Fields
 | Field Name | Type  | Required  | Description   |

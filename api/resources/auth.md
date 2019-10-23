@@ -1,3 +1,5 @@
+# Auth
+
 The following definition is available for Authentication resources
 ## Fields
 | Field Name | Type  | Required  | Description   |

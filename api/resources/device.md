@@ -1,3 +1,5 @@
+# Device
+
 The following definition is available for Device resources
 ## Fields
 | Field Name | Type  | Required  | Description   |
