@@ -23,10 +23,13 @@ Titles will be shown at the top of a page and in the site navigation. A title sh
 
 Once done editing your page, add it under one of the ``toctree`` sections in ``index.rst``.
 
+This wiki is using `Sphinx`_ to render it to html. Install python, and these pip packages to test the wiki locally: ``sphinx``, ``recommonmark``, ``sphinx_rtd_theme``.
+
 Now to preview your changes, open a terminal and use ``make html``. This will generates html files in ``_build/html/``. You can see the final documentation by opening them up with a browser.
 
 Finally, when you are finished, submit your changes as a Pull Request to be reviewed.
 
 .. _`MAD-docs`: https://github.com/Map-A-Droid/MAD-docs
+-- _`Sphinx`: http://www.sphinx-doc.org/en/master/
 .. _`cheatsheet`: http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
 .. _`markdown`: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
