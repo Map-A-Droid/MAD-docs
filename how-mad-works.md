@@ -1,16 +1,17 @@
-## How does MAD work?
-MAD is a system to collect Data from Pokémon GO. It uses real Android smartphones and processes the data into a database. MAD is currently able to scan for Raids, Quests, Pokémon and its IVs. 
+## How does it work?
+MAD or Map-A-Droid is a system to collect data from the game. It uses real Android devices. MAD is able to scan for raids, quests, mon and their IVs.
 
-### Android phone
-The phone needs to be rooted, pass the [SafetyNet Check](https://koz.io/inside-safetynet/) and SELinux  must be permissive or moderate. In the most cases rooting with [Magisk](https://www.xda-developers.com/how-to-install-magisk/) solves all those problems.
+### MAD
+MAD is the software running on your server. Devices connect to it and will then be controlled by the server.
+
+### Android devices
+The device needs run the game, must be rooted, pass the [SafetyNet Check](https://koz.io/inside-safetynet/) and SELinux must be permissive or moderate. To root your device, use [Magisk](https://www.xda-developers.com/how-to-install-magisk/).
 
 #### Remote GPS Controller (RGC)
-RGC is an app developed by the MAD team to control the phone in various ways. It handles the GPS spoofing, takes screenshots, restarts Pokémon GO, reboots the whole phone and more.
+RGC is an app developed by the MAD team to control the device in various ways. It handles the GPS spoofing, touch/text inputs, app starts/stops etc.
 
-#### Pogodroid
+#### PogoDroid
 This app injects into the running Pokémon GO process and relays the [Protos](https://github.com/Furtif/POGOProtos) sent to Pokémon GO to the MAD server. A valid token is required to use it, you can purchase it on [the MAD website](https://www.maddev.de/).
 
-### MAD server
-MAD is a python application, so its able to run on Linux, Windows and Mac OS. It was developed on Linux only and no one can guarantee that it runs perfectly on other operating systems. We highly suggest to setup a Linux Virtual Machine when no native Linux is present.
 
 ![](_static/concept.jpg)
