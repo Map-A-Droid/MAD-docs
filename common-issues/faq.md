@@ -103,7 +103,7 @@ In fact, they do. The RouteManager removes and entry from the prioq and assigns 
 
 ### sql_mode error, MySQL strict mode, mysql mode.
 
-For MAD to function properly you will need to adjust your MySQL/MariaDB server `sql_mode`. There are few modes that breaks MAD and you will be asked to to disable those, however for maximum comfort and to avoid problems in future updates we suggest disabling everything,  not only those reported. 
+For MAD to function properly you will need to adjust your MySQL/MariaDB server `sql_mode`. There are few modes that breaks MAD and you will be asked to to disable those, however for maximum comfort and to avoid problems in future updates we suggest disabling everything, not only those reported. 
 
 Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty.
 
@@ -146,8 +146,9 @@ sql_mode="NO_ENGINE_SUBSTITUTION"
 If it complains about ```Permission denied``` then go back step 3 and make sure you run is as **root** or with **sudo**.
 
 5. Restart MySQL/MariaDB to apply new settings. Here are few commands - one should work. Work from top - if you see that MySQL/MariaDB server was restarted there is no need to issue rest of commands - just covering more ground. Run as **root** or with **sudo**.
--- service mariadb restart
--- service mysql restart
--- service mysqld restart
--- /etc/init.d/mysql restart
-
+```
+service mariadb restart
+service mysql restart
+service mysqld restart
+/etc/init.d/mysql restart
+```
