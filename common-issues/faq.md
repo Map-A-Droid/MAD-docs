@@ -150,4 +150,4 @@ If it complains about ```Permission denied``` then go back step 3 and make sure 
 -- service mysql restart
 -- service mysqld restart
 -- /etc/init.d/mysql restart
-```
+
