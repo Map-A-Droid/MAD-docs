@@ -100,3 +100,55 @@ Disable battery optimisations in Android and enable the OOM override option in P
 ### My workers aren't following my priority queue / route on the map
 
 In fact, they do. The RouteManager removes and entry from the prioq and assigns it to a worker. While the prio route has already been updated on the map, the worker position is only set when the worker arrives at its destination. Depending on your mode and your settings it can take several seconds before the worker marker arrives at the location where once has been a prioq coordinate.
+
+### sql_mode error, MySQL strict mode, mysql mode.
+
+For MAD to function properly you will need to adjust your MySQL/MariaDB server `sql_mode`. There are few modes that breaks MAD and you will be asked to to disable those, however for maximum comfort and to avoid problems in future updates we suggest disabling everything, not only those reported. 
+
+Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty.
+
+This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make sure to run those commands as **root** (or with sudo).
+
+1. Find your MySQL/MariaDB main config and check what directory should we use. Run those commands and see if they report anything.
+```
+grep includedir /etc/my.cnf
+grep includedir /etc/mysql/my.cnf
+```
+If you got `No such file or directory` two times it's time to consult your distro/system manual where is yours MySQL/MariaDB config file. 
+Expected output it something like that (**do not use those dirs from example, use your own!**):
+```
+$ grep includedir /etc/mysql/my.cnf
+!includedir /etc/mysql/conf.d/
+!includedir /etc/mysql/mariadb.conf.d/
+```
+or 
+```
+# grep includedir /etc/mysql/my.cnf
+!includedir /etc/mysql/conf.d/
+```
+The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. If you have more than one result (like first example) select one directory - for now I will use `/etc/mysql/conf.d`.
+
+2. Make sure that this directory exists.
+```
+mkdir /etc/mysql/conf.d
+```
+If you got ```mkdir: cannot create directory ‘/etc/mysql/conf.d’: File exists``` then nothing to worry about - directory already there, go to step 3. If you got ```Permission denied``` then make sure to run this command as **root** or with **sudo**.
+
+3. Create new file `MAD.cnf` in that directory
+```
+nano /etc/mysql/conf.d/MAD.cnf
+```
+4. Copy-paste (right mouse click in PuTTy) below content into that file and save it (`CTRL-o`, `enter`, `CTRL-x`)
+```
+[mysqld]
+sql_mode="NO_ENGINE_SUBSTITUTION"
+```
+If it complains about ```Permission denied``` then go back step 3 and make sure you run is as **root** or with **sudo**.
+
+5. Restart MySQL/MariaDB to apply new settings. Here are few commands - one should work. Work from top - if you see that MySQL/MariaDB server was restarted there is no need to issue rest of commands - just covering more ground. Run as **root** or with **sudo**.
+```
+service mariadb restart
+service mysql restart
+service mysqld restart
+/etc/init.d/mysql restart
+```
