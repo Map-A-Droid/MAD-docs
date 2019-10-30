@@ -109,7 +109,7 @@ Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty.
 
 This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make sure to run those commands as **root** (or with sudo).
 
-1. Find your MySQL/MariaDB main config and check what directory should we use. Run those commands and see if they report anything.
+**Step 1**. Find your MySQL/MariaDB main config and check what directory should we use. Run those commands and see if they report anything.
 ```
 grep includedir /etc/my.cnf
 grep includedir /etc/mysql/my.cnf
@@ -128,24 +128,24 @@ or
 ```
 The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. If you have more than one result (like first example) select one directory - for now I will use `/etc/mysql/conf.d`.
 
-2. Make sure that this directory exists.
+**Step 2**. Make sure that this directory exists.
 ```
 mkdir /etc/mysql/conf.d
 ```
 If you got ```mkdir: cannot create directory ‘/etc/mysql/conf.d’: File exists``` then nothing to worry about - directory already there, go to step 3. If you got ```Permission denied``` then make sure to run this command as **root** or with **sudo**.
 
-3. Create new file `MAD.cnf` in that directory
+**Step 3**. Create new file `MAD.cnf` in that directory
 ```
 nano /etc/mysql/conf.d/MAD.cnf
 ```
-4. Copy-paste (right mouse click in PuTTy) below content into that file and save it (`CTRL-o`, `enter`, `CTRL-x`)
+**Step 4**. Copy-paste (right mouse click in PuTTy) below content into that file and save it (`CTRL-o`, `enter`, `CTRL-x`)
 ```
 [mysqld]
 sql_mode="NO_ENGINE_SUBSTITUTION"
 ```
 If it complains about ```Permission denied``` then go back step 3 and make sure you run is as **root** or with **sudo**.
 
-5. Restart MySQL/MariaDB to apply new settings. Here are few commands - one should work. Work from top - if you see that MySQL/MariaDB server was restarted there is no need to issue rest of commands - just covering more ground. Run as **root** or with **sudo**.
+**Step 5**. Restart MySQL/MariaDB to apply new settings. Here are few commands - one should work. Work from top - if you see that MySQL/MariaDB server was restarted there is no need to issue rest of commands - just covering more ground. Run as **root** or with **sudo**.
 ```
 service mariadb restart
 service mysql restart
