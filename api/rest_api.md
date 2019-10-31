@@ -15,8 +15,8 @@ For all sub-components, the following operations have been implemented.
   - GET: retrieve data
   - PATCH: update the resource but only modify the fields that have been sent
    - If you wish to append values to a list, use the header 'X-Append: 1'.  If this is not present, it will replace the list.
-  - POST: create a new resource
-  - PUT: replace the existing object with the new one being sent
+  - POST: create a new resource.  Response content will contain the newly-created object
+  - PUT: replace the existing object with the new one being sent.
 
 If an error occurs, refer to the returned headers to find the issue.
 
@@ -263,10 +263,9 @@ curl -v -H 'X-Beautify: 1' 'http://localhost:5000/api/walker?hide_resource=1&fet
 #### Creating a walker
 ```
 curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"], "walkername": "test"}' http://localhost:5000/api/walker
-* Connected to localhost (127.0.0.1) port 5000 (#0)
 > POST /api/walker HTTP/1.1
 > Host: localhost:5000
-> User-Agent: curl/7.58.0
+> User-Agent: curl/7.65.3
 > Accept: */*
 > X-Beautify: 1
 > X-Append: 1
@@ -274,20 +273,26 @@ curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: applicatio
 > Content-Length: 54
 >
 * upload completely sent off: 54 out of 54 bytes
+* Mark bundle as not supporting multiuse
 * HTTP 1.0, assume close after body
 < HTTP/1.0 201 CREATED
 < Content-Type: application/json
-< Content-Length: 16
-< Location: http://localhost:5000/api/walker/10
-< X-Uri: /api/walker/10
+< Content-Length: 63
+< Location: http://localhost:5000/api/walker/6
+< X-Uri: /api/walker/6
 < X-Status: Successfully created the object
 < Access-Control-Allow-Origin: *
 < Access-Control-Allow-Headers: Content-Type,Authorization
 < Access-Control-Allow-Methods: GET,PUT,POST,DELETE,OPTIONS
-< Server: Werkzeug/0.15.6 Python/3.6.8
-< Date: Mon, 14 Oct 2019 18:40:39 GMT
+< Server: Werkzeug/0.16.0 Python/3.7.5rc1
+< Date: Thu, 31 Oct 2019 00:13:51 GMT
 <
-"/api/walker/10"
+{
+    "walkername": "test",
+    "setup": [
+        "10"
+    ]
+}
 * Closing connection 0
 ```
 
