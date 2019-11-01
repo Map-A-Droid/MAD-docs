@@ -1,8 +1,8 @@
-# Discord Alert for automatic Jobs
+# Discord Alert for Automatic Jobs
 
 MAD will be able to submit job stats to Discord.
 
-## setup config.ini for Discord submission
+## Setup config.ini for Discord Submission
 
 ```
 # Job Status Messages

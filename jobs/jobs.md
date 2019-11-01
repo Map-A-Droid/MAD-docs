@@ -8,19 +8,19 @@ In the last MAD version a job processor was implemented. With this tool are you 
 
 ### Job Types
 - Manual Jobs - start with MADmin
-- [Automatic Jobs](automatic_jobs)
+- [Automatic Jobs](automatic_jobs.md)
 
 ### Job Monitor
 
-see [Jobmonitor](job_monitor)
+see [Job Monitor](job_monitor.md)
 
 ### Discord Alert
 
-see [Discord Alert](discord_alert)
+see [Discord Alert](discord_alert.md)
 
 ### MADmin Endpoint
 
-see [MADmin_Endpoint](MADmin_Endpoint)
+see [MADmin_Endpoint](MADmin_Endpoint.md)
 
 -----------------------------------------------
 
@@ -40,7 +40,7 @@ Open MADmin -> Jobs -> Upload File
 Select APK and Upload it.
 (Only *.APK allowed at the moment)
 
-### direct Upload
+### Direct Upload
 
 Upload APK directly in `upload_path` (config.ini)
 
@@ -71,11 +71,11 @@ This Job will read the Version Number of Pogo.
 ### Field Description
 
 - `Readout Pogo Version` == Name of Job
-- `TYPE:` `jobType.PASSTHROUGH` == [Type of Job](jobtypes)
+- `TYPE:` `jobType.PASSTHROUGH` == [Type of Job](jobtypes.md)
 - `SYNTAX:` `dumpsys package com.nianticlabs.pokemongo | grep versionName` == Shell Command
 - `FIELDNAME:` `POGO_Version` == Fieldname for returning Value
 - `WAITTIME:` 5 == Wait 5 minutes before starting the job
 
-You are able to start more then one command with one job --> [Nested Jobs](nested_jobs)
+You are able to start more then one command with one job --> [Nested Jobs](nested_jobs.md)
 
  
