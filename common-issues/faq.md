@@ -114,7 +114,7 @@ This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make su
 grep includedir /etc/my.cnf
 grep includedir /etc/mysql/my.cnf
 ```
-If you got `No such file or directory` two times it's time to consult your distro/system manual where is yours MySQL/MariaDB config file. 
+If you got `No such file or directory` two times it's time to consult your distribution/system manual where is yours MySQL/MariaDB config file. 
 Expected output it something like that (**do not use those dirs from example, use your own!**):
 ```
 $ grep includedir /etc/mysql/my.cnf
