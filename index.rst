@@ -32,6 +32,14 @@ This is a collection of articles about setting up and running MAD.
 .. toctree::
     :titlesonly:
     :maxdepth: 1
+    :caption: PrioQ
+    :glob:
+
+    /prioq.rst
+
+.. toctree::
+    :titlesonly:
+    :maxdepth: 1
     :caption: MAD Jobs
     :glob:
 
