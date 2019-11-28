@@ -4,7 +4,7 @@ You can setup automatic jobs (they will be scheduled with MAD start)
 
 ## Job controller file
 
-Create file `autocommands.json` in `file_path` (config.ini)
+Create the file `autocommands.json` in `file_path` as referenced in config.ini. (Default: files/)
 
 All contents of this file gets loaded with MAD start.
 
