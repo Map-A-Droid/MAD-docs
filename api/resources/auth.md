@@ -1,8 +1,8 @@
-# Auth
+# API Definition
 
 The following definition is available for Authentication resources
 
- Field name  | Type   | Reqired | Description
- ----------  | ----   | ------- | -----------
- password    | String | True    | Password of device
- username    | String | true    | Username of device
+Field Name | Type | Required | Default | Description
+-- | -- | -- | -- | --
+password|String|True|None|Password of device
+username|String|True|None|Username of device

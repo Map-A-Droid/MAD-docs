@@ -72,6 +72,8 @@ The following is unique about areas:
   - A valid mode must be specified.  If a mode is not specified or is not valid, 412 will be returned
   - Dependencies
     - walkerarea
+  - RPC Methods
+   - Route Recalculation
 
 #### [Authentication](resources/auth.md)
 
@@ -83,7 +85,9 @@ There is no special handling for authentication
 
 URI: /api/device
 
-There is no special handling for devices
+The following is unique about areas:
+  - RPC Methods
+   - Pause / Unpause worker
 
 #### [DevicePools](resources/devicesetting.md)
 
@@ -93,6 +97,14 @@ The following is unique about device pools:
   - Dependencies
     - device
 
+#### [Geofence](resources/geofence.md)
+
+URI: /api/geofence
+
+The following is unique about device pools:
+  - Dependencies
+    - area
+
 #### [MonLists](resources/monivlist.md)
 
 URI: /api/monivlist
@@ -100,6 +112,14 @@ URI: /api/monivlist
 The following is unique about Mon Lists:
   - Dependencies
     - areas
+
+#### [Routecalc](resources/geofence.md)
+
+URI: /api/routecalc
+
+The following is unique about device pools:
+  - Dependencies
+    - area
 
 #### [Walkers](resources/walker.md)
 
@@ -117,6 +137,15 @@ URI: /api/walkerarea
 The following is unique about Mon Lists:
   - Dependencies
     - walker
+
+### JSON RPC
+The API supports several RPC methods.  The RPC methods are outlined on the resource page.  To use an RPC method, perform a POST to the resource URI with the following data:
+Headers:
+- Content-Type: application/json-rpc
+
+Data:
+- call: <call_name>
+- args: <dictionary of required args>
 
 ### Examples
 #### Getting all auth
@@ -321,4 +350,31 @@ curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X PATCH -H 'Content-Type: applicati
 < Date: Mon, 14 Oct 2019 18:09:01 GMT
 <
 * Closing connection 0
+```
+
+#### Recalculate route
+```
+curl -v -H 'X-Beautify: 1' -X POST -H 'Content-Type: application/json-rpc' -d '{"call": "recalculate"}' http://localhost:5000/api/area/13
+* Connected to localhost (127.0.0.1) port 5000 (#0)
+> POST /api/area/13 HTTP/1.1
+> Host: localhost:5000
+> User-Agent: curl/7.65.3
+> Accept: */*
+> X-Beautify: 1
+> Content-Type: application/json-rpc
+> Content-Length: 23
+>
+* upload completely sent off: 23 out of 23 bytes
+* Mark bundle as not supporting multiuse
+* HTTP 1.0, assume close after body
+< HTTP/1.0 204 NO CONTENT
+< Content-Type: application/json
+< Access-Control-Allow-Origin: *
+< Access-Control-Allow-Headers: Content-Type,Authorization
+< Access-Control-Allow-Methods: GET,PUT,POST,DELETE,OPTIONS
+< Server: Werkzeug/0.16.0 Python/3.7.5rc1
+< Date: Tue, 10 Dec 2019 03:26:26 GMT
+<
+* Closing connection 0
+
 ```
