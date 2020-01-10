@@ -1,4 +1,6 @@
-# API Definition
+# Walkers
+
+## API Definition
 
 The following definition is available for Walker resources
 

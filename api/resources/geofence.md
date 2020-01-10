@@ -1,4 +1,6 @@
-# API Definition
+# Geofence
+
+## API Definition
 
 The following definition is available for Geofence resources
 

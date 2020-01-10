@@ -1,4 +1,6 @@
-# API Definition
+# Device Pools
+
+## API Definition
 
 The following definition is available for Device Pool resources
 
@@ -6,7 +8,7 @@ Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
 devicepool|String|True|None|Name for the global device settings
 
-## Settings
+### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --

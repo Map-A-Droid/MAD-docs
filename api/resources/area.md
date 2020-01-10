@@ -1,4 +1,6 @@
-# API Definition
+# Areas
+
+## API Definition
 
 The following modes are available in the API:
 
@@ -8,7 +10,7 @@ The following modes are available in the API:
  - [pokestops](#pokestops)
  - [raids_mitm](#raids_mitm)
 
-## idle
+### idle
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -16,7 +18,7 @@ geofence_included|URI-/api/geofence|True|None|Including geofence for scanarea
 name|String|True|None|Name of area
 routecalc|URI-/api/routecalc|False|Auto-Generated|Routecalc to be used by MAD.  Leave blank unless you are reusing an existing routecalc
 
-## iv_mitm
+### iv_mitm
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -25,7 +27,7 @@ geofence_included|URI-/api/geofence|True|None|Including geofence for scanarea
 name|String|True|None|Name of area
 routecalc|URI-/api/routecalc|False|Auto-Generated|Routecalc to be used by MAD.  Leave blank unless you are reusing an existing routecalc
 
-### Settings
+#### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -38,7 +40,7 @@ remove_from_queue_backlog|Boolean|False|0|Remove any events from priority queue 
 speed|Decimal|False|0|Speed of player in kmh
 starve_route|Boolean|False|False|Disable round-robin of route vs. priority queue events. If True, your route may not be completed in time and e.g. only spawns will be scanned
 
-## mon_mitm
+### mon_mitm
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -49,7 +51,7 @@ init|Boolean|False|False|Set this open True, if you scan the area for gyms / spa
 name|String|True|Name of area
 routecalc|URI-/api/routecalc|False|Auto-Generated|Routecalc to be used by MAD.  Leave blank unless you are reusing an existing routecalc
 
-### Settings
+#### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -63,7 +65,7 @@ remove_from_queue_backlog|Decimal|False|Remove any events in priority queue that
 speed|Decimal|False|0|Speed of player in kmh
 starve_route|Boolean|False|False|Disable round-robin of route vs. priority queue events. If True, your route may not be completed in time and e.g. only spawns will be scanned
 
-## pokestops
+### pokestops
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -75,7 +77,7 @@ name|String|True|None|Name of area
 route_calc_algorithm|String|False|optimized|Method of calculation for routes. Allowed values (optimized, quick)
 routecalc|URI-/api/routecalc|False|Auto-Generated|Routecalc to be used by MAD.  Leave blank unless you are reusing an existing routecalc
 
-### Settings
+#### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -84,7 +86,7 @@ ignore_spinned_stops|Boolean|False|True|Do not spin stops already made in the pa
 max_distance|Decimal|False|0|Max. distance of walking - otherwise teleport to new location
 speed|Decimal|False|0|Speed of player in kmh
 
-## raids_mitm
+### raids_mitm
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -95,7 +97,7 @@ init|Boolean|False|False|Set this open True, if you scan the area for gyms / spa
 name|String|True|Name of area
 routecalc|URI-/api/routecalc|False|Auto-Generated|Routecalc to be used by MAD.  Leave blank unless you are reusing an existing routecalc
 
-### Settings
+#### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -108,10 +110,10 @@ remove_from_queue_backlog|Decimal|False|0|Remove any events in priority queue th
 speed|Decimal|False|0|Speed of player in kmh
 starve_route|Boolean|False|False|Disable round-robin of route vs. priority queue events. If True, your route may not be completed in time and e.g. only spawns will be scanned
 
-# JSON RPC
+## JSON RPC
 The following RPC implementations are available
 
-## Route Recalculation
+### Route Recalculation
 This will recalculate the route with the given area options.  Once it has successfully recalculated the route all devices will be disconnected and reconnected
 - call: recalculate
 - args

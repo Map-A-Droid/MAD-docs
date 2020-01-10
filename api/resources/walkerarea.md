@@ -1,4 +1,6 @@
-# API Definition
+# Walkerarea
+
+## API Definition
 
 The following definition is available for WalkerArea resources
 

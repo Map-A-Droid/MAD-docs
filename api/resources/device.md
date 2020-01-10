@@ -1,4 +1,6 @@
-# API Definition
+# Devices
+
+## API Definition
 
 The following definition is available for Device resources
 
@@ -9,7 +11,7 @@ origin|String|True|None|Name of device (from RGC settings)
 pool|URI-/api/devicepool|False|None|Configpool for this area
 walker|URI-/api/walker|True|None|Walker of this area
 
-## Settings
+### Settings
 
 Field Name | Type | Required | Default | Description
 -- | -- | -- | -- | --
@@ -44,10 +46,10 @@ startcoords_of_walker|String|False|None|Start Coords of Walker (Default: None) (
 vps_delay|Decimal|False|0|Set click delay for pokestop walker (VPS -> local device)
 walk_after_teleport_distance|Decimal|False|None|Walk in meters to walk after teleport. Might help loading data
 
-# JSON RPC
+## JSON RPC
 The following RPC implementations are available
 
-## Pause / Unpause device
+### Pause / Unpause device
 This will recalculate the route with the given area options.  Once it has successfully recalculated the route all devices will be disconnected and reconnected
 call: device_state
 args:

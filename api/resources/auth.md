@@ -1,4 +1,6 @@
-# API Definition
+# Authentication
+
+## API Definition
 
 The following definition is available for Authentication resources
 
