@@ -17,7 +17,7 @@ No. Definetly not. To avoid drama *and* privacy concerns the main MAD developers
 
 ### All my stop and gym names are "unknown"
 
-PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](https://mad-docs.readthedocs.io/en/latest/extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
+PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](../extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
 
 ### How can i check if MAD receives data?
 
@@ -25,7 +25,7 @@ If you see a green SUCCESS line with "Processing GMO" in it, then leave it alone
 
 ### Can i use multiple area fences in one area?
 
-Yes. Just add the second area to the same geofence file like this:
+Yes. Just add the second area to the same geofence like this:
 
 ```
 [area1]
@@ -38,7 +38,7 @@ Yes. Just add the second area to the same geofence file like this:
 
 ### Madmin has missing images
 
-Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/` on Linux) instead of a relative path.
+Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/`) instead of a relative path.
 
 ### How can i regenerate a route?
 

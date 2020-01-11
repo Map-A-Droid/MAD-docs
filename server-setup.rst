@@ -35,9 +35,9 @@ Create a new database and grant permissions for your dedicated MAD database user
 
 .. TODO fix internan links
 
-MAD is using the RocketMap database schema, you can either install it using `OSM-Rocketmad <https://github.com/cecpk/RocketMAD/>`_ or, if you just want the database and not the complete frontend of RM, use the `databasesetup.py <extras/scripts/#databasesetup-databasesetup-py>`_ script.
+MAD is using the RocketMap database schema, you can either install it using `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ or, if you just want the database and not the complete frontend of RM, use the `databasesetup.py <../extras/scripts/#databasesetup-databasesetup-py>`_ script.
 
-If you want to use OSM-Rocketmad, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `documentation <https://OSM-Rocketmap.readthedocs.io/>`_.
+If you want to use RocketMAD, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `documentation <https://OSM-Rocketmap.readthedocs.io/>`_.
 
 .. code-block:: bash
 
@@ -45,7 +45,7 @@ If you want to use OSM-Rocketmad, set it up and launch it for the first time. It
 
 .. TODO update this reference
 
-RocketMAD will only act as a webfrontend. See `webfrontends <integrations#maps>`_ for more informations.
+RocketMAD will only act as a webfrontend. See `webfrontends <../integrations#maps>`_ for more informations.
 
 Install client libraries
 ------------------------
@@ -116,7 +116,7 @@ First you want to add a geofence. You can do that by either drawing a fence on t
 Areas
 -----
 
-Next step is to create an area. Go to Settings --> Areas and click on the green plus. Choose a mode you want to scan (Have a look at the different `scanning modes <faq#what-s-the-difference-betwen-these-scanning-modes>`_) and fill in the settings.
+Next step is to create an area. Go to Settings --> Areas and click on the green plus. Choose a mode you want to scan (Have a look at the different `scanning modes <../faq#what-s-the-difference-betwen-these-scanning-modes>`_) and fill in the settings.
 
 Walkers
 -------

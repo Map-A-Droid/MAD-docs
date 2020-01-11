@@ -99,11 +99,9 @@ Now you can configure RGC.
 PogoDroid
 ^^^^^^^^^
 
-#. Install `PogoDroid <https://www.maddev.de/apk/PogoDroid.apk>`_ on your device
-#. To login to PogoDroid you need to be a `Patreon supporter <https://www.patreon.com/user?u=14159560>`_. Choose Mapping x1 for $2 for one device. Use custom pledges for more devices
-#. Use `this link <http://tinyurl.com/madauth>`_ to copy a password and API Token. Copy both and make sure you don't loose them!
-#. On the next screen, login with the password you just received
-#. Once logged in, click "Password management" on the top
+#. Install `PogoDroid <https://www.maddev.eu/apk/PogoDroid.apk>`_ on your device
+#. To login to PogoDroid you need to purchase a license from the `MADDev shop <https://maddev.eu/>`_ and follow the instructions.
+#. Once logged into the `backend <http://auth.maddev.eu/>`_, click "Password management" on the top
 #. On the password page it should tell you your maximum allowed device count. Create a new device password and copy that
 #. Go back to PogoDroid. Use your email address and that new device password you've just created in the previous step.
 
