@@ -1,7 +1,7 @@
 import guzzle_sphinx_theme
 
 project = u'MAD'
-copyright = u'2019, MADdev Team'
+copyright = u'2020, MADdev Team'
 version = u''
 templates_path = ['_templates']
 master_doc = 'index'
@@ -32,3 +32,9 @@ html_theme_options = {
 html_sidebars = {
   '**': ['logo-text.html', 'globaltoc.html', 'searchbox.html']
 }
+
+html_logo = "_static/mad_banner_trans.png"
+logo_only = True
+
+def setup(app):
+    app.add_stylesheet("css/custom.css")

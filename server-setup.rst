@@ -9,44 +9,6 @@ System preparation
 
   This whole article assumes a fresh installed `Ubuntu 18.04 Server <https://www.ubuntu.com/download/server>`_. If you're running another Linux distribution - that's totally fine, but keep in mind there may be some difference to your setup.
 
-If you're already running a Ubuntu 18.04 setup, you can skip this part.
-
-Edit the file /etc/update-manager/release-upgrades:
-
-.. code-block:: bash
-
-  sudo nano /etc/update-manager/release-upgrades
-
-On the line that says :code:`Prompt=..` change it to :code:`Prompt=normal`. Save with :kbd:`ctrl` + :kbd:`o` and exit with :kbd:`ctrl` + :kbd:`x`
-
-Now, make sure LXD is removed:
-
-.. code-block:: bash
-
-  sudo dpkg --force depends -P lxd; sudo dpkg --force depends -P lxd-client
-
-Next, we need to make everything nice and updated
-
-.. code-block:: bash
-
-  sudo apt update
-  sudo apt upgrade
-
-Now look for and update Ubuntu.
-
-.. code-block:: bash
-
-  sudo do-release-upgrade
-
-Simply follow the prompts and agree to anything it asks (pretty much anyhow) until it asks to reboot. Decline to restart, then exit WSL by typing `exit`. Do not close your terminal window.
-
-Back in the terminal window, type bash once more.
-
-Now, let's install openCV
-
-.. code-block:: bash
-
-  sudo apt-get install python3-opencv
 
 MySQL / MariaDB
 ===============
@@ -73,9 +35,9 @@ Create a new database and grant permissions for your dedicated MAD database user
 
 .. TODO fix internan links
 
-MAD is using the RocketMap database schema, you can either install it using `OSM-Rocketmap <https://github.com/cecpk/OSM-Rocketmap>`_ or, if you just want the database and not the complete frontend of RM, use the [databasesetup.py](../extras/scripts#databasesetup-databasesetup-py) script.
+MAD is using the RocketMap database schema, you can either install it using `OSM-Rocketmad <https://github.com/cecpk/RocketMAD/>`_ or, if you just want the database and not the complete frontend of RM, use the `databasesetup.py <extras/scripts/#databasesetup-databasesetup-py>`_ script.
 
-If you want to use OSM-Rocketmap, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `official Rocketmap documentation <https://osm-rocketmap.readthedocs.io/>`_, but make sure to clone the `OSM-Rocketmap <https://github.com/cecpk/OSM-Rocketmap>`_ fork instead of the normal one.
+If you want to use OSM-Rocketmad, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `documentation <https://OSM-Rocketmap.readthedocs.io/>`_.
 
 .. code-block:: bash
 
@@ -83,17 +45,13 @@ If you want to use OSM-Rocketmap, set it up and launch it for the first time. It
 
 .. TODO update this reference
 
-Rocketmap will only act as a webfrontend. See [webfrontends](/extras/webfrontends) for more informations.
+RocketMAD will only act as a webfrontend. See `webfrontends <integrations#maps>`_ for more informations.
 
 Install client libraries
 ------------------------
 .. code-block:: bash
 
   sudo apt install default-libmysqlclient-dev
-
-After all this is over, follow the Linux part about installing, scroll down to header MAD/PIP-Packages. Some parts might be repeated, don't worry about it.
-
-Running MAD is now exactly the same as running it on Linux, except that your mariadb is running on Windows, and you're going a bit slower than if you would have just listened and installed on Linux directly in the first place.
 
 Python
 ======
@@ -108,7 +66,7 @@ Make sure you have the right version installed, since even if python3.6 is insta
 Check if `pip` and `python` is installed correctly by running:
 
 - :code:`python3 --version` - should return 3.6.x
-- :code:`pip3 --version` - If it returns a version, it is working.
+- :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
 
 MAD
 ===
@@ -131,8 +89,6 @@ MAD will also check the screen on your phone every now and then to check for err
 
   sudo apt-get install tesseract-ocr python3-opencv
 
-If you are encountering the error :code:`OSError: mysql_config not found`, make sure you have the apt package :code:`default-libmysqlclient-dev` installed.
-
 Configuration
 =============
 
@@ -144,13 +100,35 @@ Copy the example config file and rename it to "config.ini":
 
 and edit the config file accordingly.
 
-The next step is to configure the so-called "mappings.json" (located in configs/mappings.json). This file is responsible to "map" your phones to walkers etc. The easiest way to configure MAD is through MADmin - the web frontend:
+The next step is to configure MAD via MADmin - the web frontend:
 
 .. code-block:: bash
 
   python3 configmode.py
 
-By default MADmin will be available on http://your_server_ip:5000. Go to "Settings" and start with adding an area. The type is depending on what do you want to scan. Every type and option of it has a description explaining itself.
+By default MADmin will be available on http://your_server_ip:5000. 
+
+Geofences
+---------
+
+First you want to add a geofence. You can do that by either drawing a fence on the map (use the icon on the top right corner) or pasting a list of coordinates (Settings --> Geofences).
+
+Areas
+-----
+
+Next step is to create an area. Go to Settings --> Areas and click on the green plus. Choose a mode you want to scan (Have a look at the different `scanning modes <faq#what-s-the-difference-betwen-these-scanning-modes>`_) and fill in the settings.
+
+Walkers
+-------
+
+Walkers are responsible for the assignment of the areas to the devices. If you just want a device on one area the whole time, create a walker and add that area with :code:`coords` set as walker mode.
+
+Devices
+-------
+
+Add your device and assign it to the walker.
+
+ Every other setting like :code:`Auth`, :code:`IV Lists` and :code:`Shared Settings` are optional.
 
 Running
 =======
@@ -165,14 +143,15 @@ Deploying behind a Reverse Proxy
 ================================
 
 MAD supports being run behind a Reverse Proxy.  The reverse proxy relies on the header, `X-Script-Name`, to inform MADmin on how to construct the URIs.  For our examples we will use the following:
-* Using NGINX as our reverse proxy
-* MADmin runs on localhost
-* MADmin uses port 5000
-* We wish to access the site at '/madmin'
-* The FQDN we are using to access MADmin is 'mapadroid.local'
-* We only want files 100MB or less to be uploaded
-* SSL Ceritificate is located at /etc/ssl_cert.crt
-* SSL Certificate Key is located at /etc/ssl_key.pem
+
+- Using NGINX as our reverse proxy
+- MADmin runs on localhost
+- MADmin uses port 5000
+- We wish to access the site at '/madmin'
+- The FQDN we are using to access MADmin is 'mapadroid.local'
+- We only want files 100MB or less to be uploaded
+- SSL Ceritificate is located at /etc/ssl_cert.crt
+- SSL Certificate Key is located at /etc/ssl_key.pem
 
 Configuring HTTP
 ----------------
@@ -238,7 +217,7 @@ Preparations
 
 You can just copy & paste this to do what is written below:
 
-.. code-block:: none
+.. code-block:: bash
 
   mkdir MAD-docker && \
   cd MAD-docker && \
@@ -248,7 +227,6 @@ You can just copy & paste this to do what is written below:
   mkdir docker-entrypoint-initdb && \
   wget -O docker-entrypoint-initdb/rocketmap.sql https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql && \
   cd mad/configs/ && \
-  touch mappings.json && \
   wget -O config.ini https://raw.githubusercontent.com/Map-A-Droid/MAD/master/configs/config.ini.example && \
   mkdir geofences && cd ../../
 
@@ -257,7 +235,7 @@ This will:
 #. Create a directory `MAD-docker`.
 #. Create a file `docker-compose.yml`.
 #. Create a directory `MAD-docker/mad`. (here we store MAD related stuff)
-#. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini`, `mappings.json` and a directory `geofences` (which contains your geofences). Examples for these files can be found @github https://github.com/Map-A-Droid/MAD/tree/master/configs
+#. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini` and a directory `geofences`. Examples for these files can be found @github https://github.com/Map-A-Droid/MAD/tree/master/configs
 #. Create a directory `MAD-docker/docker-entrypoint-initdb`
 #. Download the Rocketmap Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
 
@@ -272,46 +250,7 @@ Your directory should now look like this:
     mad/
     configs/
       config.ini
-      mappings.json
       geofences/
-
-If you start from scratch, add the following content to `mad/configs/mappings.json`:
-
-.. code-block:: json
-
-  {
-    "areas": {
-      "entries": {},
-      "index": 0
-    },
-    "auth": {
-      "entries": {},
-      "index": 0
-    },
-    "devices": {
-      "entries": {},
-      "index": 0
-    },
-    "devicesettings": {
-      "entries": {},
-      "index": 0
-    },
-    "migrated": true,
-    "monivlist": {
-      "entries": {},
-      "index": 0
-    },
-    "walker": {
-      "entries": {},
-      "index": 0
-    },
-    "walkerarea": {
-      "entries": {},
-      "index": 0
-    }
-  }
-
-If you have an existing mappings.json, because you used MAD before, then just copy it over.
 
 Writing the docker-compose file
 -------------------------------
@@ -333,7 +272,6 @@ Fill docker-compose.yml with the following content. Below we explain the details
         - /etc/localtime:/etc/localtime:ro
         - ./mad/configs/geofences:/usr/src/app/configs/geofences
         - ./mad/configs/config.ini:/usr/src/app/configs/config.ini
-        - ./mad/configs/mappings.json:/usr/src/app/configs/mappings.json
         - ./volumes/mad/files:/usr/src/app/files
         - ./volumes/mad/logs:/usr/src/app/logs
       depends_on:
@@ -374,7 +312,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 **Volumes:**
 
 * The volumes define what is mounted into the docker-container.
-* On one hand we mount the **configuration files (config.ini, mappings.json)** and the **geofences** we need.
+* On one hand we mount the **configuration file (config.ini)** and the **geofences** we need.
 * On the other hand we "mount out" the **files/directories produced by MAD**, such as the directory "logs" and also the "files" directory, which contains all calculated routes, position files and stats. As usual, volumes are needed for everything **you do not want to loose** after you take the docker-container down. Without these volumes, MAD would have to recalculate the routes everytime you take your container up.
 
 **Ports:**

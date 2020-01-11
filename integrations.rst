@@ -5,12 +5,12 @@ Integrations
 Maps
 ====
 
-OSM-RocketMap
+OSM-Rocketmad
 -------------
 
 A powerful frontend maintained by MAD's core developers and the MAD community. Written in Python.
 
-`OSM-RocketMap on Github <https://github.com/cecpk/OSM-Rocketmap>`_
+`OSM-Rocketmad on Github <https://github.com/cecpk/OSM-Rocketmad>`_
 
 PMSF
 ----
