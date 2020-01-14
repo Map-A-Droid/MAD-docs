@@ -91,7 +91,7 @@ The following is unique about areas:
 
 #### [DevicePools](resources/devicesetting.md)
 
-URI: /api/devicesetting
+URI: /api/devicepool
 
 The following is unique about device pools:
   - Dependencies
