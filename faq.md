@@ -84,6 +84,10 @@ Sometimes it may just be a hickup, try a reboot
 
 That's nothing to worry about. It's the way Pogodroid can scan IV.
 
+### How do Spawnpoints work?
+
+Pokémon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of a active spawn. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
+
 ### Quest mode doesn't click anything on the screen
 
 - Check if you are using a correct Magisk version. 19.1, 19.2 and sometimes 19.3 blocking RGC to click on the screen. 19.0 will work just fine.
