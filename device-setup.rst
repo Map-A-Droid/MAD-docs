@@ -7,6 +7,9 @@ Android phones
 
 You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and RGC installed.
 
+.. note:: 
+  If you have an :ref:`ATV <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
+
 #. Install TWRP
 #. Install Magisk
 #. Install the game
