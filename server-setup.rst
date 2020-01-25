@@ -33,25 +33,21 @@ Create a new database and grant permissions for your dedicated MAD database user
   GRANT ALL PRIVILEGES ON my_database_name.* TO 'my_database_user'@'localhost';
   FLUSH PRIVILEGES;
 
-.. TODO fix internan links
-
-MAD is using the RocketMap database schema, you can either install it using `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ or, if you just want the database and not the complete frontend of RM, use the `databasesetup.py <../extras/scripts/#databasesetup-databasesetup-py>`_ script.
-
-If you want to use RocketMAD, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `documentation <https://OSM-Rocketmap.readthedocs.io/>`_.
-
-.. code-block:: bash
-
-  python3 runserver.py
-
-.. TODO update this reference
-
-RocketMAD will only act as a webfrontend. See `webfrontends <../integrations#maps>`_ for more informations.
-
 Install client libraries
 ------------------------
 .. code-block:: bash
 
   sudo apt install default-libmysqlclient-dev
+
+.. TODO fix internan links
+
+Database schema
+---------------
+
+MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official Rocketmap documentation <https://OSM-Rocketmap.readthedocs.io/>`_. 
+
+.. warning::
+ Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
 
 Python
 ======

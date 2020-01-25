@@ -28,7 +28,8 @@ html_logo = "_static/mad_banner_trans.png"
 html_theme_options = {
     'project_nav_name': 'Map-A-Droid',
     'globaltoc_depth': 2,
-    'globaltoc_collapse': True}
+    'globaltoc_collapse': True
+    }
 html_sidebars = {
   '**': ['logo-text.html', 'searchbox.html', 'globaltoc.html']
 }
