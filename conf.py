@@ -30,6 +30,6 @@ html_theme_options = {
     'globaltoc_depth': 2,
     'globaltoc_collapse': True}
 html_sidebars = {
-  '**': ['logo-text.html', 'globaltoc.html', 'searchbox.html']
+  '**': ['logo-text.html', 'searchbox.html', 'globaltoc.html']
 }
 
