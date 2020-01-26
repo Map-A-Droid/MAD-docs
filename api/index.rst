@@ -163,7 +163,7 @@ Getting all auth
 
 Using default sort field
 
-.. code-block::
+.. code-block:: bash
 
   curl -H 'X-Beautify: 1' http://localhost:5000/api/auth
   * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -209,7 +209,7 @@ Using default sort field
 
 Using custom sort field
 
-.. code-block::
+.. code-block:: bash
 
   curl -v -H 'X-Beautify: 1' http://localhost:5000/api/auth?display_field=password
   * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -255,7 +255,7 @@ Using custom sort field
 
 Pulling all information resource information and hiding the resource fields
 
-.. code-block::
+.. code-block:: bash
 
   curl -v -H 'X-Beautify: 1' 'http://localhost:5000/api/walker?hide_resource=1&fetch_all=1'
   * Connected to localhost (127.0.0.1) port 5000 (#0)
@@ -310,7 +310,7 @@ Pulling all information resource information and hiding the resource fields
 Creating a walker
 ^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
   curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X POST -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"], "walkername": "test"}' http://localhost:5000/api/walker
   > POST /api/walker HTTP/1.1
@@ -349,7 +349,7 @@ Creating a walker
 Adding a walkerarea to a walker
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
   curl -v -H 'X-Beautify: 1' -H 'X-Append: 1' -X PATCH -H 'Content-Type: application/json' -d '{"setup":["/api/walkerarea/10"]}' http://localhost:5000/api/walker/2
   * Connected to localhost (127.0.0.1) port 5000 (#0)

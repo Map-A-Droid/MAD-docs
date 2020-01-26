@@ -158,7 +158,7 @@ Configuring HTTP
 ^^^^^^^^^^^^^^^^
 MADmin URL: :code:`http://mapadroid.local/madmin`
 
-.. code-block::
+.. code-block:: bash
 
   server {
       listen 80;
@@ -179,7 +179,7 @@ Configuring HTTPS
 ^^^^^^^^^^^^^^^^^
 MADmin URL: :code:`https://mapadroid.local/madmin`
 
-.. code-block::
+.. code-block:: bash
 
   server {
       listen 443 ssl;
@@ -204,7 +204,7 @@ Apache does a lot already automatically, but make sure that the module :code:`pr
 
 If no SSL is needed, paste the two lines starting with `Proxy` to the first code block and delete 443 vhost block plus the rewrite block in the first block.
 
-.. code-block::
+.. code-block:: bash
 
   <VirtualHost *:80>
 
