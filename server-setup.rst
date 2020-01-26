@@ -64,6 +64,27 @@ Check if `pip` and `python` is installed correctly by running:
 - :code:`python3 --version` - should return 3.6.x
 - :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
 
+Virtual Environment
+-------------------
+
+.. note::
+
+ This step is optional but recommended. 
+
+A virtual environment is a way to install python packages in a different location to avoid potential version conflicts with other software like RocketMAD or MADevice. It's like a standalone version of python, independent of your "normal" python. Install it with:
+
+.. code-block:: bash
+
+  apt install python-virtualenv
+
+And create a new virtual environment called :code:`mad_env` in your home directory:
+
+.. code-block:: bash
+
+  virtualenv -p python3 ~/mad_env
+
+Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
+
 MAD
 ===
 
