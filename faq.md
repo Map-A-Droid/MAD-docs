@@ -42,7 +42,7 @@ Check your `pogoasset` config in `configs/config.ini` and use a full path (start
 
 ### How can i regenerate a route?
 
-To renerate a route just delete the calc file in the `files` directory and restart MAD. It will notice that one or more files are missing and will recalculate them.
+To renerate a route just hit the blue 🔄 button in the area section of MADmin.
 
 ### How can i remove Eventspawnpoints?
 
@@ -61,6 +61,16 @@ Delete the quests from the `trs_quest` table and restart MAD.
 
 ```SQL
 TRUNCATE TABLE trs_quest;
+```
+
+### How can i resend webhooks?
+
+Start MAD with `--webhook_start_time` and the [epoch](https://en.wikipedia.org/wiki/Unix_time) start timestamp. You may want to add `--webhook_max_payload_size` as well to not overload your webhook receiver. 
+
+This example will send every webhook since midnight in requests with 20 objects in it, again.
+
+```bash
+python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_max_payload_size 20
 ```
 
 ## Game
