@@ -154,3 +154,33 @@ What to install?
 -------------------------------------
 
 We've created a new repository with it's own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
+
+
+Updating
+========
+
+There a dozens of ways to update an APK on your device. Here are some common and easy ones:
+
+MADmin Job
+----------
+
+Upload the APK you want to install or update to MADmin via the Jobs --> Upload File menu. Start the job for the devices with the buttons on the right.
+
+ADB installation
+----------------
+
+Connect your device to a computer (either with USB or ADB via TCP) and run the update command: :code:`adb install -r app.apk`. 
+
+Download APK to the Device
+--------------------------
+
+Download the APK via the built in browser to your device and install it.
+
+Update Wizzard
+--------------
+
+.. warning::
+ 
+ This is a beta feature and may not work properly for you. If that's the case, feel free to `report it <https://github.com/Map-A-Droid/MAD/issues/new>`_ in the MAD GitHub.
+
+Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizzard button to update the devices.
