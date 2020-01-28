@@ -33,25 +33,21 @@ Create a new database and grant permissions for your dedicated MAD database user
   GRANT ALL PRIVILEGES ON my_database_name.* TO 'my_database_user'@'localhost';
   FLUSH PRIVILEGES;
 
-.. TODO fix internan links
-
-MAD is using the RocketMap database schema, you can either install it using `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ or, if you just want the database and not the complete frontend of RM, use the `databasesetup.py <../extras/scripts/#databasesetup-databasesetup-py>`_ script.
-
-If you want to use RocketMAD, set it up and launch it for the first time. It will create the the tables automatically. Follow the guide from the `documentation <https://OSM-Rocketmap.readthedocs.io/>`_.
-
-.. code-block:: bash
-
-  python3 runserver.py
-
-.. TODO update this reference
-
-RocketMAD will only act as a webfrontend. See `webfrontends <../integrations#maps>`_ for more informations.
-
 Install client libraries
 ------------------------
 .. code-block:: bash
 
   sudo apt install default-libmysqlclient-dev
+
+.. TODO fix internan links
+
+Database schema
+---------------
+
+MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official Rocketmap documentation <https://OSM-Rocketmap.readthedocs.io/>`_. 
+
+.. warning::
+ Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
 
 Python
 ======
@@ -67,6 +63,27 @@ Check if `pip` and `python` is installed correctly by running:
 
 - :code:`python3 --version` - should return 3.6.x
 - :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
+
+Virtual Environment
+-------------------
+
+.. note::
+
+ This step is optional but recommended. 
+
+A virtual environment is a way to install python packages in a different location to avoid potential version conflicts with other software like RocketMAD or MADevice. It's like a standalone version of python, independent of your "normal" python. Install it with:
+
+.. code-block:: bash
+
+  apt install python-virtualenv
+
+And create a new virtual environment called :code:`mad_env` in your home directory:
+
+.. code-block:: bash
+
+  virtualenv -p python3 ~/mad_env
+
+Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
 
 MAD
 ===
@@ -142,7 +159,12 @@ If everything is set up correctly, you can start MAD:
 Deploying behind a Reverse Proxy
 ================================
 
-MAD supports being run behind a Reverse Proxy.  The reverse proxy relies on the header, `X-Script-Name`, to inform MADmin on how to construct the URIs.  For our examples we will use the following:
+MAD supports being run behind a Reverse Proxy.  
+
+NGINX
+-----
+
+The reverse proxy relies on the header, :code:`X-Script-Name`, to inform MADmin on how to construct the URIs.  For our examples we will use the following:
 
 - Using NGINX as our reverse proxy
 - MADmin runs on localhost
@@ -154,10 +176,10 @@ MAD supports being run behind a Reverse Proxy.  The reverse proxy relies on the 
 - SSL Certificate Key is located at /etc/ssl_key.pem
 
 Configuring HTTP
-----------------
-MADmin URL: `http://mapadroid.local/madmin`
+^^^^^^^^^^^^^^^^
+MADmin URL: :code:`http://mapadroid.local/madmin`
 
-.. code-block::
+.. code-block:: bash
 
   server {
       listen 80;
@@ -175,10 +197,10 @@ MADmin URL: `http://mapadroid.local/madmin`
   }
 
 Configuring HTTPS
------------------
-MADmin URL: `https://mapadroid.local/madmin`
+^^^^^^^^^^^^^^^^^
+MADmin URL: :code:`https://mapadroid.local/madmin`
 
-.. code-block::
+.. code-block:: bash
 
   server {
       listen 443 ssl;
@@ -197,6 +219,46 @@ MADmin URL: `https://mapadroid.local/madmin`
       }
   }
 
+Apache2
+-------
+Apache does a lot already automatically, but make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled. This following config shows a setup where every http request will be redirected to https. And the https vhost is forwading the request to MADmin.
+
+If no SSL is needed, paste the two lines starting with `Proxy` to the first code block and delete 443 vhost block plus the rewrite block in the first block.
+
+.. code-block:: bash
+
+  <VirtualHost *:80>
+
+          ProxyPreserveHost On
+          ProxyRequests Off
+          ServerName madmin.example.com
+
+          ErrorLog ${APACHE_LOG_DIR}/gohildesheim.de_error.log
+          CustomLog ${APACHE_LOG_DIR}/gohildesheim.de_access.log combined
+
+          <IfModule mod_rewrite.c>
+                  RewriteEngine On
+                  RewriteCond %{HTTPS} off
+                  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+          </IfModule>
+  </VirtualHost>
+  <VirtualHost *:443>
+
+      ProxyPreserveHost On
+      ProxyRequests Off
+
+      ServerName madmin.example.com
+      ProxyPass / http://localhost:5000/
+      ProxyPassReverse / http://localhost:5000/
+
+      SSLEngine on
+      SSLCertificateKeyFile /etc/ssl_key.pem
+      SSLCertificateFile /etc/ssl_cert.crt
+
+      ErrorLog ${APACHE_LOG_DIR}/madmin_error.log
+      CustomLog ${APACHE_LOG_DIR}/madmin_access.log combined
+  </VirtualHost>
+
 
 Docker
 ======
@@ -206,6 +268,22 @@ Docker
 
 .. warning::
   MAD's Docker support is community driven and untested by MAD's core developers!
+
+Set up Docker
+-------------
+
+If you do not have a clue about docker, you maybe want to check out:
+
+ - https://www.docker.com/why-docker
+ - https://www.docker.com/resources/what-container
+
+First of all, you have to install Docker CE and docker-compose on your system.
+
+- Docker CE: just execute `this script <https://get.docker.com/>`_ - or read through https://docs.docker.com/install/
+- Docker-compose: https://docs.docker.com/compose/install
+
+These sites are well documented and if you follow the install instructions, you are good to go.
+
 
 Setup MAD and Rocketmap database.
 ---------------------------------
@@ -228,14 +306,14 @@ You can just copy & paste this to do what is written below:
   wget -O docker-entrypoint-initdb/rocketmap.sql https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql && \
   cd mad/configs/ && \
   wget -O config.ini https://raw.githubusercontent.com/Map-A-Droid/MAD/master/configs/config.ini.example && \
-  mkdir geofences && cd ../../
+  cd ../../
 
 This will:
 
 #. Create a directory `MAD-docker`.
 #. Create a file `docker-compose.yml`.
 #. Create a directory `MAD-docker/mad`. (here we store MAD related stuff)
-#. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini` and a directory `geofences`. Examples for these files can be found @github https://github.com/Map-A-Droid/MAD/tree/master/configs
+#. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini`.
 #. Create a directory `MAD-docker/docker-entrypoint-initdb`
 #. Download the Rocketmap Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
 
@@ -250,7 +328,6 @@ Your directory should now look like this:
     mad/
     configs/
       config.ini
-      geofences/
 
 Writing the docker-compose file
 -------------------------------
@@ -270,12 +347,11 @@ Fill docker-compose.yml with the following content. Below we explain the details
       volumes:
         - /etc/timezone:/etc/timezone:ro
         - /etc/localtime:/etc/localtime:ro
-        - ./mad/configs/geofences:/usr/src/app/configs/geofences
         - ./mad/configs/config.ini:/usr/src/app/configs/config.ini
         - ./volumes/mad/files:/usr/src/app/files
         - ./volumes/mad/logs:/usr/src/app/logs
       depends_on:
-        - rocket-db
+        - rocketdb
       networks:
         - default
       ports:
@@ -283,11 +359,11 @@ Fill docker-compose.yml with the following content. Below we explain the details
         - "8000:8000"
         - "5000:5000"
 
-    rocket-db:
+    rocketdb:
       container_name: pokemon_rocketdb
       image: mariadb:10.3
       restart: always
-      command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+      command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--innodb_file_per_table=1', '--event-scheduler=ON', '--sql-mode=NO_ENGINE_SUBSTITUTION']
       environment:
         MYSQL_ROOT_PASSWORD: StrongPassword
         MYSQL_DATABASE: rocketdb
@@ -312,27 +388,27 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 **Volumes:**
 
 * The volumes define what is mounted into the docker-container.
-* On one hand we mount the **configuration file (config.ini)** and the **geofences** we need.
-* On the other hand we "mount out" the **files/directories produced by MAD**, such as the directory "logs" and also the "files" directory, which contains all calculated routes, position files and stats. As usual, volumes are needed for everything **you do not want to loose** after you take the docker-container down. Without these volumes, MAD would have to recalculate the routes everytime you take your container up.
+* On one hand we mount the **configuration file (config.ini)**.
+* On the other hand we "mount out" the **files/directories produced by MAD**, such as the directory "logs" and also the "files" directory, which contains all position files and stats. As usual, volumes are needed for everything **you do not want to loose** after you take the docker-container down.
 
 **Ports:**
 
 * The docker-image exposes ports 8080 (RGC), 8000 (Pogodroid) and 5000 (Madmin) by default.
-* We publish these ports and map them on ports of our host. So e.g. https://your-domain.com:8080 will point to port 8080 of the container, 8000 to 8000 and 5000 to 5000. In this case in RGC you would put https://your-domain.com:8080 as target, in pogodroid http://your-domain.com:8000 and madmin would be reachable under https://your-domain.com:5000.
+* We publish these ports and map them on ports of our host. So e.g. http://your-domain.com:8080 will point to port 8080 of the container, 8000 to 8000 and 5000 to 5000. In this case in RGC you would put http://your-domain.com:8080 as target, in pogodroid http://your-domain.com:8000 and madmin would be reachable under http://your-domain.com:5000.
 
-"rocket-db" service
+"rocketdb" service
 -------------------
 
-The "rocket-db" service is docker-container based on `mariadb:10.3 <https://hub.docker.com/_/mariadb>`.
+The "rocketdb" service is docker-container based on `mariadb:10.3 <https://hub.docker.com/_/mariadb>`.
 It will start a mariadb database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
 
 Your job here is to set secure passwords for :code:`MYSQL_ROOT_PASSWORD` and :code:`MYSQL_PASSWORD`.
 
-The database is reachable in the default network as `rocket-db`, so in your config.ini it looks like this:
+The database is reachable in the default network as `rocketdb`, so in your config.ini it looks like this:
 
 .. code-block:: none
 
-  dbip: rocket-db                      # IP adress or hostname of the mysql server
+  dbip: rocketdb                      # IP adress or hostname of the mysql server
   dbusername: rocketdb                 # USERname for database
   dbpassword: AnotherStrongPassword    # Password for that username
   dbname: rocketdb                     # Name of the database
@@ -348,14 +424,14 @@ Just execute:
 
 .. code-block:: bash
 
-  docker-compose up -d rocket-db
+  docker-compose up -d rocket-b
 
-This will start the "rocket-db" service and execute rocketmap.sql in docker-entrypoint-initdb.
+This will start the "rocketdb" service and execute rocketmap.sql in docker-entrypoint-initdb.
 Take a look at the logs:
 
 .. code-block:: bash
 
-  docker-compose logs -f rocket-db
+  docker-compose logs -f rocketdb
 
 and verify that the database was initialized without problems.
 
@@ -374,27 +450,31 @@ Look at the logs with:
 
   docker-compose logs -f mad
 
-2 Some useful commands to maintain MAD + DB
+Go to `http://your-domain.com:5000` and check if the MADmin is running.
+
 
 Useful commands
 ---------------
+
+Some useful commands to maintain MAD + DB
+
 **Dump DB:**
 
 .. code-block:: bash
 
-  docker-compose exec -T rocket-db /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
+  docker-compose exec -T rocketdb /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
 
 **Restore DB:**
 
 .. code-block:: bash
 
-  cat <backup>.sql | docker-compose exec -T rocket-db /usr/bin/mysql -uroot -pStrongPassword rocketdb
+  cat <backup>.sql | docker-compose exec -T rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
 
 **MySQL CLI:**
 
 .. code-block:: bash
 
-  docker-compose exec rocket-db /usr/bin/mysql -uroot -pStrongPassword rocketdb
+  docker-compose exec rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
 
 **Further useful Docker tools:**
 
