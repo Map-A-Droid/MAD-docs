@@ -400,4 +400,69 @@ Useful commands
 
 * **Router:** `Traefik <https://docs.traefik.io>`_ is recommended, which is really easy to use and also runs as Docker container. To secure the docker-socket (which traefik has access to) we recommend the `docker-socket-proxy <https://github.com/Tecnativa/docker-socket-proxy>`_ by Tecnativa.
 * **Automatic updates:** `Watchtower <https://github.com/containrrr/watchtower>`_ is a useful tool which will update your docker-services once there are newer images available
-* **Pokealarm, PMSF:** check out our docker-compose used `here <https://github.com/Breee/pogo-map-package>`_
+
+Installing a webfrontend
+------------------------
+
+Add a webfrontend like RocketMAD or PMSF to your setup by just adding another container to the docker-compose.yml. Make sure to adjust the config files just like the MAD config.
+
+RocketMAD
+^^^^^^^^^
+
+.. code-block:: bash
+
+      rocket-mad:
+        container_name: pokemon_rocketmad
+        build:
+            context: ./RocketMAD
+        restart: always
+        volumes:
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+            - ./RocketMAD/confi/config.ini:/usr/src/app/config/config.ini
+        depends_on:
+            - rocket-db
+        networks:
+            - default
+        ports:
+            - "5500:5000"
+
+Clone the project into the MAD-docker directory: :code:`git clone https://github.com/cecpk/RocketMAD`. This docker-compose file will expose RocketMAD on port :code:`5500`, but the internal routing is still on port :code:`5000`, so don't change that in the config. Make sure to re-build the container after updating RocketMAD: :code:`docker-compose build rocket-mad`.
+
+PMSF
+^^^^
+
+.. code-block:: bash
+
+      pmsf:
+        container_name: pokemon_pmsf
+        build:
+            context: ./PMSF
+        restart: always
+        volumes:
+            - ./PMSF/access-config.php:/var/www/html/config/access-config.php
+            - ./PMSF/config.php:/var/www/html/config/config.php
+        depends_on:
+            - rocket-db
+        networks:
+            - default
+        ports:
+            - "80:80"    
+
+Download the three required files from the PMSF repository: 
+
+.. code-block:: bash
+
+  mkdir PMSF && \
+  cd PMSF && \
+  wget https://raw.githubusercontent.com/pmsf/PMSF/master/Dockerfile && \
+  wget -O config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.config.php && \
+  wget -O access-config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.access-config.php 
+
+PMSF will run on port :code:`80`. Consider using some sort of reverse proxy!
+
+Make sure to re-build the container after updating PMSF: :code:`docker-compose build pmsf`. 
+
+.. note::
+
+  For more informations and a best practice example, check out the docker-compose used `here <https://github.com/Breee/pogo-map-package>`_
