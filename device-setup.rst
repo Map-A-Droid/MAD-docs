@@ -7,6 +7,9 @@ Android phones
 
 You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and RGC installed.
 
+.. note:: 
+  If you have an :ref:`ATV <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
+
 #. Install TWRP
 #. Install Magisk
 #. Install the game
@@ -99,11 +102,9 @@ Now you can configure RGC.
 PogoDroid
 ^^^^^^^^^
 
-#. Install `PogoDroid <https://www.maddev.de/apk/PogoDroid.apk>`_ on your device
-#. To login to PogoDroid you need to be a `Patreon supporter <https://www.patreon.com/user?u=14159560>`_. Choose Mapping x1 for $2 for one device. Use custom pledges for more devices
-#. Use `this link <http://tinyurl.com/madauth>`_ to copy a password and API Token. Copy both and make sure you don't loose them!
-#. On the next screen, login with the password you just received
-#. Once logged in, click "Password management" on the top
+#. Install `PogoDroid <https://www.maddev.eu/apk/PogoDroid.apk>`_ on your device
+#. To login to PogoDroid you need to purchase a license from the `MADDev shop <https://maddev.eu/>`_ and follow the instructions.
+#. Once logged into the `backend <http://auth.maddev.eu/>`_, click "Password management" on the top
 #. On the password page it should tell you your maximum allowed device count. Create a new device password and copy that
 #. Go back to PogoDroid. Use your email address and that new device password you've just created in the previous step.
 
@@ -153,3 +154,33 @@ What to install?
 -------------------------------------
 
 We've created a new repository with it's own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
+
+
+Updating
+========
+
+There a dozens of ways to update an APK on your device. Here are some common and easy ones:
+
+MADmin Job
+----------
+
+Upload the APK you want to install or update to MADmin via the Jobs --> Upload File menu. Start the job for the devices with the buttons on the right.
+
+ADB installation
+----------------
+
+Connect your device to a computer (either with USB or ADB via TCP) and run the update command: :code:`adb install -r app.apk`. 
+
+Download APK to the Device
+--------------------------
+
+Download the APK via the built in browser to your device and install it.
+
+Update Wizzard
+--------------
+
+.. warning::
+ 
+ This is a beta feature and may not work properly for you. If that's the case, feel free to `report it <https://github.com/Map-A-Droid/MAD/issues/new>`_ in the MAD GitHub.
+
+Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizzard button to update the devices.

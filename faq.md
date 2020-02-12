@@ -17,7 +17,7 @@ No. Definetly not. To avoid drama *and* privacy concerns the main MAD developers
 
 ### All my stop and gym names are "unknown"
 
-PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](https://mad-docs.readthedocs.io/en/latest/extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
+PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](../extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
 
 ### How can i check if MAD receives data?
 
@@ -25,7 +25,7 @@ If you see a green SUCCESS line with "Processing GMO" in it, then leave it alone
 
 ### Can i use multiple area fences in one area?
 
-Yes. Just add the second area to the same geofence file like this:
+Yes. Just add the second area to the same geofence like this:
 
 ```
 [area1]
@@ -38,11 +38,11 @@ Yes. Just add the second area to the same geofence file like this:
 
 ### Madmin has missing images
 
-Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/` on Linux) instead of a relative path.
+Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/`) instead of a relative path.
 
 ### How can i regenerate a route?
 
-To renerate a route just delete the calc file in the `files` directory and restart MAD. It will notice that one or more files are missing and will recalculate them.
+To renerate a route just hit the blue 🔄 button in the area section of MADmin.
 
 ### How can i remove Eventspawnpoints?
 
@@ -61,6 +61,16 @@ Delete the quests from the `trs_quest` table and restart MAD.
 
 ```SQL
 TRUNCATE TABLE trs_quest;
+```
+
+### How can i resend webhooks?
+
+Start MAD with `--webhook_start_time` and the [epoch](https://en.wikipedia.org/wiki/Unix_time) start timestamp. You may want to add `--webhook_max_payload_size` as well to not overload your webhook receiver. 
+
+This example will send every webhook since midnight in requests with 20 objects in it, again.
+
+```bash
+python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_max_payload_size 20
 ```
 
 ## Game
@@ -84,6 +94,10 @@ Sometimes it may just be a hickup, try a reboot
 
 That's nothing to worry about. It's the way Pogodroid can scan IV.
 
+### How do Spawnpoints work?
+
+Pokémon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of a active spawn. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
+
 ### Quest mode doesn't click anything on the screen
 
 - Check if you are using a correct Magisk version. 19.1, 19.2 and sometimes 19.3 blocking RGC to click on the screen. 19.0 will work just fine.
@@ -105,7 +119,7 @@ In fact, they do. The RouteManager removes and entry from the prioq and assigns 
 
 For MAD to function properly you will need to adjust your MySQL/MariaDB server `sql_mode`. There are few modes that breaks MAD and you will be asked to to disable those, however for maximum comfort and to avoid problems in future updates we suggest disabling everything, not only those reported. 
 
-Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty. If you run ***MySQL/MariaDB on external/different server*** you need to change those settings on that server, not MAD server. The server you run database, the database server.
+Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty.
 
 This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make sure to run those commands as **root** (or with sudo).
 
@@ -114,7 +128,7 @@ This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make su
 grep includedir /etc/my.cnf
 grep includedir /etc/mysql/my.cnf
 ```
-If you got `No such file or directory` two times it's time to consult your distribution/system manual where is yours MySQL/MariaDB config file. 
+If you got `No such file or directory` two times it's time to consult your distro/system manual where is yours MySQL/MariaDB config file. 
 Expected output it something like that (**do not use those dirs from example, use your own!**):
 ```
 $ grep includedir /etc/mysql/my.cnf
@@ -126,7 +140,7 @@ or
 # grep includedir /etc/mysql/my.cnf
 !includedir /etc/mysql/conf.d/
 ```
-The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. For purpose of this guide I will use `/etc/mysql/conf.d`, but this is an example - your configuration can be different - use listing from above (grep) command. ***DO NOT BLINDLY COPY-PASTE***. If you have more than one result (like first example) select one directory you like more.
+The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. If you have more than one result (like first example) select one directory - for now I will use `/etc/mysql/conf.d`.
 
 **Step 2**. Make sure that this directory exists.
 ```

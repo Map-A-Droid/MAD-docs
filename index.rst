@@ -26,7 +26,7 @@ PogoDroid (PD)
 ^^^^^^^^^^^^^^
 This app injects into the running game process and relays the data being sent to the game to the MAD server. A valid token is required to use it, you can purchase it on `the MAD website <https://www.maddev.eu>`_.
 
-.. image:: _static/concept.jpg
+.. image:: _static/concept.png
 
 Guide
 =====
@@ -39,5 +39,6 @@ Guide
   device-setup
   mad-jobs
   integrations
+  extras/*
   faq
   api/*

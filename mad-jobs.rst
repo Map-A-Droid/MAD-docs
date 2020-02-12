@@ -131,7 +131,7 @@ Example:
 
 MAD starts the top most job and will schedule the memory usage readout with a delay of 3 minutes. Eventually, the game will start.
 
-.. code-block:: none
+.. code-block:: json
 
   {
     "Stop/Start Pogo and readout Memory Usage":
