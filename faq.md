@@ -119,7 +119,7 @@ In fact, they do. The RouteManager removes and entry from the prioq and assigns 
 
 For MAD to function properly you will need to adjust your MySQL/MariaDB server `sql_mode`. There are few modes that breaks MAD and you will be asked to to disable those, however for maximum comfort and to avoid problems in future updates we suggest disabling everything, not only those reported. 
 
-Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty.
+Set your `sql_mode` to `NO_ENGINE_SUBSTITUTION` or even to empty. If you run ***MySQL/MariaDB on external/different server*** you need to change those settings on that server, not MAD server. The server you run database, the database server.
 
 This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make sure to run those commands as **root** (or with sudo).
 
@@ -128,7 +128,7 @@ This tutorial will cover Ubuntu/Debian way with some steps to reproduce. Make su
 grep includedir /etc/my.cnf
 grep includedir /etc/mysql/my.cnf
 ```
-If you got `No such file or directory` two times it's time to consult your distro/system manual where is yours MySQL/MariaDB config file. 
+If you got `No such file or directory` two times it's time to consult your distribution/system manual where is yours MySQL/MariaDB config file. 
 Expected output it something like that (**do not use those dirs from example, use your own!**):
 ```
 $ grep includedir /etc/mysql/my.cnf
@@ -140,7 +140,7 @@ or
 # grep includedir /etc/mysql/my.cnf
 !includedir /etc/mysql/conf.d/
 ```
-The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. If you have more than one result (like first example) select one directory - for now I will use `/etc/mysql/conf.d`.
+The part after `!includedir` is the interesting part - it's directory where we will create our custom settings file. It will vary from distro/version - so always check it. For purpose of this guide I will use `/etc/mysql/conf.d`, but this is an example - your configuration can be different - use listing from above (grep) command. ***DO NOT BLINDLY COPY-PASTE***. If you have more than one result (like first example) select one directory you like more.
 
 **Step 2**. Make sure that this directory exists.
 ```

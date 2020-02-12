@@ -1,8 +1,10 @@
-# Walker
+# Walkers
 
-The following definition is available for Authentication resources
+## API Definition
 
-Field Name | Type | Required | Description
--- | -- | -- | --
-setup|Comma-delimited list|False|Order of areas
-walkername|String|True|Name of walker
+The following definition is available for Walker resources
+
+Field Name | Type | Required | Default | Description
+-- | -- | -- | -- | --
+setup|Comma-delimited list|False|Empty List|Order of areas
+walkername|String|True|None|Name of walker
