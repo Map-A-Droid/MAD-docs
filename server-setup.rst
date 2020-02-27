@@ -499,7 +499,7 @@ RocketMAD
         volumes:
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
-            - ./RocketMAD/confi/config.ini:/usr/src/app/config/config.ini
+            - ./RocketMAD/config/config.ini:/usr/src/app/config/config.ini
         depends_on:
             - rocketdb
         networks:
