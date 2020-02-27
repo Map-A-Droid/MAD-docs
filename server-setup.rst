@@ -233,8 +233,8 @@ If no SSL is needed, paste the two lines starting with `Proxy` to the first code
           ProxyRequests Off
           ServerName madmin.example.com
 
-          ErrorLog ${APACHE_LOG_DIR}/gohildesheim.de_error.log
-          CustomLog ${APACHE_LOG_DIR}/gohildesheim.de_access.log combined
+          ErrorLog ${APACHE_LOG_DIR}/madmin_error.log
+          CustomLog ${APACHE_LOG_DIR}/madmin_access.log combined
 
           <IfModule mod_rewrite.c>
                   RewriteEngine On
