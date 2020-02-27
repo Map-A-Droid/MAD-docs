@@ -501,7 +501,7 @@ RocketMAD
             - /etc/localtime:/etc/localtime:ro
             - ./RocketMAD/confi/config.ini:/usr/src/app/config/config.ini
         depends_on:
-            - rocket-db
+            - rocketdb
         networks:
             - default
         ports:
