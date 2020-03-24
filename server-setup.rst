@@ -424,7 +424,7 @@ Just execute:
 
 .. code-block:: bash
 
-  docker-compose up -d rocket-b
+  docker-compose up -d rocketdb
 
 This will start the "rocketdb" service and execute rocketmap.sql in docker-entrypoint-initdb.
 Take a look at the logs:
