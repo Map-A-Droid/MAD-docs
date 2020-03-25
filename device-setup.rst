@@ -130,7 +130,7 @@ Now you can configure PogoDroid.
   * **Full daemon mode**: On
   * **Start Pogodoid with a delay (seconds)**: Play around with that setting. Best practice is to keep that value lower than the delay from RGC
   * **Enable OOM override**: On
-  * **Test feature: Mock location patching**: Off. Try this if you cant smali patch
+  * **Test feature: Mock location patching**: On
 
 Final Steps
 -----------
