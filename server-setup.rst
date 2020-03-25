@@ -301,6 +301,8 @@ You can just copy & paste this to do what is written below:
   cd MAD-docker && \
   mkdir mad && \
   mkdir mad/configs && \
+  mkdir rocketdb && \
+  touch rocketdb/my.cnf && \
   touch docker-compose.yml && \
   mkdir docker-entrypoint-initdb && \
   wget -O docker-entrypoint-initdb/rocketmap.sql https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql && \
@@ -314,6 +316,7 @@ This will:
 #. Create a file `docker-compose.yml`.
 #. Create a directory `MAD-docker/mad`. (here we store MAD related stuff)
 #. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini`.
+#. Create a directory `MAD-docker/rocketdb`. (here we store config files for mariaDb). Here you store your `my.cnf`.
 #. Create a directory `MAD-docker/docker-entrypoint-initdb`
 #. Download the Rocketmap Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
 
@@ -326,8 +329,33 @@ Your directory should now look like this:
     docker-entrypoint-initdb/
       rocketmap.sql
     mad/
+    rocketdb/
+      my.cnf
     configs/
       config.ini
+
+Writing the mariadb config file
+-------------------------------
+Fill rocketdb/my.cnf file with the following content.
+
+.. code-block:: bash
+
+  [mysqld]
+  innodb_buffer_pool_size=1G
+
+.. note::
+You should align this setting with you available memory. It should probably not exceed 50% of your available memory.
+
+
+Decrease VM swappiness
+-------------------------------
+.. code-block:: bash
+
+  sysctl -w vm.swappiness=1
+
+.. note::
+For further details have a look at https://mariadb.com/kb/en/configuring-swappiness/
+
 
 Writing the docker-compose file
 -------------------------------
@@ -350,6 +378,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
         - ./mad/configs/config.ini:/usr/src/app/configs/config.ini
         - ./volumes/mad/files:/usr/src/app/files
         - ./volumes/mad/logs:/usr/src/app/logs
+        - ./personal_commands:/usr/src/app/personal_commands
       depends_on:
         - rocketdb
       networks:
@@ -361,7 +390,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
 
     rocketdb:
       container_name: pokemon_rocketdb
-      image: mariadb:10.3
+      image: mariadb:10.4
       restart: always
       command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--innodb_file_per_table=1', '--event-scheduler=ON', '--sql-mode=NO_ENGINE_SUBSTITUTION']
       environment:
@@ -373,6 +402,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
       volumes:
         - ./volumes/rocketdb:/var/lib/mysql
         - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
+        - ./rocketdb:/etc/mysql/mariadb.conf.d
       networks:
         - default
 
@@ -399,7 +429,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 "rocketdb" service
 -------------------
 
-The "rocketdb" service is docker-container based on `mariadb:10.3 <https://hub.docker.com/_/mariadb>`.
+The "rocketdb" service is docker-container based on `mariadb:10.4 <https://hub.docker.com/_/mariadb>`.
 It will start a mariadb database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
 
 Your job here is to set secure passwords for :code:`MYSQL_ROOT_PASSWORD` and :code:`MYSQL_PASSWORD`.
