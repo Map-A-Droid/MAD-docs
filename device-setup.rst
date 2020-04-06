@@ -36,6 +36,9 @@ Magisk
 .. warning::
   There is currently a bug in the very latest Magisk version that prevents our apps from clicking on the screen (which is needed for several scanning modes). Use Magisk 19.0 or lower to avoid this!
 
+.. warning::
+The hideoption with Magiskversion **20.4** is not activated by default. Please activate that function by yourself in the magisk settings first!
+
 #. Install `Magisk <https://www.xda-developers.com/how-to-install-magisk>`_ to root the device via recovery. Download it `here <https://github.com/topjohnwu/Magisk/releases>`_
 #. Repackage the MagiskManager App and make sure to delete the folder "/sdcard/MagiskManager" after repackaging. If its not present, you are good to go.
 
