@@ -28,6 +28,16 @@ This app injects into the running game process and relays the data being sent to
 
 .. image:: _static/concept.png
 
+
+Contributing to this wiki
+=========================
+
+If you want to contribute to this wiki, create a pull request to the `GitHub repository <https://github.com/Map-A-Droid/MAD-docs>`_.
+
+The files are either markdown (:code:`.md`) or reStructuredText (:code:`.rst`). Here is a `cheatsheet <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`_ for RST formatting, and one for `markdown <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>`_. If you created a new section, make sure to add it to the toctree below this section right here.
+
+To preview your changes, make sure to install the requirements (:code:`pip install -r requirements.txt` and :code:`pip install sphinx-autobuild`), open a terminal and use ``make auto``. Those commands works on Windows and Linux. This will start a local webserver on port 8000 with live updates pages as you save them. 
+
 Guide
 =====
 
