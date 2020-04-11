@@ -554,7 +554,49 @@ Using Traefik 2 as router
 If you use Docker, we recommend to use Traefik 2 as router. It is easy to configure, easy to use and it handles alot of things for you, 
 like SSL certificates, service discovery, load balancing. 
 We will not explain, how you deploy a Traefik on your server, but we give you a production ready example for your docker-compose.yml,
-In this example, we assume your Traefik is connected to a docker-network `proxy` and your domain is `example.com`
+In this example, we assume: 
+
+- your Traefik is connected to a docker-network `proxy`,
+- your domain is `example.com` and
+- you use a config similar to this:
+
+.. code-block:: yaml
+
+  api:
+    dashboard: true
+  
+  providers:
+    docker:
+      endpoint: "unix:///var/run/docker.sock"
+      exposedByDefault: false
+      network: proxy
+  
+  
+  entryPoints:
+    web:
+      address: :80
+      http:
+        redirections:
+          entryPoint:
+            to: websecure
+            scheme: https
+  
+    websecure:
+      address: :443
+      http:
+        tls:
+          certResolver: letsEncResolver
+  
+  
+  certificatesResolvers:
+    letsEncResolver:
+      acme:
+        email: bree@example.com
+        storage: acme.json
+        httpChallenge:
+          entryPoint: web
+
+We define the labels as follows: 
 
 .. code-block:: yaml
 
