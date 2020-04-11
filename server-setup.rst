@@ -546,3 +546,71 @@ Make sure to re-build the container after updating PMSF: :code:`docker-compose b
 .. note::
 
   For more informations and a best practice example, check out the docker-compose used `here <https://github.com/Breee/pogo-map-package>`_
+  
+
+Using Traefik 2 as router 
+---------------
+
+If you use Docker, we recommend to use Traefik 2 as router. It is easy to configure, easy to use and it handles alot of things for you, 
+like SSL certificates, service discovery, load balancing. 
+We will not explain, how you deploy a Traefik on your server, but we give you a production ready example for your docker-compose.yml,
+In this example, we assume your Traefik is connected to a docker-network `proxy` and your domain is `example.com`
+
+.. code-block:: yaml
+
+  version: '2.4'
+  services:
+    mad:
+      container_name: pokemon_mad
+      image: mapadroid/map-a-droid
+      init: true
+      restart: always
+      volumes:
+        - /etc/timezone:/etc/timezone:ro
+        - /etc/localtime:/etc/localtime:ro
+        - ./mad/configs/config.ini:/usr/src/app/configs/config.ini
+        - ./volumes/mad/files:/usr/src/app/files
+        - ./volumes/mad/logs:/usr/src/app/logs
+      depends_on:
+        - rocketdb
+      networks:
+        - default
+        - proxy
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+        - "traefik.http.routers.madmin.rule=Host(`madmin.example.com`)"
+        - "traefik.http.routers.madmin.service=madmin"
+        - "traefik.http.services.madmin.loadbalancer.server.port=5000"
+        - "traefik.http.routers.pogodroid.rule=Host(`pogodroid.example.com`)"
+        - "traefik.http.routers.pogodroid.service=pogodroid"
+        - "traefik.http.services.pogodroid.loadbalancer.server.port=8000"
+        - "traefik.http.routers.rgc.rule=Host(`rgc.example.com`)"
+        - "traefik.http.routers.rgc.service=rgc"
+        - "traefik.http.services.rgc.loadbalancer.server.port=8080"
+
+    rocketdb:
+      container_name: pokemon_rocketdb
+      image: mariadb:10.3
+      restart: always
+      command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--innodb_file_per_table=1', '--event-scheduler=ON', '--sql-mode=NO_ENGINE_SUBSTITUTION']
+      environment:
+        MYSQL_ROOT_PASSWORD: StrongPassword
+        MYSQL_DATABASE: rocketdb
+        MYSQL_USER: rocketdb
+        MYSQL_PASSWORD: AnotherStrongPassword
+        TZ: Europe/Berlin
+      volumes:
+        - ./volumes/rocketdb:/var/lib/mysql
+        - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
+      networks:
+        - default
+    
+  networks:
+    proxy:
+      external: true
+      
+Using these labels, traefik now will:
+  - route `https://madmin.example.com` to port 5000 (MADmin Flask app).
+  - route `https://pogodroid.example.com` to port 8000 (Pogodroid listener).
+  - route `https://rgc.example.com` to port 8080 (RGC listener).
