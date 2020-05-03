@@ -121,7 +121,7 @@ The next step is to configure MAD via MADmin - the web frontend:
 
 .. code-block:: bash
 
-  python3 configmode.py
+  python3 start.py -cm
 
 By default MADmin will be available on http://your_server_ip:5000. 
 
