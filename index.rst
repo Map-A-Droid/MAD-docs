@@ -47,6 +47,7 @@ Guide
   requirements
   server-setup
   device-setup
+  security
   mad-jobs
   integrations
   extras/*
