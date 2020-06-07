@@ -72,7 +72,7 @@ MADmin URL: :code:`https://mapadroid.local/madmin`
 
 Apache2
 -------
-Apache does a lot already automatically, but make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled. This following config shows a setup where every http request will be redirected to https. And the https vhost is forwading the request to MADmin.
+Apache does a lot already automatically, but make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled (:code:`a2enmod proxy proxy_http`). This following config shows a setup where every http request will be redirected to https. And the https vhost is forwading the request to MADmin.
 
 If no SSL is needed, paste the two lines starting with `Proxy` to the first code block and delete 443 vhost block plus the rewrite block in the first block.
 
@@ -114,4 +114,64 @@ If no SSL is needed, paste the two lines starting with `Proxy` to the first code
 RGC
 ===
 
-RGC is using a websocket connection to MAD. Websockets can be encrypted as well
+RGC is using a websocket connection to MAD. Websockets can be encrypted as well via NGINX or Apache2. 
+
+Make sure to change the Websocket URI in the RGC settings to :code:`wss://rgc.example.com/` (note the extra S in the protocol).
+
+NGINX
+-----
+
+((Please someone tell me, i barely use NGINX lol))
+
+Apache2
+-------
+
+Please install the websocket apache module: :code:`a2enmod proxy_wstunnel`
+
+.. code-block:: bash
+
+  <VirtualHost *:443>
+      ServerName rgc.example.com
+
+      ProxyPass / ws://127.0.0.1:8080/
+      ProxyPassReverse / ws://127.0.0.1:8080/
+
+      SSLEngine on
+      SSLCertificateKeyFile /etc/ssl_key.pem
+      SSLCertificateFile /etc/ssl_cert.crt
+
+      ErrorLog ${APACHE_LOG_DIR}/rgc_error.log
+      CustomLog ${APACHE_LOG_DIR}/rgc_access.log combined
+  </VirtualHost>
+
+
+PogoDroid
+===
+
+PogoDroid is using a HTTP(S) connection to MAD. So its just like a normal Reverse Proxy like for MADmin for example. 
+
+Make sure to change the POST destination settings in the PogoDroid settings to :code:`https://pd.example.com/` (note the extra S in the protocol).
+
+NGINX
+-----
+
+((Please someone tell me, i barely use NGINX lol))
+
+Apache2
+-------
+
+.. code-block:: bash
+
+  <VirtualHost *:443>
+      ServerName pd.example.com
+
+      ProxyPass / http://127.0.0.1:8000/
+      ProxyPassReverse / http://127.0.0.1:8000/
+
+      SSLEngine on
+      SSLCertificateKeyFile /etc/ssl_key.pem
+      SSLCertificateFile /etc/ssl_cert.crt
+
+      ErrorLog ${APACHE_LOG_DIR}/pd_error.log
+      CustomLog ${APACHE_LOG_DIR}/pd_access.log combined
+  </VirtualHost>
