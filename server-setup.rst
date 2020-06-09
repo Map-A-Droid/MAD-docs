@@ -111,6 +111,7 @@ MAD will also check the screen on your phone every now and then to check for err
 Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`_. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as states in `the requirements <../requirements>`_ is, that you need a 64-bit server.
 
 .. code-block:: bash
+
   pip3 install ortools
 
 Configuration
