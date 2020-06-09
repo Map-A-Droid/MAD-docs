@@ -85,7 +85,7 @@ And create a new virtual environment called :code:`mad_env` in your home directo
 
 Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
 
-You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>` or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>` link for more information.
+You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ link for more information.
 
 MAD
 ===
@@ -108,7 +108,7 @@ MAD will also check the screen on your phone every now and then to check for err
 
   sudo apt-get install tesseract-ocr python3-opencv
 
-Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as states in `the requirements <../requirements>` is, that you need a 64-bit server.
+Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`_. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as states in `the requirements <../requirements>`_ is, that you need a 64-bit server.
 
 .. code-block:: bash
   pip3 install ortools
