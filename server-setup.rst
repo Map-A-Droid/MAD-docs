@@ -7,7 +7,7 @@ System preparation
 
 .. note::
 
-  This whole article assumes a fresh installed `Ubuntu 18.04 Server <https://www.ubuntu.com/download/server>`_. If you're running another Linux distribution - that's totally fine, but keep in mind there may be some difference to your setup.
+  This whole article assumes a fresh installed `Ubuntu 18.04 Server <https://www.ubuntu.com/download/server>`_. If you're running a more recent version of Ubuntu or another Linux distribution - that's totally fine, but keep in mind there may be some difference in your setup.
 
 
 MySQL / MariaDB
@@ -44,7 +44,7 @@ Install client libraries
 Database schema
 ---------------
 
-MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official Rocketmap documentation <https://rocketmad.readthedocs.io>`_. 
+MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official RocketMAD documentation <https://rocketmad.readthedocs.io>`_. 
 
 .. warning::
  Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
@@ -69,7 +69,7 @@ Virtual Environment
 
 .. note::
 
- This step is optional but recommended. 
+ This step is optional but highly recommended. 
 
 A virtual environment is a way to install python packages in a different location to avoid potential version conflicts with other software like RocketMAD or MADevice. It's like a standalone version of python, independent of your "normal" python. Install it with:
 
@@ -84,6 +84,8 @@ And create a new virtual environment called :code:`mad_env` in your home directo
   virtualenv -p python3 ~/mad_env
 
 Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
+
+You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>` or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>` link for more information.
 
 MAD
 ===
@@ -100,11 +102,16 @@ Change into in the directory of MAD and run:
 
   pip3 install -r requirements.txt
 
-MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system:
+MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
 
 .. code-block:: bash
 
   sudo apt-get install tesseract-ocr python3-opencv
+
+Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as statet in `the requirements <../requirements>` is, that you need a 64-bit server.
+
+.. code-block:: bash
+  pip3 install ortools
 
 Configuration
 =============
@@ -117,7 +124,7 @@ Copy the example config file and rename it to "config.ini":
 
 and edit the config file accordingly.
 
-The next step is to configure MAD via MADmin - the web frontend:
+The next step is to configure MAD in config mode. This will only start MAD's web frontend called MADmin.
 
 .. code-block:: bash
 
@@ -264,7 +271,7 @@ Docker
 ======
 
 .. note::
-  If you don't know anything about Docker, you probably want ignore this step.
+  This step is rather for advanced users. If you don't know anything about Docker, you probably want to ignore this step.
 
 .. warning::
   MAD's Docker support is community driven and untested by MAD's core developers!
@@ -285,10 +292,10 @@ First of all, you have to install Docker CE and docker-compose on your system.
 These sites are well documented and if you follow the install instructions, you are good to go.
 
 
-Setup MAD and Rocketmap database.
+Setup MAD and RocketMAD database.
 ---------------------------------
 
-In this section we explain how to setup MAD and a Rocketmap database using docker-compose.
+In this section we explain how to setup MAD and a RocketMAD database using docker-compose.
 
 Preparations
 ----------------
@@ -318,7 +325,7 @@ This will:
 #. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini`.
 #. Create a directory `MAD-docker/rocketdb`. (here we store config files for mariaDb). Here you store your `my.cnf`.
 #. Create a directory `MAD-docker/docker-entrypoint-initdb`
-#. Download the Rocketmap Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
+#. Download the RocketMAD Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
 
 Your directory should now look like this:
 
