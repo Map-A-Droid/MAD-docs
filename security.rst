@@ -182,6 +182,10 @@ General Security Advices
 
 Here are some security advices that are not only related to MAD but to servers and software hosting in general. 
 
+- Don't run MAD inside a webhosted directory like :code:`/var/www/html`.
+- MAD does not need root privileges to run. Start it as a normal user. The only programs that needs root are your webserver and your database.
+- Don't use same or similar passwords. A `passwordmanager <https://keepass.info/>`_ can be useful for that.
+
 Firewall
 --------
 
@@ -190,4 +194,4 @@ It's always a good idea to open as little ports as possible. In MADs case thats 
 SSH Authentication
 ------------------
 
-Follow this `guide <https://www.howtogeek.com/443156/the-best-ways-to-secure-your-ssh-server/>`_.
+Follow this `guide <https://www.howtogeek.com/443156/the-best-ways-to-secure-your-ssh-server/>`_ and install `fail2ban <https://www.techrepublic.com/article/how-to-install-fail2ban-on-ubuntu-server-18-04/>`_.
