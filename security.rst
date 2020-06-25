@@ -6,7 +6,9 @@ There are several ways to improve a MAD setup in terms of security.
 
 The three ports used by MAD (defaults are 5000 for MADmin, 8080 for RGC and 8000 for PogoDroid) are running on every network interface by default. That means that every IP address or domain pointing to your server will listen on those ports. The connections are unencrypted and readable by everyone that can access them between you and your server. But luckely, every connnection can be SSL encrypted with a reverse proxy.
 
-NGINX and Apache2 are the most common used Proxies. You decide which one to use, both can do the same things when it comes to MAD. It's adviced to use proper SSL certifcates and not sign them by yourself. Let's Encrypt is a great option for that. Read about `certbot here <https://certbot.eff.org>`_ to found out how to use it.
+NGINX and Apache2 are the most common used Proxies. You decide which one to use, both can do the same things when it comes to MAD.
+
+ It's adviced to use proper SSL certifcates and not sign them by yourself. Let's Encrypt is a great option for that. Read about `certbot here <https://certbot.eff.org>`_ to found out how to use it.
 
 MADmin
 ======
@@ -189,7 +191,7 @@ Here are some security advices that are not only related to MAD but to servers a
 Firewall
 --------
 
-It's always a good idea to open as little ports as possible. In MADs case thats only 22 for SSH, 80 and 443 for a Webserver if you are proxying everything. Read more about :code:`iptables` `here <https://www.hostinger.com/tutorials/iptables-tutorial>`_.
+It's always a good idea to open as few ports as possible. In MADs case thats only 22 for SSH, 80 and 443 for a Webserver if you are proxying everything. Read more about :code:`iptables` `here <https://www.hostinger.com/tutorials/iptables-tutorial>`_.
 
 SSH Authentication
 ------------------
