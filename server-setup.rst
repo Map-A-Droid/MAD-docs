@@ -179,7 +179,7 @@ The reverse proxy relies on the header, :code:`X-Script-Name`, to inform MADmin 
 - MADmin uses port 5000
 - We wish to access the site at '/madmin'
 - The FQDN we are using to access MADmin is 'mapadroid.local'
-- We only want files 100MB or less to be uploaded
+- We only want files 200MB or less to be uploaded
 - SSL Ceritificate is located at /etc/ssl_cert.crt
 - SSL Certificate Key is located at /etc/ssl_key.pem
 
@@ -200,7 +200,7 @@ MADmin URL: :code:`http://mapadroid.local/madmin`
           proxy_set_header X-Script-Name /madmin;
           proxy_set_header Host $host;
           proxy_pass http://localhost:5000$1$is_args$args;
-          client_max_body_size 100M;
+          client_max_body_size 200M;
       }
   }
 
@@ -223,7 +223,7 @@ MADmin URL: :code:`https://mapadroid.local/madmin`
           proxy_set_header X-Script-Name /madmin;
           proxy_set_header Host $host;
           proxy_pass http://localhost:5000$1$is_args$args;
-          client_max_body_size 100M;
+          client_max_body_size 200M;
       }
   }
 
