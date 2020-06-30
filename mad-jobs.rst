@@ -12,7 +12,7 @@ Features:
 Create new job
 ==============
 
-Create Folder `personal_commands` in MAD's root directory. Safe custom jobs as .json file. MAD must be restarted for new jobs to appear.
+Create Folder `personal_commands` in MAD's root directory. Save custom jobs as .json file. MAD must be restarted for new jobs to appear.
 
 Example Job to read the game's version:
 
