@@ -167,6 +167,9 @@ If everything is set up correctly, you can start MAD:
 Deploying behind a Reverse Proxy
 ================================
 
+.. note::
+  Using a Reverse Proxy is strongly recommended but not required.
+
 MAD supports being run behind a Reverse Proxy.  
 
 NGINX
