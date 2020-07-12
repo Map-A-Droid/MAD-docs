@@ -83,7 +83,7 @@ Now you can configure RGC.
 
   * **Websocket URI**: ws://ipofyourserver:8080. Default port is 8080, you can change this in MAD's config.ini
   * **Websocket Origin**: pick a short unique name for your device. The name must've been configured in MAD as well
-  * **Auth**: optional, configure that via the mappings
+  * **Auth**: optional, configure that via the MADmin Auth settings
 
 * Rooted devices section
 
@@ -122,7 +122,7 @@ Now you can configure PogoDroid.
   * **Post Destination**: http://ipofyourserver:8000. Default port is 8000, you can change that in the config.ini)
   * **Post Origin**: This value needs to match the value you entered in RGC
   * **Disable last sent notifications**: Your decision, but some devices pull up the navigation bar while showing the notification which causes issues with questmode
-  * **Auth**: optional, configure that via the mappings
+  * **Auth**: optional, configure that via the MADmin Auth settings
 
 * App Section
 
