@@ -80,7 +80,7 @@ python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_m
 If you dont have a red GPS error at the top it means that RGC is working but didn't get any commands from the MAD server.
 
 - Check if your phone registered to the MAD server. The log line should look like this: `[INFO] Client ORIGINNAME registering`
-- Check if that phone has something to do according to your mappings. Have a look at your MAD logs for that.
+- Check if that phone has something to do according to your MADmin settings. Have a look at your MAD logs for that.
 
 ### PoGo (sometimes) says that my phone has an unsupported OS
 
