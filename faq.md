@@ -96,7 +96,7 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 
 ### How do Spawnpoints work?
 
-Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
+Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. If MAD does not have that information yet, it'll defaults to 3 Minutes. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
 
 ### Quest mode doesn't click anything on the screen
 
