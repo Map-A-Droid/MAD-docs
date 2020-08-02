@@ -181,7 +181,7 @@ This mode is relying on already scanned and active mon in your DB (via `mon_mitm
 
 **pokestops**
 
-You can use this mode for two things. Quest scanning or leveling. Both require the OCR requirements being installed (python-pip packages, tesseract and opencv), no visible navigation bar (see [Phone Setup](http://https://mad-docs.readthedocs.io/en/latest/installation/phonesetup.html#final-steps)) and Magisk prior version 19.1. Magisk 19.1 and above won't work!
+You can use this mode for two things. Quest scanning or leveling. Both require the OCR requirements being installed (python-pip packages, tesseract and opencv), no visible navigation bar (see [Phone Setup](https://mad-docs.readthedocs.io/en/latest/device-setup/?highlight=navigation#final-steps)) and Magisk prior version 19.1. Magisk 19.1 and above won't work!
 
 Quest scanning will walk on a pre-calculated route to every stop and spin it. When the area is set to `coords` in the walker, MAD will check every other stop in the area (even those who are not on the route). Those stops will be processed after the first round. This process will repeat itself three times. MAD is able to determinate the exact mon encounter and item type when picking up the quest.
 
