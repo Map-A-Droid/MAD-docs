@@ -4,9 +4,9 @@ Security
 
 There are several ways to improve a MAD setup in terms of security.
 
-The three ports used by MAD (defaults are 5000 for MADmin, 8080 for RGC and 8000 for PogoDroid) are running on every network interface by default. That means that every IP address or domain pointing to your server will listen on those ports. The connections are unencrypted and readable by everyone that can access them between you and your server. But luckely, every connnection can be SSL encrypted with a reverse proxy.
+The three ports used by MAD (defaults are 5000 for MADmin, 8080 for RGC and 8000 for PogoDroid) are running on every network interface by default. That means that every IP address or domain pointing to your server will listen on those ports. Those connections are unencrypted and readable by everyone that can access them between you and your server. But luckely, every connnection can be SSL encrypted with a reverse proxy.
 
-NGINX and Apache2 are the most common used webservers that can proxy. You decide which one to use, both can do the same things when it comes to MAD.
+`NGINX <http://nginx.org/en/docs/beginners_guide.html>`_ and `Apache2 <https://gridscale.io/en/community/tutorials/apache-server-reverse-proxy-ubuntu/>`_ are the most common used webservers that can proxy. You decide which one to use, both can do the same things when it comes to MAD.
 
  It's adviced to use proper SSL certifcates and not sign them by yourself. Let's Encrypt is a great option for that. Read about `certbot here <https://certbot.eff.org>`_ to find out how to use it.
 
@@ -19,7 +19,7 @@ For our examples we will use the following:
 - :code:`madmin_port` is port 5000
 - :code:`ws_port` is 8080
 - :code:`mitmreceiver_port` is 8000
-- We wish to access the site at :code:`example.com/madmin`
+- We wish to access MADmin at :code:`example.com/madmin`
 - We wish to proxy the RGC traffic to :code:`example.com/rgc`
 - We wish to proxy the PogoDroid traffic to :code:`example.com/pd`
 - The FQDN (Domain) we are using is :code:`example.com`
@@ -101,7 +101,7 @@ For our examples we will use the following:
 - :code:`madmin_port` is port 5000
 - :code:`ws_port` is 8080
 - :code:`mitmreceiver_port` is 8000
-- We wish to access the site at :code:`madmin.example.com`
+- We wish to access MADmin at :code:`madmin.example.com`
 - We wish to proxy the RGC traffic to :code:`rgc.example.com`
 - We wish to proxy the PogoDroid traffic to :code:`pd.example.com`
 - The FQDN (Domain) we are using is :code:`example.com`
@@ -110,8 +110,12 @@ For our examples we will use the following:
 
 Make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled (:code:`a2enmod proxy proxy_http`).
 
+ Keep in mind to configure the DNS settings correctly to make the three subdomains work.
+
 MADmin
 ------
+
+MADmin URL: :code:`https://madmin.example.com`
 
 .. code-block:: bash
 
@@ -126,7 +130,7 @@ MADmin
 
       SSLEngine on
       SSLCertificateKeyFile /etc/letsencrypt/live/example.com/privkey.pem
-      SSLCertificateFile /etc/letsencrypt/live/example.com/cert.pem
+      SSLCertificateFile /etc/letsencrypt/live/example.com/fullchain.pem
 
       ErrorLog ${APACHE_LOG_DIR}/madmin_error.log
       CustomLog ${APACHE_LOG_DIR}/madmin_access.log combined
@@ -136,6 +140,8 @@ RGC
 ---
 
 Please install the websocket apache module: :code:`a2enmod proxy_wstunnel`
+
+RGC URL: :code:`https://rgc.example.com`
 
 .. code-block:: bash
 
@@ -147,7 +153,7 @@ Please install the websocket apache module: :code:`a2enmod proxy_wstunnel`
 
       SSLEngine on
       SSLCertificateKeyFile /etc/letsencrypt/live/example.com/privkey.pem
-      SSLCertificateFile /etc/letsencrypt/live/example.com/cert.pem
+      SSLCertificateFile /etc/letsencrypt/live/example.com/fullchain.pem
 
       ErrorLog ${APACHE_LOG_DIR}/rgc_error.log
       CustomLog ${APACHE_LOG_DIR}/rgc_access.log combined
@@ -155,6 +161,8 @@ Please install the websocket apache module: :code:`a2enmod proxy_wstunnel`
 
 PogoDroid
 ---------
+
+PogoDroid URL: :code:`https://pd.example.com`
 
 .. code-block:: bash
 
@@ -166,12 +174,23 @@ PogoDroid
 
       SSLEngine on
       SSLCertificateKeyFile /etc/letsencrypt/live/example.com/privkey.pem
-      SSLCertificateFile /etc/letsencrypt/live/example.com/cert.pem
+      SSLCertificateFile /etc/letsencrypt/live/example.com/fullchain.pem
 
       ErrorLog ${APACHE_LOG_DIR}/pd_error.log
       CustomLog ${APACHE_LOG_DIR}/pd_access.log combined
   </VirtualHost>
 
+
+Further Steps
+=============
+
+If you have successfully secured your MAD setup with SSL proxies, you can now change the IPs from the three ports (MADmin, RGC and PogoDroid) to localhost. MAD opens up those ports by default on :code:`0.0.0.0` which means every network interface. But since we are using a webserverproxy, those ports don't need to be exposed on a different interface than localhost:
+
+.. code-block:: bash
+
+  ws_ip: localhost
+  mitmreceiver_ip: localhost
+  madmin_ip: localhost
 
 General Security Advices
 ========================
