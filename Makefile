@@ -2,10 +2,12 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = python3 -msphinx
-SOURCEDIR     = .
-BUILDDIR      = _build
+SPHINXOPTS      ?=
+SPHINXBUILD     ?= python3 -msphinx
+SPHINXAUTOBUILD ?= sphinx-autobuild
+SPHINXAUTOOPTS  ?= -H 0.0.0.0
+SOURCEDIR       ?= .
+BUILDDIR        ?= _build
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -20,8 +22,8 @@ help:
 
 .PHONY: clean-auto
 clean-auto:
-	rm -rf _build/*
+	rm -rf "$(BUILDDIR)"/*
 
 .PHONY: auto
 auto:
-	sphinx-autobuild . _build -H 0.0.0.0
+	@$(SPHINXAUTOBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXAUTOOPTS)
