@@ -2,15 +2,15 @@
 
 ## General
 
-### How many Mon/Quests/Raids can i scan with one device?
+### How many Mon/Quests/Raids can I scan with one device?
 
-Nobody can tell that. That depends on your area e.g the amount of spawnpoints/stops/gyms in that area and the distance between them. Start with a small area, increase it over time and see how much is possible.
+Nobody can tell you that. That depends on your area e.g the amount of spawnpoints/stops/gyms in that area and the distance between them. Start with a small area, increase it over time and see how much is possible.
 
 Rule of thumb: while moving, the game requests data every 10 seconds. So it takes *at least* 10 seconds per location to scan for data. An area with 150 coordinates takes roughly 25 minutes to scan for single device.
 
 ### Is it planned to see gym defenders + trainers in gyms?
 
-No. Definetly not. To avoid drama *and* privacy concerns the main MAD developers decided leave out this kind of information from gym data.
+No. Definitely not. To avoid drama *and* privacy concerns the main MAD developers decided leave out this kind of information from gym data.
 
 
 ## MAD
@@ -19,11 +19,11 @@ No. Definetly not. To avoid drama *and* privacy concerns the main MAD developers
 
 PogoDroid can't fetch this kind of information automatically in init mode. The game simply doesn't submit this information without clicking stops or gyms. You can either run quest mode to get the stop names and / or use the [intelimport.sh](../extras/scripts/#intel-importer-intelimport-sh) script to import those names and pictures from Ingress.
 
-### How can i check if MAD receives data?
+### How can I check if MAD receives data?
 
 If you see a green SUCCESS line with "Processing GMO" in it, then leave it alone - it's working!
 
-### Can i use multiple area fences in one area?
+### Can I use multiple area fences in one area?
 
 Yes. Just add the second area to the same geofence like this:
 
@@ -40,11 +40,11 @@ Yes. Just add the second area to the same geofence like this:
 
 Check your `pogoasset` config in `configs/config.ini` and use a full path (starting with `/`) instead of a relative path.
 
-### How can i regenerate a route?
+### How can I regenerate a route?
 
 To renerate a route just hit the blue 🔄 button in the area section of MADmin.
 
-### How can i remove Eventspawnpoints?
+### How can I remove Eventspawnpoints?
 
 Nia sometimes activates more spawnpoints for Community Day or other events. You shoud delete them after the event has ended so MAD will not consider them in the routecalc or PrioQ.
 
@@ -55,7 +55,7 @@ Fill in a Date which is shortly after the event started but keep the `%`.
 
 If you want, you can backup those spawns and just temporary insert them for the events. (Google "mysqldump" if you want to know how)
 
-### How can i rescan quests?
+### How can I rescan quests?
 
 Delete the quests from the `trs_quest` table and restart MAD. 
 
@@ -63,7 +63,7 @@ Delete the quests from the `trs_quest` table and restart MAD.
 TRUNCATE TABLE trs_quest;
 ```
 
-### How can i resend webhooks?
+### How can I resend webhooks?
 
 Start MAD with `--webhook_start_time` and the [epoch](https://en.wikipedia.org/wiki/Unix_time) start timestamp. You may want to add `--webhook_max_payload_size` as well to not overload your webhook receiver. 
 
@@ -77,7 +77,7 @@ python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_m
 
 ### My character is stuck in the ocean and it's not moving
 
-If you dont have a red GPS error at the top it means that RGC is working but didn't get any commands from the MAD server.
+If you don't have a red GPS error at the top it means that RGC is working but didn't get any commands from the MAD server.
 
 - Check if your phone registered to the MAD server. The log line should look like this: `[INFO] Client ORIGINNAME registering`
 - Check if that phone has something to do according to your MADmin settings. Have a look at your MAD logs for that.
@@ -96,14 +96,14 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 
 ### How do Spawnpoints work?
 
-Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. If MAD does not have that information yet, it'll defaults to 3 Minutes. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
+Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. If MAD does not have that information yet, it'll default to 3 Minutes. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
 
 ### Quest mode doesn't click anything on the screen
 
 - Check if you are using a correct Magisk version. 19.1, 19.2 and sometimes 19.3 blocking RGC to click on the screen. 19.0 will work just fine.
 - Check if you have a [navigation bar](https://material.io/design/platform-guidance/android-bars.html#android-navigation-bar) on your screen. If yes: disable it with this adb command: `adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`. It will then be hidden in the game.
 
-### Should i be worried about the popups on the phone?
+### Should I be worried about the popups on the phone?
 
 Popups from PoGo like "You are moving too fast" and "Dont drink and drive" doesn't matter except for quest scanning. But MAD will handle them.
 
@@ -167,7 +167,7 @@ service mysqld restart
 /etc/init.d/mysql restart
 ```
 
-### What's the difference betwen these scanning modes?
+### What's the difference between these scanning modes?
 
 MITM is short for "Man In The Middle". PogoDroid will inject into the running game process to read the data which is received from the game server.
 
