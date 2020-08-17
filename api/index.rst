@@ -78,6 +78,14 @@ Status Codes
 * 412: A dependency failed validation.  Refer to the body for a list of failed dependencies (list of objects containing uri / display_name).
 * 422: An error occured while creating the resource.  Refer to the body for the errors
 
+`MAD APKs <api/apks/api>`_
+^^^^^^^^^^^^^^^^^^^^^^^^
+MAD APKs allows an administrator to store APKs in the MAD Database to be used for the API or SmartJobs.  Available endpoints are available on the MAD APK Page
+
+`Origin Hopper <api/origin_hopper>`_
+^^^^^^^^^^^^^^^^^^^^^^^^
+Origin Hopper allows for rapid deployment of new devices into a MAD environment.  It will generate an origin and create the device within MAD.  This functionality is only available through the PogoDroid / MITM Receiver port.
+
 Resources
 ^^^^^^^^^
 
