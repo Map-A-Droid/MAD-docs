@@ -4,11 +4,11 @@ Security
 
 There are several ways to improve a MAD setup in terms of security.
 
-The three ports used by MAD (defaults are 5000 for MADmin, 8080 for RGC and 8000 for PogoDroid) are running on every network interface by default. That means that every IP address or domain pointing to your server will listen on those ports. Those connections are unencrypted and readable by everyone that can access them between you and your server. But luckely, every connnection can be SSL encrypted with a reverse proxy.
+The three ports used by MAD (defaults are 5000 for MADmin, 8080 for RGC and 8000 for PogoDroid) are running on every network interface by default. That means that every IP address or domain pointing to your server will listen on those ports. Those connections are unencrypted and readable by everyone that can access them between you and your server. But luckily, every connection can be SSL encrypted with a reverse proxy.
 
 `NGINX <http://nginx.org/en/docs/beginners_guide.html>`_ and `Apache2 <https://gridscale.io/en/community/tutorials/apache-server-reverse-proxy-ubuntu/>`_ are the most common used webservers that can proxy. You decide which one to use, both can do the same things when it comes to MAD.
 
- It's adviced to use proper SSL certifcates and not sign them by yourself. Let's Encrypt is a great option for that. Read about `certbot here <https://certbot.eff.org>`_ to find out how to use it.
+It's advised to use proper SSL certificates and not sign them by yourself. Let's Encrypt is a great option for that. Read about `certbot here <https://certbot.eff.org>`_ to find out how to use it.
 
 NGINX
 =====
@@ -23,7 +23,7 @@ For our examples we will use the following:
 - We wish to proxy the RGC traffic to :code:`example.com/rgc`
 - We wish to proxy the PogoDroid traffic to :code:`example.com/pd`
 - The FQDN (Domain) we are using is :code:`example.com`
-- SSL Ceritificate is located at :code:`/etc/letsencrypt/live/example.com/cert.pem`
+- SSL Certificate is located at :code:`/etc/letsencrypt/live/example.com/cert.pem`
 - SSL Certificate Key is located at :code:`/etc/letsencrypt/live/example.com/privkey.pem`
 
 SSL
@@ -33,13 +33,13 @@ Every proxy endpoint will be encrypted with SSL, make sure to adjust the path:
 
 .. code-block:: bash
 
-  ssl_certificate /etc/letsencrypt/live/example.com/cert.pem; 
-  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem; 
+  ssl_certificate /etc/letsencrypt/live/example.com/cert.pem;
+  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
 MADmin
 ------
 
-The reverse proxy relies on the header, :code:`X-Script-Name`, to inform MADmin on how to construct the URIs. 
+The reverse proxy relies on the header, :code:`X-Script-Name`, to inform MADmin on how to construct the URIs.
 
 MADmin URL: :code:`https://example.com/madmin`
 
@@ -105,7 +105,7 @@ For our examples we will use the following:
 - We wish to proxy the RGC traffic to :code:`rgc.example.com`
 - We wish to proxy the PogoDroid traffic to :code:`pd.example.com`
 - The FQDN (Domain) we are using is :code:`example.com`
-- SSL Ceritificate is located at :code:`/etc/letsencrypt/live/example.com/cert.pem`
+- SSL Certificate is located at :code:`/etc/letsencrypt/live/example.com/cert.pem`
 - SSL Certificate Key is located at :code:`/etc/letsencrypt/live/example.com/privkey.pem`
 
 Make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled (:code:`a2enmod proxy proxy_http`).
@@ -184,7 +184,7 @@ PogoDroid URL: :code:`https://pd.example.com`
 Further Steps
 =============
 
-If you have successfully secured your MAD setup with SSL proxies, you can now change the IPs from the three ports (MADmin, RGC and PogoDroid) to localhost. MAD opens up those ports by default on :code:`0.0.0.0` which means every network interface. But since we are using a webserverproxy, those ports don't need to be exposed on a different interface than localhost:
+If you have successfully secured your MAD setup with SSL proxies, you can now change the IPs from the three ports (MADmin, RGC and PogoDroid) to localhost. MAD opens up those ports by default on :code:`0.0.0.0` which means every network interface. But since we are using a webserver proxy, those ports don't need to be exposed on a different interface than localhost:
 
 .. code-block:: bash
 
@@ -192,19 +192,19 @@ If you have successfully secured your MAD setup with SSL proxies, you can now ch
   mitmreceiver_ip: localhost
   madmin_ip: localhost
 
-General Security Advices
+General Security Advice
 ========================
 
-Here are some security advices that are not only related to MAD but to servers and software hosting in general. 
+Here is some security advice that is not only related to MAD but to servers and software hosting in general.
 
 - Don't run MAD inside a webhosted directory like :code:`/var/www/html`.
-- MAD does not need root privileges to run. Start it as a normal user. The only programs that needs root are your webserver and your database.
-- Don't use same or similar passwords. A `passwordmanager <https://keepass.info/>`_ can be useful for that.
+- MAD does not need root privileges to run. Start it as a normal user. The only programs that need root are your webserver and your database.
+- Don't use the same or similar passwords. A `password manager <https://keepass.info/>`_ can be useful for that.
 
 Firewall
 --------
 
-It's always a good idea to open as few ports as possible. In MADs case thats only 22 for SSH (even that is not 100% necessary in some cases), 80 and 443 for a Webserver if you are proxying everything. Read more about :code:`iptables` `here <https://www.hostinger.com/tutorials/iptables-tutorial>`_.
+It's always a good idea to open as few ports as possible. In MADs case that's only 22 for SSH (even that is not 100% necessary in some cases), 80 and 443 for a Webserver if you are proxying everything. Read more about :code:`iptables` `here <https://www.hostinger.com/tutorials/iptables-tutorial>`_.
 
 SSH Authentication
 ------------------
