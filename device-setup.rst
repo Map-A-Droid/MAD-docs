@@ -8,9 +8,9 @@ Android phones
 You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and Remote GPS Controller (RGC) installed.
 
 .. note:: 
-  If you have an :ref:`ATV <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
+  If you have an :ref:`Android TV (ATV) <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
 
-#. Install TWRP
+#. Install Team Win Recovery Project (TWRP)
 #. Install Magisk
 #. Install the game
 #. Install and configure RemoteGPSController and PogoDroid
@@ -29,7 +29,7 @@ Always check the exact version of the device, some versions do not work with som
 Once you have Lineage installed and the Google Apps with the Play Store, move on to root your device with Magisk.
 
 .. note::
-  Your Android ROM needs to pass Android's Safetynet check. Make sure to test it via `this app <https://play.google.com/store/apps/details?id=com.scottyab.safetynet.sample>`_ before you continue. Usually official LineageOS ROMs do pass the check.
+  Your Android ROM needs to pass Android's SafetyNet check. Make sure to test it via `this app <https://play.google.com/store/apps/details?id=com.scottyab.safetynet.sample>`_ before you continue. Usually official LineageOS ROMs do pass the check.
 
 Magisk
 ^^^^^^
@@ -37,7 +37,7 @@ Magisk
   There is currently a bug in the very latest Magisk version that prevents our apps from clicking on the screen (which is needed for several scanning modes). Use Magisk 19.0 or lower to avoid this!
 
 .. warning::
-  The hideoption with Magiskversion **20.4** is not activated by default. Please activate that function by yourself in the magisk settings first!
+  The hideoption with Magisk version **20.4** is not activated by default. Please activate that function by yourself in the magisk settings first!
 
 #. Install `Magisk <https://www.xda-developers.com/how-to-install-magisk>`_ to root the device via recovery. Download it `here <https://github.com/topjohnwu/Magisk/releases>`_
 #. Repackage the MagiskManager App and make sure to delete the folder "/sdcard/MagiskManager" after repackaging. If its not present, you are good to go.
@@ -146,7 +146,7 @@ Final Steps
 AndroidTV
 =========
 
-Android TV (ATV) boxes becoming more popular in the mapping scene. They are cheap and without a battery. The MAD team developed customized Android images based on `atvXperience <https://atvxperience.com>`_. These images are almost fully automated and easy to setup.
+Android TV (ATV) boxes becoming more popular in the mapping scene. They are cheap and come without a battery. The MAD team developed customized Android images based on `atvXperience <https://atvxperience.com>`_. These images are almost fully automated and easy to setup.
 
 What to buy?
 -----------------------
@@ -156,7 +156,7 @@ Have a look at our `device list <https://github.com/Map-A-Droid/MAD-device-list>
 What to install?
 -------------------------------------
 
-We've created a new repository with it's own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
+We've created a new repository with its own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
 
 
 Updating
