@@ -43,13 +43,14 @@ Guide
 
 .. toctree::
   :glob:
-
+  
   requirements
   server-setup
   device-setup
   security
   mad-jobs
   integrations
-  extras/*
+  extras/index
+  api/index
   faq
-  api/*
+

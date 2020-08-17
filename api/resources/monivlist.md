@@ -1,4 +1,4 @@
-# monivlist
+# Monivlist
 
 The following definition is available for Mon IV Lists resources
 
