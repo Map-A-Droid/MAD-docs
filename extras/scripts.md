@@ -15,11 +15,11 @@ Example: `./intelimport.sh export.csv`.
 
 ## Databasesetup (databasesetup.py)
 
-This script will take care of the database schema installation automatically so for example there is no need to install a whole Rocketmap frontend to just use the schema. Make sure to fill in the database credentials in the MAD `config.ini`, create an empty database and grant all permissions to the database user before running this script.
+This script will take care of the database schema installation automatically so for example there is no need to install a whole RocketMAD frontend to just use the schema. Make sure to fill in the database credentials in the MAD `config.ini`, create an empty database and grant all permissions to the database user before running this script.
 
-## Migrate to Rocketmap (migrate_to_rocketmap.sh)
+## Migrate to RocketMAD (migrate_to_rocketmap.sh)
 
-This script will migrate your data from a RDM or Monocle database to a Rocketmap database. Before you run this you should run [RocketMAD](https://github.com/cecpk/Rocketmad) or `databasesetup.py` and let it configure its database. After it has built its empty database you can run this script. If you were using Monocle with MAD spawnpoints do not change, so I dump that table from your monocle db and import it to your rocketmap db for you. If you have old spawnpoint info from before MAD then you want to use import_allspawns.sh as well. This script does not import things like controlling team/mons, or ex status, because MAD will fill this in after 1 scan.
+This script will migrate your data from an RDM or Monocle database to a RocketMAD database. Before you run this you should run [RocketMAD](https://github.com/cecpk/Rocketmad) or `databasesetup.py` and let it configure its database. After it has built its empty database you can run this script. If you were using Monocle with MAD spawnpoints do not change, so I dump that table from your monocle db and import it to your rocketmap db for you. If you have old spawnpoint info from before MAD then you want to use import_allspawns.sh as well. This script does not import things like controlling team/mons, or ex status, because MAD will fill this in after 1 scan.
 
 If you were already scanning in MAD using your Monocle database, be sure to remove version.json so MAD will update your new rocketmap schema.
 

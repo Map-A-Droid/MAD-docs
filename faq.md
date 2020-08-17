@@ -80,7 +80,7 @@ python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_m
 If you dont have a red GPS error at the top it means that RGC is working but didn't get any commands from the MAD server.
 
 - Check if your phone registered to the MAD server. The log line should look like this: `[INFO] Client ORIGINNAME registering`
-- Check if that phone has something to do according to your mappings. Have a look at your MAD logs for that.
+- Check if that phone has something to do according to your MADmin settings. Have a look at your MAD logs for that.
 
 ### PoGo (sometimes) says that my phone has an unsupported OS
 
@@ -96,7 +96,7 @@ That's nothing to worry about. It's the way Pogodroid can scan IV.
 
 ### How do Spawnpoints work?
 
-Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
+Mon are always spawning on the same spot. Those spots are called spawnpoints and each of them have a unique timer when they are active or not. If they are active, a mon is present for either 30 or 60 minutes. They act the same for every hour, so all thats important is the minute and second when the spawnpoint becomes active. That information can only be gathered in the last 90 seconds of an active spawn. If MAD does not have that information yet, it'll defaults to 3 Minutes. You can find more informations about that by clicking on a spawnpoint on the MADmin map. 
 
 ### Quest mode doesn't click anything on the screen
 
@@ -181,7 +181,7 @@ This mode is relying on already scanned and active mon in your DB (via `mon_mitm
 
 **pokestops**
 
-You can use this mode for two things. Quest scanning or leveling. Both require the OCR requirements being installed (python-pip packages, tesseract and opencv), no visible navigation bar (see [Phone Setup](http://https://mad-docs.readthedocs.io/en/latest/installation/phonesetup.html#final-steps)) and Magisk prior version 19.1. Magisk 19.1 and above won't work!
+You can use this mode for two things. Quest scanning or leveling. Both require the OCR requirements being installed (python-pip packages, tesseract and opencv), no visible navigation bar (see [Phone Setup](https://mad-docs.readthedocs.io/en/latest/device-setup/?highlight=navigation#final-steps)) and Magisk prior version 19.1. Magisk 19.1 and above won't work!
 
 Quest scanning will walk on a pre-calculated route to every stop and spin it. When the area is set to `coords` in the walker, MAD will check every other stop in the area (even those who are not on the route). Those stops will be processed after the first round. This process will repeat itself three times. MAD is able to determinate the exact mon encounter and item type when picking up the quest.
 
