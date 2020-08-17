@@ -5,7 +5,7 @@ Device setup
 Android phones
 ==============
 
-You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and RGC installed.
+You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and Remote GPS Controller (RGC) installed.
 
 .. note:: 
   If you have an :ref:`ATV <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
@@ -179,11 +179,11 @@ Download APK to the Device
 
 Download the APK via the built in browser to your device and install it.
 
-Update Wizzard
+Update Wizard
 --------------
 
 .. warning::
  
  This is a beta feature and may not work properly for you. If that's the case, feel free to `report it <https://github.com/Map-A-Droid/MAD/issues/new>`_ in the MAD GitHub.
 
-Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizzard button to update the devices.
+Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizard button to update the devices.
