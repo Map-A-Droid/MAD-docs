@@ -127,11 +127,16 @@ and edit the config file accordingly.
 
 The next step is to configure MAD in config mode. This will only start MAD's web frontend called MADmin.
 
+.. warning::
+ MAD will not actually scan in configmode! The mode is for the first configuration only. Remove the :code:`-cm` when you are done.
+
 .. code-block:: bash
 
   python3 start.py -cm
 
 By default MADmin will be available on http://your_server_ip:5000. 
+
+Uncomment :code:`with_madmin` in config.ini to start MADmin without using :code:`-cm`.
 
 Geofences
 ---------
@@ -164,111 +169,10 @@ If everything is set up correctly, you can start MAD:
 
   python3 start.py
 
-Deploying behind a Reverse Proxy
-================================
+Further steps
+-------------
 
-.. note::
-  Using a Reverse Proxy is strongly recommended but not required.
-
-MAD supports being run behind a Reverse Proxy.  
-
-NGINX
------
-
-The reverse proxy relies on the header, :code:`X-Script-Name`, to inform MADmin on how to construct the URIs.  For our examples we will use the following:
-
-- Using NGINX as our reverse proxy
-- MADmin runs on localhost
-- MADmin uses port 5000
-- We wish to access the site at '/madmin'
-- The FQDN we are using to access MADmin is 'mapadroid.local'
-- We only want files 200MB or less to be uploaded
-- SSL Ceritificate is located at /etc/ssl_cert.crt
-- SSL Certificate Key is located at /etc/ssl_key.pem
-
-Configuring HTTP
-^^^^^^^^^^^^^^^^
-MADmin URL: :code:`http://mapadroid.local/madmin`
-
-.. code-block:: bash
-
-  server {
-      listen 80;
-      server_name mapadroid.local;
-
-      location ~ /madmin(.*)$ {
-          proxy_set_header X-Real-IP  $remote_addr;
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto http;
-          proxy_set_header X-Script-Name /madmin;
-          proxy_set_header Host $host;
-          proxy_pass http://localhost:5000$1$is_args$args;
-          client_max_body_size 200M;
-      }
-  }
-
-Configuring HTTPS
-^^^^^^^^^^^^^^^^^
-MADmin URL: :code:`https://mapadroid.local/madmin`
-
-.. code-block:: bash
-
-  server {
-      listen 443 ssl;
-      ssl_certificate /etc/ssl_cert.crt;
-      ssl_certificate_key /etc/ssl_key.pem;
-      server_name mapadroid.local;
-
-      location ~ /madmin(.*)$ {
-          proxy_set_header X-Real-IP  $remote_addr;
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto https;
-          proxy_set_header X-Script-Name /madmin;
-          proxy_set_header Host $host;
-          proxy_pass http://localhost:5000$1$is_args$args;
-          client_max_body_size 200M;
-      }
-  }
-
-Apache2
--------
-Apache does a lot already automatically, but make sure that the module :code:`proxy` and :code:`rewrite` is installed and enabled. This following config shows a setup where every http request will be redirected to https. And the https vhost is forwading the request to MADmin.
-
-If no SSL is needed, paste the two lines starting with `Proxy` to the first code block and delete 443 vhost block plus the rewrite block in the first block.
-
-.. code-block:: bash
-
-  <VirtualHost *:80>
-
-          ProxyPreserveHost On
-          ProxyRequests Off
-          ServerName madmin.example.com
-
-          ErrorLog ${APACHE_LOG_DIR}/madmin_error.log
-          CustomLog ${APACHE_LOG_DIR}/madmin_access.log combined
-
-          <IfModule mod_rewrite.c>
-                  RewriteEngine On
-                  RewriteCond %{HTTPS} off
-                  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-          </IfModule>
-  </VirtualHost>
-  <VirtualHost *:443>
-
-      ProxyPreserveHost On
-      ProxyRequests Off
-
-      ServerName madmin.example.com
-      ProxyPass / http://localhost:5000/
-      ProxyPassReverse / http://localhost:5000/
-
-      SSLEngine on
-      SSLCertificateKeyFile /etc/ssl_key.pem
-      SSLCertificateFile /etc/ssl_cert.crt
-
-      ErrorLog ${APACHE_LOG_DIR}/madmin_error.log
-      CustomLog ${APACHE_LOG_DIR}/madmin_access.log combined
-  </VirtualHost>
+MAD supports being run behind a Reverse Proxy, have a look at the `security section <../security>`_
 
 
 Docker
@@ -302,7 +206,7 @@ Setup MAD and RocketMAD database.
 In this section we explain how to setup MAD and a RocketMAD database using docker-compose.
 
 Preparations
-----------------
+------------
 
 You can just copy & paste this to do what is written below:
 
@@ -359,7 +263,7 @@ You should align this setting with you available memory. It should probably not 
 
 
 Decrease VM swappiness
--------------------------------
+----------------------
 .. code-block:: bash
 
   sysctl -w vm.swappiness=1
@@ -420,7 +324,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
 The docker-compose file defines a set of services.
 
 "mad" service
------------------
+-------------
 
 The "mad" service is a docker-container based on the image `mapadroid/map-a-droid <https://hub.docker.com/r/mapadroid/map-a-droid>`_ , which is automatically built by dockerhub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/Dockerfile>`_.
 
@@ -438,7 +342,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 * We publish these ports and map them on ports of our host. So e.g. http://your-domain.com:8080 will point to port 8080 of the container, 8000 to 8000 and 5000 to 5000. In this case in RGC you would put http://your-domain.com:8080 as target, in pogodroid http://your-domain.com:8000 and madmin would be reachable under http://your-domain.com:5000.
 
 "rocketdb" service
--------------------
+------------------
 
 The "rocketdb" service is docker-container based on `mariadb:10.4 <https://hub.docker.com/_/mariadb>`.
 It will start a mariadb database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
@@ -590,7 +494,7 @@ Make sure to re-build the container after updating PMSF: :code:`docker-compose b
   
 
 Using Traefik 2 as router 
----------------
+-------------------------
 
 If you use Docker, we recommend to use Traefik 2 as router. It is easy to configure, easy to use and it handles alot of things for you, 
 like SSL certificates, service discovery, load balancing. 
