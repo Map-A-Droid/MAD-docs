@@ -155,7 +155,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 
 * The volumes define what is mounted into the docker-container.
 * On one hand we mount the **configuration file (config.ini)**.
-* On the other hand we "mount out" the **files/directories produced by MAD**, such as the directory "logs" and also the "files" directory, which contains all position files and stats. As usual, volumes are needed for everything **you do not want to loose** after you take the docker-container down.
+* On the other hand we "mount out" the **files/directories produced by MAD**, such as the directory "logs" and also the "files" directory, which contains all position files and stats. As usual, volumes are needed for everything **you do not want to lose** after you take the docker-container down.
 
 **Ports:**
 
