@@ -27,10 +27,19 @@ html_title = 'Map-A-Droid Documentation'
 html_logo = "_static/mad_banner_trans.png"
 html_theme_options = {
     'project_nav_name': 'Map-A-Droid',
-    'globaltoc_depth': 2,
+    'globaltoc_depth': 4,
     'globaltoc_collapse': True
     }
 html_sidebars = {
   '**': ['logo-text.html', 'searchbox.html', 'globaltoc.html']
 }
 
+# Define any toctree depth overrides that needs to be customized on a page
+custom_depths = {
+    'installation/security/index': 2,
+    'faq': 2
+}
+
+html_context = {
+    'custom_depths': custom_depths
+}
