@@ -1,14 +1,8 @@
-============
-Device setup
-============
-
-Android phones
-==============
+===============
+Android Device
+===============
 
 You need a device that is rooted with Magisk, Smali patched (optional, but recommended), PogoDroid and Remote GPS Controller (RGC) installed.
-
-.. note:: 
-  If you have an :ref:`Android TV (ATV) <androidtv>`, head over to the `MAD-ATV Page <https://github.com/Map-A-Droid/MAD-atv>`_ for install instructions.
 
 #. Install Team Win Recovery Project (TWRP)
 #. Install Magisk
@@ -60,7 +54,7 @@ The game
 Install the latest supported game version from the Play Store or download it from `apkmirror.com <https://www.apkmirror.com/apk/niantic-inc/pokemon-go/>`_. Make sure to add it in :menuselection:`Magisk Manager --> Magisk Hide`!
 
 Remote GPS Controller
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 `Download Remote GPS Controller (RGC) <https://github.com/Map-A-Droid/MAD/blob/master/APK/RemoteGpsController.apk>`_ first.
 
@@ -142,52 +136,3 @@ Final Steps
 #. Go into Android Settings, Developer Options, Stay Awake, make sure this setting is enabled. This will prevent the screen from locking even if pokemon go isn't running
 #. If you want to scan quests with that device make sure to hide the navigation bar for PoGo: :code:`adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`
 #. Before we finish, go inside of Magisk and run the Safetynet Check one last time. You need to see all green before proceeding
-
-AndroidTV
-=========
-
-Android TV (ATV) boxes becoming more popular in the mapping scene. They are cheap and come without a battery. The MAD team developed customized Android images based on `atvXperience <https://atvxperience.com>`_. These images are almost fully automated and easy to setup.
-
-What to buy?
-------------
-
-Have a look at our `device list <https://github.com/Map-A-Droid/MAD-device-list>`_. Keep in mind, this lists contains devices that have been tested by the community. There might be way more devices that work just fine.
-
-What to install?
-----------------
-
-We've created a new repository with its own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
-
-
-Updating
-========
-
-There a dozens of ways to update an APK on your device. Here are some common and easy ones:
-
-MADmin Job
-----------
-
-Upload the APK you want to install or update to MADmin via the Jobs --> Upload File menu. Start the job for the devices with the buttons on the right.
-
-ADB installation
-----------------
-
-Connect your device to a computer (either with USB or ADB via TCP) and run the update command: :code:`adb install -r app.apk`. 
-
-Download APK to the Device
---------------------------
-
-Download the APK via the built in browser to your device and install it.
-
-Update Wizard
---------------
-
-.. warning::
- 
- This is a beta feature and may not work properly for you. If that's the case, feel free to `report it <https://github.com/Map-A-Droid/MAD/issues/new>`_ in the MAD GitHub.
-
-Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizard button to update the devices.
-
-What next?
-----------
-If you're looking for ways to modify your ATV and enhance your setup (3D printed cases, alternate power supplies etc), see `PimpMyAtv <https://github.com/madBeavis/PimpMyAtv>`_ for more information.

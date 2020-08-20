@@ -1,4 +1,6 @@
-# Scripts
+########
+Scripts
+########
 
 Here is a collection of useful scripts found in the `scripts/` directory.
 

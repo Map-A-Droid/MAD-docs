@@ -47,7 +47,7 @@ Use :code:`upload_path` in config.ini to define the software folder for these AP
 
 :menuselection:`MADmin --> Jobs --> Upload File`
 
-.. image:: _static/jobs/MADmin_File_Upload.png
+.. image:: /_static/jobs/MADmin_File_Upload.png
 
 Select APK and Upload it.
 
@@ -157,7 +157,7 @@ MAD starts the top most job and will schedule the memory usage readout with a de
 .. hint::
   If one of the jobs results in an error, following jobs will be canceled.
 
-.. image:: _static/jobs/MADmin_nested_jobs_monitor.png
+.. image:: /_static/jobs/MADmin_nested_jobs_monitor.png
   :width: 100%
 
 Discord integration
@@ -177,6 +177,6 @@ MAD is able to submit a job's state to Discord.
 
 Examples:
 
-.. image:: _static/jobs/Jobs_DT_job1.png
-.. image:: _static/jobs/Jobs_DT_job2.png
-.. image:: _static/jobs/Jobs_DT_job3.png
+.. image:: /_static/jobs/Jobs_DT_job1.png
+.. image:: /_static/jobs/Jobs_DT_job2.png
+.. image:: /_static/jobs/Jobs_DT_job3.png
