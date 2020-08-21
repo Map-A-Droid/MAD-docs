@@ -17,4 +17,4 @@ The 32-bit ROM supports manual and semi-automatic configuration. Both configurat
 
 64-bit
 --------
-The 64bit ROM supports manual and automatic configuration. Both configuration process will automatically install Magisk (Smali is not required as its built into the ROM). The recommend installation configuration path is using the Auto-Configuration wizard.  Refer to ##TODO LINK WIZARD##
+The 64bit ROM supports manual and automatic configuration. Both configuration process will automatically install Magisk (Smali is not required as its built into the ROM). The recommend installation configuration path is using the :ref:`Auto-Configuration wizard <sec_auto_conf>`.
