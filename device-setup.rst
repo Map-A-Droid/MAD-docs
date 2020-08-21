@@ -60,7 +60,7 @@ The game
 Install the latest supported game version from the Play Store or download it from `apkmirror.com <https://www.apkmirror.com/apk/niantic-inc/pokemon-go/>`_. Make sure to add it in :menuselection:`Magisk Manager --> Magisk Hide`!
 
 Remote GPS Controller
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 `Download Remote GPS Controller (RGC) <https://github.com/Map-A-Droid/MAD/blob/master/APK/RemoteGpsController.apk>`_ first.
 
@@ -149,12 +149,12 @@ AndroidTV
 Android TV (ATV) boxes becoming more popular in the mapping scene. They are cheap and come without a battery. The MAD team developed customized Android images based on `atvXperience <https://atvxperience.com>`_. These images are almost fully automated and easy to setup.
 
 What to buy?
------------------------
+------------
 
 Have a look at our `device list <https://github.com/Map-A-Droid/MAD-device-list>`_. Keep in mind, this lists contains devices that have been tested by the community. There might be way more devices that work just fine.
 
 What to install?
--------------------------------------
+----------------
 
 We've created a new repository with its own wiki and download links `MAD-ATV <https://github.com/Map-A-Droid/MAD-ATV>`_.
 
@@ -187,3 +187,7 @@ Update Wizard
  This is a beta feature and may not work properly for you. If that's the case, feel free to `report it <https://github.com/Map-A-Droid/MAD/issues/new>`_ in the MAD GitHub.
 
 Go to MADmin --> System --> MADmin APKs and upload the APK. Hit the turquoise wizard button to update the devices.
+
+What next?
+----------
+If you're looking for ways to modify your ATV and enhance your setup (3D printed cases, alternate power supplies etc), see `PimpMyAtv <https://github.com/madBeavis/PimpMyAtv>`_ for more information.
