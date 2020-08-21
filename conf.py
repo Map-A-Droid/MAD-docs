@@ -37,7 +37,9 @@ html_sidebars = {
 # Define any toctree depth overrides that needs to be customized on a page
 custom_depths = {
     'installation/security/index': 2,
-    'faq': 2
+    'faq': 2,
+    'madmin/index': 2,
+    'madmin/auto_config': 3
 }
 
 html_context = {

@@ -2,8 +2,11 @@
 Integrations
 ============
 
-Maps
-====
+
+.. _sec_frontends:
+
+Frontends
+====================
 
 RocketMAD
 -------------

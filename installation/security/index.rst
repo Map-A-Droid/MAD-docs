@@ -18,7 +18,6 @@ The current proxies have configuration examples:
 .. toctree::
   :maxdepth: 1
   :hidden:
-  :titlesonly:
 
   reverse_proxy/index
 
@@ -28,6 +27,5 @@ For general security refer to :ref:`sec_sec_gen`.
 .. toctree::
   :maxdepth: 1
   :hidden:
-  :titlesonly:
 
   general_security
