@@ -1,8 +1,8 @@
-==========
-MADmin API
-==========
+====
+API
+====
 
-A restful API has been created for interacting with MADmin settings. This will standardize how MADmin and users will interact with the data to allow for a more consistent workflow between the two.
+A restful API has been created for interacting with MAD. This will standardize how MADmin and users can interact with the data to allow for a more consistent workflow between the two.
 
 .. toctree::
   :glob:

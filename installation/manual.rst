@@ -13,9 +13,9 @@ MAD requires the following things to be installed available on your server:
 
 - A server/computer running Linux. RaspberryPis do work, but aren't recommended
 - A 64-bit CPU for MAD is also highly recommended since some optional parts of MAD do require to run on 64-bit. It does have a fallback for 32-bit CPUs though
-- MariaDB server (MySQL has some issues and is not recommended)
+- MariaDB server
 - Python 3.6 (or higher) and Python's package manager command line tool :code:`pip`. Current tested and working versions are 3.6, 3.7 and 3.8.
-- It's not required but highly recommended to use Python's :code:`virtualenv` to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
+- Use a :code:`virtualenv` to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
 
 .. _sec_manual_system_prep:
 
@@ -28,12 +28,12 @@ System preparation
 
 .. _sec_manual_database:
 
-MySQL / MariaDB
-------------------
+MariaDB
+---------
 
-You need a Database with full permissions. That DB can be located on a different Server, but needs to be accessible by your MAD server. Use MariaDB, no other database system is supported (MySQL kinda works, but doesn't support every feature).
+You need a Database with full permissions. That DB can be located on a different Server, but needs to be accessible by your MAD server.
 
-If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfrontend: use at least MySQL 8 or MariaDB 10.2 or higher!
+If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfrontend: use at least MariaDB 10.2 or higher!
 
 .. code-block:: bash
 
@@ -41,13 +41,14 @@ If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfro
   sudo apt install mariadb-server
   sudo mysql_secure_installation
 
-Log in to your Database and create a dedicated user for MAD (if you don't know how, check out `this tutorial <https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql>`_).
-
-Create a new database and grant permissions for your dedicated MAD database user:
+Log in to your Database and create a dedicated user for MAD. To create a new database and grant permissions for your
+dedicated MAD database user you must run the following command (make sure to change my_database_user and password to
+the correct values):
 
 .. code-block:: sql
 
   CREATE DATABASE my_database_name;
+  CREATE USER 'my_database_user'@'localhost' IDENTIFIED BY 'password';
   GRANT ALL PRIVILEGES ON my_database_name.* TO 'my_database_user'@'localhost';
   FLUSH PRIVILEGES;
 
@@ -66,10 +67,8 @@ Install client libraries
 Database schema
 ^^^^^^^^^^^^^^^^
 
-MAD will install the latest database schema automatically on initial boot and no additional steps are required. It will install the basic RocketMAD tables but may not be completely up to date. Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official RocketMAD documentation <https://rocketmad.readthedocs.io>`_.
+MAD will install the latest database schema automatically on initial boot and no additional steps are required. If you encounter any issues the up-to-date schema can be found `here <https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql>`_.
 
-.. warning::
- Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
 
 .. _sec_manual_python:
 
@@ -80,7 +79,7 @@ Since Ubuntu 18.04 does comes with a pre-installed python3.6 version but without
 
 .. code-block:: bash
 
-  apt install python3-pip
+  apt install python3-pip pip3-wheel
 
 Make sure you have the right version installed, since even if python3.6 is installed, the `python3` command could still point to `python3.5` or below!
 Check if `pip` and `python` is installed correctly by running:
@@ -92,10 +91,6 @@ Check if `pip` and `python` is installed correctly by running:
 
 Virtual Environment
 ^^^^^^^^^^^^^^^^^^^^
-
-.. note::
-
- This step is optional but highly recommended.
 
 A virtual environment is a way to install python packages in a different location to avoid potential version conflicts with other software like RocketMAD or MADevice. It's like a standalone version of python, independent of your "normal" python. Install it with:
 

@@ -1,7 +1,7 @@
 .. title:: MAD docs
 
 =========================
-Map-A-Droid Documentation
+Map'A'Droid Documentation
 =========================
 
 This is a collection of articles about setting up and running MAD.

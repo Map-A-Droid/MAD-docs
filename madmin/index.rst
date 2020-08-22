@@ -12,15 +12,15 @@ MADmin
   auto_config
   events
 
-MADmin is the front-end for Map'A'Droid and where you will configure the workers. MADmin is broken into several core
+MADmin is the administration portal for Map'A'Droid and where you will configure the workers. MADmin is broken into several core
 components which will be described below. This should not be a user-facing page as that should
 be handled by a frontend. More information on frontends can be found at :ref:`MAD Frontends<sec_frontends>`.
 
 Map
 ****
 
-View a map with the most up-to-date information from your system. The map allows you to draw new geofences on the
-system. To do this click on the polygon icon on the top-right of the map.
+View a map with the most up-to-date information from your system. The map allows you to draw eofences without ever leaving
+MADmin. To do this click on the polygon icon on the top-right of the map.
 
 
 Quests
