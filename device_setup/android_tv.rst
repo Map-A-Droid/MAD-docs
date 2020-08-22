@@ -16,5 +16,9 @@ Android TVs follow the same basic steps for configuration:
 The 32-bit ROM supports manual and semi-automatic configuration. Both configuration process will automatically install Magisk and Smali. Refer to `ATV Installation <https://github.com/Map-A-Droid/MAD-ATV/blob/master/README_installation.md>`_ for more information.
 
 64-bit
---------
+---------
 The 64bit ROM supports manual and automatic configuration. Both configuration process will automatically install Magisk (Smali is not required as its built into the ROM). The recommend installation configuration path is using the :ref:`Auto-Configuration wizard <sec_auto_conf>`.
+
+Additional Info
+================
+If you're looking for ways to modify your ATV and enhance your setup (3D printed cases, alternate power supplies etc), see `PimpMyAtv <https://github.com/madBeavis/PimpMyAtv>`_ for more information.
