@@ -2,7 +2,7 @@
 
 Area
 ======
-An area defines the scanning type and location that will occur.  For more information on scanning types can be found
+An area defines the scanning type and location that will occur. For more information on scanning types can be found
 `here </faq#what-s-the-difference-betwen-these-scanning-modes>`_.
 
 Dependencies:
@@ -78,15 +78,15 @@ to be encountered. MAD will encounter two per jump which is why setting the prio
 
 Pogo Auth
 ==========
-A PoGo Auth defines a way to login to Pokemon Go.  The auth is assigned to the device and used during
+A PoGo Auth defines a way to login to Pokemon Go. The auth is assigned to the device and used during
 :ref:`Auto-Configuration / Provisioning <sec_auto_conf>` of devices.
 
 Shared Setting
 ================
-A Shared Setting is a additional configuration that can be applied to a one or more devices.  These values are
+A Shared Setting is a additional configuration that can be applied to a one or more devices. These values are
 overwritten if set on the device configuration page.
 
 Walker
 ========
-A walker defines a group of areas on when they will run.  This allows a device to perform multiple different scanning
-types.  For example, a device can scan quests between 0200 - 0400 then switch to scanning pokemon.
+A walker defines a group of areas on when they will run. This allows a device to perform multiple different scanning
+types. For example, a device can scan quests between 0200 - 0400 then switch to scanning pokemon.

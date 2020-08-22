@@ -17,8 +17,8 @@ while rgc and PD are up-to-date. To update the packages you can click on the clo
 
 Smart Downloads
 ^^^^^^^^^^^^^^^^
-The wizard will perform smart-updates for PokemonGO.  For the package to update it must be supported by MAD (via
-addresses.json).  If the package is not supported it will not be downloaded.  This prevents MAD from having unsupported
+The wizard will perform smart-updates for PokemonGO. For the package to update it must be supported by MAD (via
+addresses.json). If the package is not supported it will not be downloaded. This prevents MAD from having unsupported
 versions of PokemonGO that cannot be used for with PogoDroid.
 
 Smart Jobs
@@ -38,5 +38,5 @@ prevents any invalid uploads that could cause devices to think they updated prop
 Reload / Refresh Wizard
 ------------------------
 The reload option allows multi-instance systems to refresh the currently downloaded package. Systems that use a shared
-database can click this once the package is downloaded on one system.  For systems that use the filesystem storage
+database can click this once the package is downloaded on one system. For systems that use the filesystem storage
 option they must share the same directory for the packages.

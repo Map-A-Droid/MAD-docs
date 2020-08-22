@@ -20,7 +20,7 @@ Map
 ****
 
 View a map with the most up-to-date information from your system. The map allows you to draw new geofences on the
-system.  To do this click on the polygon icon on the top-right of the map.
+system. To do this click on the polygon icon on the top-right of the map.
 
 
 Quests

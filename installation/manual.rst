@@ -66,7 +66,7 @@ Install client libraries
 Database schema
 ^^^^^^^^^^^^^^^^
 
-MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official RocketMAD documentation <https://rocketmad.readthedocs.io>`_.
+MAD will install the latest database schema automatically on initial boot and no additional steps are required. It will install the basic RocketMAD tables but may not be completely up to date. Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official RocketMAD documentation <https://rocketmad.readthedocs.io>`_.
 
 .. warning::
  Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
