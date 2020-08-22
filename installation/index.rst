@@ -8,9 +8,9 @@ It is important to think about how you will be securing MAD before you start you
 .. toctree::
   :maxdepth: 1
 
-  security/index
   manual
   docker
+  security/index
 
 To get a list of available arguments run
 
