@@ -8,7 +8,7 @@ This is a collection of articles about setting up and running MAD.
 
 What is this?
 =============
-Map-A-Droid (MAD) is a system to collect data from the game. It uses real Android devices. MAD is able to scan for raids, quests, mon and their IVs.
+Map'A'Droid (MAD) is a system to collect data from the game. It uses real Android devices. MAD is able to scan for raids, quests, mon and their IVs.
 
 
 .. _sec_root_mad:
