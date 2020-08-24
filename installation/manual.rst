@@ -142,13 +142,13 @@ Another but optional dependency you may want to install is `ortools <https://dev
 Configuration
 ^^^^^^^^^^^^^^
 
-Copy the example config file and rename it to "config.ini":
+Copy config.ini.example (from the configs folder in the MAD repo) to "config.ini" (also in the configs folder):
 
 .. code-block:: bash
 
   cp configs/config.ini.example configs/config.ini
 
-and edit the config file accordingly.
+and then edit the config file accordingly.
 
 The next step is to configure MAD in config mode. This will only start MAD's web frontend called MADmin.
 
