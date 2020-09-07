@@ -243,7 +243,7 @@ PMSF
             - ./PMSF/access-config.php:/var/www/html/config/access-config.php
             - ./PMSF/config.php:/var/www/html/config/config.php
         depends_on:
-            - rocket-db
+            - rocketdb
         networks:
             - default
         ports:
