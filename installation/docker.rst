@@ -1,185 +1,6 @@
-============
-Server setup
-============
-
-System preparation
-==================
-
-.. note::
-
-  This whole article assumes a fresh installed `Ubuntu 18.04 Server <https://www.ubuntu.com/download/server>`_. If you're running a more recent version of Ubuntu or another Linux distribution - that's totally fine, but keep in mind there may be some difference in your setup.
-
-
-MySQL / MariaDB
-===============
-
-You need a Database with full permissions. That DB can be located on a different Server, but needs to be accessible by your MAD server. Use MariaDB, no other database system is supported (MySQL kinda works, but doesn't support every feature).
-
-If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfrontend: use at least MySQL 8 or MariaDB 10.2 or higher!
-
-.. code-block:: bash
-
-  sudo apt update
-  sudo apt install mariadb-server
-  sudo mysql_secure_installation
-
-Log in to your Database and create a dedicated user for MAD (if you don't know how, check out `this tutorial <https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql>`_).
-
-Create a new database and grant permissions for your dedicated MAD database user:
-
-.. code-block:: sql
-
-  CREATE DATABASE my_database_name;
-  GRANT ALL PRIVILEGES ON my_database_name.* TO 'my_database_user'@'localhost';
-  FLUSH PRIVILEGES;
-
-Install client libraries
-------------------------
-.. code-block:: bash
-
-  sudo apt install default-libmysqlclient-dev
-
-.. TODO fix internan links
-
-Database schema
----------------
-
-MAD will install the latest database schema automatically on initial boot and no additional steps are required.  It will install the basic RocketMAD tables but may not be completely up to date.  Running RocketMAD for the first time should execute their required changes. Follow the guide from the `official RocketMAD documentation <https://rocketmad.readthedocs.io>`_. 
-
-.. warning::
- Make sure to clone the  `RocketMAD <https://github.com/cecpk/RocketMAD/>`_ fork instead of the normal one.
-
-Python
-======
-
-Since Ubuntu 18.04 does comes with a pre-installed python3.6 version but without a pip3 installation, run this command to install it:
-
-.. code-block:: bash
-
-  apt install python3-pip
-
-Make sure you have the right version installed, since even if python3.6 is installed, the `python3` command could still point to `python3.5` or below!
-Check if `pip` and `python` is installed correctly by running:
-
-- :code:`python3 --version` - should return 3.6.x
-- :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
-
-Virtual Environment
--------------------
-
-.. note::
-
- This step is optional but highly recommended. 
-
-A virtual environment is a way to install python packages in a different location to avoid potential version conflicts with other software like RocketMAD or MADevice. It's like a standalone version of python, independent of your "normal" python. Install it with:
-
-.. code-block:: bash
-
-  apt install python-virtualenv
-
-And create a new virtual environment called :code:`mad_env` in your home directory:
-
-.. code-block:: bash
-
-  virtualenv -p python3 ~/mad_env
-
-Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
-
-You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ link for more information.
-
-MAD
-===
-
-Next Step is to clone this repository and install all the required pip packages:
-
-.. code-block:: bash
-
-  git clone https://github.com/Map-A-Droid/MAD.git
-
-Change into in the directory of MAD and run:
-
-.. code-block:: bash
-
-  pip3 install -r requirements.txt
-
-MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
-
-.. code-block:: bash
-
-  sudo apt-get install tesseract-ocr python3-opencv
-
-Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`_. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as states in `the requirements <../requirements>`_ is, that you need a 64-bit server.
-
-.. code-block:: bash
-
-  pip3 install ortools
-
-Configuration
-=============
-
-Copy the example config file and rename it to "config.ini":
-
-.. code-block:: bash
-
-  cp configs/config.ini.example configs/config.ini
-
-and edit the config file accordingly.
-
-The next step is to configure MAD in config mode. This will only start MAD's web frontend called MADmin.
-
-.. warning::
- MAD will not actually scan in configmode! The mode is for the first configuration only. Remove the :code:`-cm` when you are done.
-
-.. code-block:: bash
-
-  python3 start.py -cm
-
-By default MADmin will be available on http://your_server_ip:5000. 
-
-Uncomment :code:`with_madmin` in config.ini to start MADmin without using :code:`-cm`.
-
-Geofences
----------
-
-First you want to add a geofence. You can do that by either drawing a fence on the map (use the icon on the top right corner) or pasting a list of coordinates (Settings --> Geofences).
-
-Areas
------
-
-Next step is to create an area. Go to Settings --> Areas and click on the green plus. Choose a mode you want to scan (Have a look at the different `scanning modes <../faq#what-s-the-difference-betwen-these-scanning-modes>`_) and fill in the settings.
-
-Walkers
--------
-
-Walkers are responsible for the assignment of the areas to the devices. If you just want a device on one area the whole time, create a walker and add that area with :code:`coords` set as walker mode.
-
-Devices
--------
-
-Add your device and assign it to the walker.
-
- Every other setting like :code:`Auth`, :code:`IV Lists` and :code:`Shared Settings` are optional.
-
-Running
-=======
-
-If everything is set up correctly, you can start MAD:
-
-.. code-block:: bash
-
-  python3 start.py
-
-Further steps
--------------
-
-MAD supports being run behind a Reverse Proxy, have a look at the `security section <../security>`_
-
-
+==============
 Docker
-======
-
-.. note::
-  This step is rather for advanced users. If you don't know anything about Docker, you probably want to ignore this step.
+==============
 
 .. warning::
   MAD's Docker support is community driven and untested by MAD's core developers!
@@ -380,52 +201,6 @@ Take a look at the logs:
 
 and verify that the database was initialized without problems.
 
-Deploy MAD
-----------
-
-To deploy MAD you just execute
-
-.. code-block:: bash
-
-  docker-compose up -d mad
-
-Look at the logs with:
-
-.. code-block:: bash
-
-  docker-compose logs -f mad
-
-Go to `http://your-domain.com:5000` and check if the MADmin is running.
-
-
-Useful commands
----------------
-
-Some useful commands to maintain MAD + DB
-
-**Dump DB:**
-
-.. code-block:: bash
-
-  docker-compose exec -T rocketdb /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
-
-**Restore DB:**
-
-.. code-block:: bash
-
-  cat <backup>.sql | docker-compose exec -T rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
-
-**MySQL CLI:**
-
-.. code-block:: bash
-
-  docker-compose exec rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
-
-**Further useful Docker tools:**
-
-* **Router:** `Traefik <https://docs.traefik.io>`_ is recommended, which is really easy to use and also runs as Docker container. To secure the docker-socket (which traefik has access to) we recommend the `docker-socket-proxy <https://github.com/Tecnativa/docker-socket-proxy>`_ by Tecnativa.
-* **Automatic updates:** `Watchtower <https://github.com/containrrr/watchtower>`_ is a useful tool which will update your docker-services once there are newer images available
-
 Installing a webfrontend
 ------------------------
 
@@ -472,9 +247,9 @@ PMSF
         networks:
             - default
         ports:
-            - "80:80"    
+            - "80:80"
 
-Download the three required files from the PMSF repository: 
+Download the three required files from the PMSF repository:
 
 .. code-block:: bash
 
@@ -482,24 +257,24 @@ Download the three required files from the PMSF repository:
   cd PMSF && \
   wget https://raw.githubusercontent.com/pmsf/PMSF/master/Dockerfile && \
   wget -O config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.config.php && \
-  wget -O access-config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.access-config.php 
+  wget -O access-config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.access-config.php
 
 PMSF will run on port :code:`80`. Consider using some sort of reverse proxy!
 
-Make sure to re-build the container after updating PMSF: :code:`docker-compose build pmsf`. 
+Make sure to re-build the container after updating PMSF: :code:`docker-compose build pmsf`.
 
 .. note::
 
   For more informations and a best practice example, check out the docker-compose used `here <https://github.com/Breee/pogo-map-package>`_
-  
 
-Using Traefik 2 as router 
+
+Using Traefik 2 as router
 -------------------------
 
-If you use Docker, we recommend to use Traefik 2 as router. It is easy to configure, easy to use and it handles alot of things for you, 
-like SSL certificates, service discovery, load balancing. 
+If you use Docker, we recommend to use Traefik 2 as router. It is easy to configure, easy to use and it handles alot of things for you,
+like SSL certificates, service discovery, load balancing.
 We will not explain, how you deploy a Traefik on your server, but we give you a production ready example for your docker-compose.yml,
-In this example, we assume: 
+In this example, we assume:
 
 - your Traefik is connected to a docker-network `proxy`,
 - your domain is `example.com` and
@@ -509,14 +284,14 @@ In this example, we assume:
 
   api:
     dashboard: true
-  
+
   providers:
     docker:
       endpoint: "unix:///var/run/docker.sock"
       exposedByDefault: false
       network: proxy
-  
-  
+
+
   entryPoints:
     web:
       address: :80
@@ -525,14 +300,14 @@ In this example, we assume:
           entryPoint:
             to: websecure
             scheme: https
-  
+
     websecure:
       address: :443
       http:
         tls:
           certResolver: letsEncResolver
-  
-  
+
+
   certificatesResolvers:
     letsEncResolver:
       acme:
@@ -541,7 +316,7 @@ In this example, we assume:
         httpChallenge:
           entryPoint: web
 
-We define the labels as follows: 
+We define the labels as follows:
 
 .. code-block:: yaml
 
@@ -592,12 +367,63 @@ We define the labels as follows:
         - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
       networks:
         - default
-    
+
   networks:
     proxy:
       external: true
-      
+
 Using these labels, traefik now will:
   - route `https://madmin.example.com` to port 5000 (MADmin Flask app).
   - route `https://pogodroid.example.com` to port 8000 (Pogodroid listener).
   - route `https://rgc.example.com` to port 8080 (RGC listener).
+
+Deploy MAD
+----------
+
+To deploy MAD you just execute
+
+.. code-block:: bash
+
+  docker-compose up -d mad
+
+Look at the logs with:
+
+.. code-block:: bash
+
+  docker-compose logs -f mad
+
+Go to `http://your-domain.com:5000` and check if the MADmin is running.
+
+
+Useful commands
+---------------
+
+Some useful commands to maintain MAD + DB
+
+**Dump DB:**
+
+.. code-block:: bash
+
+  docker-compose exec -T rocketdb /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
+
+**Restore DB:**
+
+.. code-block:: bash
+
+  cat <backup>.sql | docker-compose exec -T rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
+
+**MySQL CLI:**
+
+.. code-block:: bash
+
+  docker-compose exec rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
+
+**Further useful Docker tools:**
+
+* **Router:** `Traefik <https://docs.traefik.io>`_ is recommended, which is really easy to use and also runs as Docker container. To secure the docker-socket (which traefik has access to) we recommend the `docker-socket-proxy <https://github.com/Tecnativa/docker-socket-proxy>`_ by Tecnativa.
+* **Automatic updates:** `Watchtower <https://github.com/containrrr/watchtower>`_ is a useful tool which will update your docker-services once there are newer images available
+
+Further steps
+-------------
+
+Review and implement anything related to the `security section <./security>`_

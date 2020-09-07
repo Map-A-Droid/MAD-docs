@@ -1,6 +1,5 @@
-=================
 MAD job processor
-=================
+==================
 
 MAD has an internal cronjob-like job processing mechanism. With this mechanism, you can run jobs manually or schedule them.
 
@@ -10,7 +9,7 @@ Features:
 * Run any command on your devices
 
 Create new job
-==============
+---------------
 
 Create a `personal_commands` folder in MAD's root directory. Save custom jobs as .json file. MAD must be restarted for new jobs to appear.
 
@@ -39,7 +38,7 @@ Example Job to read the game's version:
 You can chain multiple jobs together. See :ref:`Nested jobs`.
 
 APK installation job
-====================
+----------------------
 
 MAD can create a job to install an APK on your devices just by uploading the app via MADmin.
 
@@ -47,12 +46,12 @@ Use :code:`upload_path` in config.ini to define the software folder for these AP
 
 :menuselection:`MADmin --> Jobs --> Upload File`
 
-.. image:: _static/jobs/MADmin_File_Upload.png
+.. image:: /_static/jobs/MADmin_File_Upload.png
 
 Select APK and Upload it.
 
 Job types
-=========
+----------
 
 MAD supports the following job types:
 
@@ -64,7 +63,7 @@ MAD supports the following job types:
 * :code:`jobType.PASSTHROUGH`: Send command to device
 
 Automatic Jobs
-==============
+----------------
 
 You can configure MAD to launch jobs based on certain timings.
 
@@ -106,7 +105,7 @@ Description:
 * :code:`redoonerror`: Reschedule jobs after getting an error
 
 MADmin API endpoint for jobs
-============================
+------------------------------
 
 Madmin provides a read-only endpoint via :code:`GET /jobstatus` to read all processed jobs' return value.
 
@@ -123,7 +122,7 @@ Example:
   }
 
 Nested jobs
-===========
+------------
 
 You are able to combine more jobs to one nested or chained job. Nested jobs are processed from top to bottom.
 
@@ -157,11 +156,11 @@ MAD starts the top most job and will schedule the memory usage readout with a de
 .. hint::
   If one of the jobs results in an error, following jobs will be canceled.
 
-.. image:: _static/jobs/MADmin_nested_jobs_monitor.png
+.. image:: /_static/jobs/MADmin_nested_jobs_monitor.png
   :width: 100%
 
 Discord integration
-===================
+--------------------
 
 MAD is able to submit a job's state to Discord.
 
@@ -177,6 +176,6 @@ MAD is able to submit a job's state to Discord.
 
 Examples:
 
-.. image:: _static/jobs/Jobs_DT_job1.png
-.. image:: _static/jobs/Jobs_DT_job2.png
-.. image:: _static/jobs/Jobs_DT_job3.png
+.. image:: /_static/jobs/Jobs_DT_job1.png
+.. image:: /_static/jobs/Jobs_DT_job2.png
+.. image:: /_static/jobs/Jobs_DT_job3.png

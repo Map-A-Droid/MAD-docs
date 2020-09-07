@@ -1,4 +1,6 @@
-# Scripts
+########
+Scripts
+########
 
 Here is a collection of useful scripts found in the `scripts/` directory.
 
@@ -10,7 +12,7 @@ It's also possible to import spawnpoints from a RDM database.
 
 ## Intel Importer (intelimport.sh)
 
-If you ran the MITM method for the first time, you will probably notice that all gyms are missing names and pictures. If you want to add this information, you can use this script. First of all, you'll need a CSV Export from the  [Ingress Intel Map](https://intel.ingress.com/intel). Install [IITC](https://iitc.me/) and the `IntelCsvExporterMADedition.js` from the scripts directory. Make sure to scrape all the necessary portals in your area and export the CSV file to your server. The second step is to run the script with the csv file as the first parameter.  
+If you ran the MITM method for the first time, you will probably notice that all gyms are missing names and pictures. If you want to add this information, you can use this script. First of all, you'll need a CSV Export from the  [Ingress Intel Map](https://intel.ingress.com/intel). Install [IITC](https://iitc.me/) and the `IntelCsvExporterMADedition.js` from the scripts directory. Make sure to scrape all the necessary portals in your area and export the CSV file to your server. The second step is to run the script with the csv file as the first parameter.
 Example: `./intelimport.sh export.csv`.
 
 ## Databasesetup (databasesetup.py)

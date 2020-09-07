@@ -1,17 +1,20 @@
 .. title:: MAD docs
 
 =========================
-Map-A-Droid Documentation
+Map'A'Droid Documentation
 =========================
 
 This is a collection of articles about setting up and running MAD.
 
 What is this?
 =============
-Map-A-Droid (MAD) is a system to collect data from the game. It uses real Android devices. MAD is able to scan for raids, quests, mon and their IVs.
+Map'A'Droid (MAD) is a system to collect data from the game. It uses real Android devices. MAD is able to scan for raids, quests, mon and their IVs.
+
+
+.. _sec_root_mad:
 
 MAD
----
+-------------------
 MAD is the software running on your server. Devices connect to it and will then be controlled by the server.
 
 Android devices
@@ -38,19 +41,13 @@ The files are either markdown (:code:`.md`) or reStructuredText (:code:`.rst`). 
 
 To preview your changes, make sure to install the requirements (:code:`pip install -r requirements.txt` and :code:`pip install sphinx-autobuild`), open a terminal and use ``make auto``. Those commands works on Windows and Linux. This will start a local webserver on port 8000 with live updates pages as you save them. 
 
-Guide
-=====
-
 .. toctree::
-  :glob:
-  
-  requirements
-  server-setup
-  device-setup
-  security
-  mad-jobs
-  integrations
-  extras/index
-  api/index
-  faq
+  :maxdepth: 2
+  :hidden:
 
+  installation/index
+  device_setup/index
+  madmin/index
+  api/index
+  extras/index
+  faq
