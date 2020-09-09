@@ -19,7 +19,7 @@ There are several requirements that must be met prior to using auto-configuratio
  * Packages must be available in the `Wizard </madmin/wizard.html>`_
  * The device must support the MITM endpoints
 
-.. image:: /_static/autoconfig/example_error.png
+.. image:: ../../_static/autoconfig/example_error.png
 
 Package Configuration
 ----------------------
@@ -55,4 +55,4 @@ Messages are logged through the auto-configuration process and viewable in MADmi
 default behavior of calling the auto configuration endpoints will produce a log. Devices can implement additional logging
 to give a better indication of the progress of the device. An example log can be found below
 
-.. image:: /_static/autoconfig/autoconfig_log.png
+.. image:: ../../_static/autoconfig/autoconfig_log.png
