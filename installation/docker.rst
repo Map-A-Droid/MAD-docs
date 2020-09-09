@@ -204,7 +204,10 @@ and verify that the database was initialized without problems.
 Installing a webfrontend
 ------------------------
 
-Add a webfrontend like RocketMAD or PMSF to your setup by just adding another container to the docker-compose.yml. Make sure to adjust the config files just like the MAD config.
+Add a webfrontend like RocketMAD or PMSF to your setup by just adding another container to the docker-compose.yml.
+
+.. warning::
+ Make sure to adjust the config files just like the MAD config.
 
 RocketMAD
 ^^^^^^^^^
@@ -256,12 +259,12 @@ Download the three required files from the PMSF repository:
   mkdir PMSF && \
   cd PMSF && \
   wget https://raw.githubusercontent.com/pmsf/PMSF/master/Dockerfile && \
-  wget -O config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.config.php && \
-  wget -O access-config.php https://raw.githubusercontent.com/pmsf/PMSF/master/config/example.access-config.php
+  wget -O config.php https://raw.githubusercontent.com/pmsf/PMSF/develop/config/example.config.php && \
+  wget -O access-config.php https://raw.githubusercontent.com/pmsf/PMSF/develop/config/example.access-config.php
 
 PMSF will run on port :code:`80`. Consider using some sort of reverse proxy!
 
-Make sure to re-build the container after updating PMSF: :code:`docker-compose build pmsf`.
+Re-build the container for updating PMSF: :code:`docker-compose build pmsf`.
 
 .. note::
 
