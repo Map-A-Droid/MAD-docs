@@ -28,7 +28,7 @@ Once you have Lineage installed and the Google Apps with the Play Store, move on
 Magisk
 ^^^^^^
 .. warning::
-  There is currently a bug in the very latest Magisk version that prevents our apps from clicking on the screen (which is needed for several scanning modes). Use Magisk 19.0 or lower to avoid this!
+  There is currently a bug in the very latest Magisk version that prevents our apps from clicking on the screen (which is needed for several scanning modes). It may work on your device, you have to try it or use Magisk 19.0 or lower to avoid this!
 
 .. warning::
   The hideoption with Magisk version **20.4** is not activated by default. Please activate that function by yourself in the magisk settings first!
