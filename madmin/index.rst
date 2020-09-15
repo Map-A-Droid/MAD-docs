@@ -14,7 +14,7 @@ MADmin
 
 MADmin is the administration portal for Map'A'Droid and where you will configure the workers. MADmin is broken into several core
 components which will be described below. This should not be a user-facing page as that should
-be handled by a frontend. More information on frontends can be found at :ref:`MAD Frontends<sec_frontends>`.
+be handled by a frontend. More information on frontends can be found at :ref:`MAD Frontends <sec_frontends>`.
 
 Map
 ****

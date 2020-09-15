@@ -13,11 +13,11 @@ There are several requirements that must be met prior to using auto-configuratio
 .. TODO use refs vs links
 .. TODO document MITM endpoints for autoconfig
 
- * One or more `walkers </madmin/settings.html#Walker>`_ must be configured
- * PogoDroid must be configured
- * RemoteGPSController must be configured
- * Packages must be available in the `Wizard </madmin/wizard.html>`_
- * The device must support the MITM endpoints
+- One or more `walkers </madmin/settings.html#Walker>`_ must be configured
+- PogoDroid must be configured
+- RemoteGPSController must be configured
+- Packages must be available in the `Wizard </madmin/wizard.html>`_
+- The device must support the MITM endpoints
 
 .. image:: ../_static/autoconfig/example_error.png
 
@@ -33,15 +33,15 @@ If the requirements have been met the device is ready to be auto-provisioned. If
 missing the session cannot be accepted in MADmin. After the device makes the initial session registration it can be
 accepted in two different ways.
 
- * Automatic origin assignment
+* Automatic origin assignment
 
   * Generate an origin via origin_hopper
-  * If `autoconfig_no_auth` is not set a google login must be available
+  * If :code:`autoconfig_no_auth` is not set a google login must be available
 
- * Manual Assignment
+* Manual Assignment
 
   * Pick an origin from all configured devices
-  * Logins are not required regardless of the setting `autoconfig_no_auth`
+  * Logins are not required regardless of the setting :code:`autoconfig_no_auth`
 
 Default Configuration
 ^^^^^^^^^^^^^^^^^^^^^^
