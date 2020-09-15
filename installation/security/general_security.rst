@@ -8,6 +8,7 @@ Here is some security advice that is not only related to MAD but to servers and 
 - Don't run MAD inside a webhosted directory like :code:`/var/www/html`.
 - MAD does not need root privileges to run. Start it as a normal user. The only programs that need root are your webserver and your database.
 - Don't use the same or similar passwords. A `password manager <https://keepass.info/>`_ can be useful for that.
+- Use SSL whenever it's possible. Why? Read `this <https://howhttps.works/why-do-we-need-https/>`_
 
 Firewall
 ^^^^^^^^^
