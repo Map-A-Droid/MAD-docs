@@ -13,10 +13,10 @@ There are several requirements that must be met prior to using auto-configuratio
 .. TODO use refs vs links
 .. TODO document MITM endpoints for autoconfig
 
-- One or more `walkers </madmin/settings.html#Walker>`_ must be configured
+- One or more :ref:`walkers <sec_madmin_walker>` must be configured
 - PogoDroid must be configured
 - RemoteGPSController must be configured
-- Packages must be available in the `Wizard </madmin/wizard.html>`_
+- Packages must be available in the :ref:`Wizard <sec_madmin_wizard>`
 - The device must support the MITM endpoints
 
 .. image:: ../_static/autoconfig/example_error.png

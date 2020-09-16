@@ -3,7 +3,7 @@
 Area
 ======
 An area defines the scanning type and location that will occur. For more information on scanning types can be found
-`here </faq#what-s-the-difference-betwen-these-scanning-modes>`_.
+:ref:`here <sec_faq_scanning_modes>`.
 
 Dependencies:
 
@@ -86,6 +86,7 @@ Shared Setting
 A Shared Setting is a additional configuration that can be applied to a one or more devices. These values are
 overwritten if set on the device configuration page.
 
+.. _sec_madmin_walker:
 Walker
 ========
 A walker defines a group of areas on when they will run. This allows a device to perform multiple different scanning

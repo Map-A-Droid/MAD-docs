@@ -129,6 +129,7 @@ Now you can configure PogoDroid.
   * **Enable OOM override**: On
   * **Test feature: Mock location patching**: Off. Try this if you cant smali patch
 
+.. _sec_device_final_steps:
 Final Steps
 -----------
 

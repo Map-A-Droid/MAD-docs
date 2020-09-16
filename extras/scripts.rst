@@ -16,6 +16,7 @@ config file!
 
 It’s also possible to import spawnpoints from a RDM database.
 
+.. _sec_scripts_intelimporter:
 Intel Importer (intelimport.sh)
 -------------------------------
 
