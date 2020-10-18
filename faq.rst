@@ -85,6 +85,7 @@ Start MAD with :code:`--webhook_start_time` and the `epoch <https://en.wikipedia
 This example will send every webhook since midnight in requests with 20 objects in it, again.
 
 .. code-block:: bash
+
   python3 start.py --webhook_start_time $(date -d "today 00:00" '+%s') --webhook_max_payload_size 20
 
 
@@ -202,6 +203,7 @@ Step 4
 Copy-paste (right mouse click in PuTTy) below content into that file and save it (:code:`CTRL-o`, :code:`enter`, :code:`CTRL-x`)
 
 .. code-block:: 
+
   [mysqld]
   sql_mode="NO_ENGINE_SUBSTITUTION"
 
@@ -213,6 +215,7 @@ Step 5
 Restart MySQL/MariaDB to apply new settings. Here are few commands - one should work. Work from top - if you see that MySQL/MariaDB server was restarted there is no need to issue rest of commands - just covering more ground. Run as **root** or with **sudo**.
 
 .. code-block:: bash
+
   service mariadb restart
   service mysql restart
   service mysqld restart
