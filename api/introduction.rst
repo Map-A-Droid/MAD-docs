@@ -63,24 +63,18 @@ The following parameters are available for all root resources
 
 
 Searching via the API is done through the GET parameters. If no search logic is specified it will default to equals. To
-perform a search for a field include <field_name>.<operation>=search. The following operations are implemented
+perform a search for a field include <field_name>.<operation>=search. The following operations are implemented:
 
- * eq: The field must be equal to the value. This is the default search if none is specified
-   
-   .. note::
+ * eq: The field must be equal to the value. This is the default search if none is specified.
+    To query all devices that use the device pool /api/walker/5      
+    :code:`/api/device?walker.eq=/api/walker/5`
 
-      To query all devices that use the device pool /api/walker/5      
-        /api/device?walker.eq=/api/walker/5
-
-      To query all devices that use the MAC address 06:81:91:10:2d:c8
-          /api/device?origin.mac_address.eq=06:81:91:10:2d:c8
+    To query all devices that use the MAC address 06:81:91:10:2d:c8
+    :code:`/api/device?origin.mac_address.eq=06:81:91:10:2d:c8`
 
  * like: Performs a similar search.
-   
-   .. note::
-
-      To query all origins that begin with tx9s
-        /api/device?origin.like=tx9s
+    To query all origins that begin with tx9s
+    :code:`/api/device?origin.like=tx9s`
 
 Response Headers
 ----------------
