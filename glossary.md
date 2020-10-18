@@ -10,7 +10,7 @@
 
 **MAD**: Map'A'Droid - this software! Sometimes referred to as Map-A-Droid; usually where `'` can't be used (URLs and such).
 
-**MADevice**: [MADevice](https://github.com/georgeherby/MADevice) is a service that will alert you when a device (phone or ATV) may be having an issue.
+**MADevice**: 3rd party tool, [MADevice](https://github.com/georgeherby/MADevice) is a service that will alert you when a device (phone or ATV) may be having an issue.
 
 **MADmin**: Map'A'Droid admin software.
 
