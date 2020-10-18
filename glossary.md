@@ -1,12 +1,12 @@
 # Glossary
 
-**ADB**: Android Debug Bridge is a command-line tool for communicating with Android devices.
+**ADB**: [Android Debug Bridge](https://developer.android.com/studio/command-line/adb) is a command-line tool for communicating with Android devices.
 
-**APK**: Android application package is the package file format used on Android devices.
+**APK**: Android application package is the app file format used on Android devices.
 
 **ATV**: Android TV. See [MAD-device-list](https://github.com/Map-A-Droid/MAD-device-list) for a list of suggested devices.
 
-**Magisk**: Magisk is a suite of open source tools for customizing Android.
+**Magisk**: [Magisk](http://github.com/topjohnwu/magisk/) is a suite of open source tools for customizing Android and is required for running PoGo on a rooted Android device.
 
 **MAD**: Map'A'Droid - this software! Sometimes referred to as Map-A-Droid; usually where `'` can't be used (URLs and such).
 
@@ -17,8 +17,6 @@
 **MITM**: Man In The Middle.
 
 **PD**: PogoDroid.
-
-**PoGo**: Pokemon Go.
 
 **PMSF**: [PokeMap Standalone Frontend](https://github.com/pmsf/PMSF) is a powerful map written in PHP.
 
