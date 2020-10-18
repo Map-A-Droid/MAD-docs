@@ -51,3 +51,4 @@ To preview your changes, make sure to install the requirements (:code:`pip insta
   api/index
   extras/index
   faq
+  glossary
