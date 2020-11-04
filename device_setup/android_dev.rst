@@ -140,8 +140,6 @@ Final Steps
 
 .. code-block:: bash
 
-  adb shell
-  cmd appops set com.nianticlabs.pokemongo VIBRATE ignore
-  exit
+  adb shell "cmd appops set com.nianticlabs.pokemongo VIBRATE ignore"
 
 #. Before we finish, go inside of Magisk and run the Safetynet Check one last time. You need to see all green before proceeding
