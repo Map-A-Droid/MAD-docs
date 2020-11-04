@@ -136,4 +136,10 @@ Final Steps
 #. Go into Android Settings, Security, Lock Screen Swipe, change to None. You don't want a lock screen. Locking and unlocking your device should bring you to the desktop
 #. Go into Android Settings, Developer Options, Stay Awake, make sure this setting is enabled. This will prevent the screen from locking even if pokemon go isn't running
 #. If you want to scan quests with that device make sure to hide the navigation bar for PoGo: :code:`adb shell settings put global policy_control immersive.full=com.nianticlabs.pokemongo`
+#. Disable vibration for Pokemon GO if you don't want your whole house shaking.
+
+.. code-block:: bash
+
+  adb shell "cmd appops set com.nianticlabs.pokemongo VIBRATE ignore"
+
 #. Before we finish, go inside of Magisk and run the Safetynet Check one last time. You need to see all green before proceeding
