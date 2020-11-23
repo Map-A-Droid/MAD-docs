@@ -179,4 +179,4 @@ If everything is set up correctly, you can start MAD:
 Further steps
 -------------
 
-Review and implement anything related to the `security section <../security>`_
+Review and implement anything related to the `security section <../security>`_.
