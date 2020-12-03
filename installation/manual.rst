@@ -42,7 +42,7 @@ If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfro
   sudo mysql_secure_installation
 
 Log in to your Database and create a dedicated user for MAD. To create a new database and grant permissions for your
-dedicated MAD database user you must run the following command (make sure to change my_database_user and password to
+dedicated MAD database user you must run the following command (make sure to change "my_database_user" and "password" to
 the correct values):
 
 .. code-block:: sql
@@ -79,7 +79,7 @@ Since Ubuntu 18.04 does comes with a pre-installed python3.6 version but without
 
 .. code-block:: bash
 
-  apt install python3-pip pip3-wheel
+  apt install python3-pip python3-wheel
 
 Make sure you have the right version installed, since even if python3.6 is installed, the `python3` command could still point to `python3.5` or below!
 Check if `pip` and `python` is installed correctly by running:
