@@ -38,6 +38,6 @@ PokeAlarm (PA) is the most common tool. It relays almost anything to several typ
 PoracleJS
 ---------
 
-PoracleJS is based on running a Discord or Telegram bot that will either send events to a group/channel or as a private message to you. So every user can set their own filters. Poracle is able to send mon, raids and quests. 
+PoracleJS is based on running a Discord or Telegram bot that will either send events to a group/channel or as a private message to you. So every user can set their own filters. PoracleJS is able to send mon, raids and quests. 
 
 `PoracleJS on Github <https://github.com/KartulUdus/PoracleJS>`_
