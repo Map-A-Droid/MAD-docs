@@ -1,7 +1,7 @@
 import guzzle_sphinx_theme
 
 project = u'MAD'
-copyright = u'2020, MADdev Team'
+copyright = u'2021, MADdev Team'
 version = u''
 templates_path = ['_templates']
 master_doc = 'index'

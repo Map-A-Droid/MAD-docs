@@ -79,7 +79,8 @@ Fill rocketdb/my.cnf file with the following content.
   [mysqld]
   innodb_buffer_pool_size=1G
 
-.. note::
+.. note:: 
+
 You should align this setting with you available memory. It should probably not exceed 50% of your available memory.
 
 
@@ -89,7 +90,8 @@ Decrease VM swappiness
 
   sysctl -w vm.swappiness=1
 
-.. note::
+.. note:: 
+
 For further details have a look at https://mariadb.com/kb/en/configuring-swappiness/
 
 
@@ -117,8 +119,6 @@ Fill docker-compose.yml with the following content. Below we explain the details
         - ./personal_commands:/usr/src/app/personal_commands
       depends_on:
         - rocketdb
-      networks:
-        - default
       ports:
         - "8080:8080"
         - "8000:8000"
@@ -165,7 +165,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 "rocketdb" service
 ------------------
 
-The "rocketdb" service is docker-container based on `mariadb:10.4 <https://hub.docker.com/_/mariadb>`.
+The "rocketdb" service is docker-container based on `mariadb:10.4 <https://hub.docker.com/_/mariadb>`_.
 It will start a mariadb database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
 
 Your job here is to set secure passwords for :code:`MYSQL_ROOT_PASSWORD` and :code:`MYSQL_PASSWORD`.
@@ -181,6 +181,20 @@ The database is reachable in the default network as `rocketdb`, so in your confi
 
 You can see that we mount the directory "docker-entrypoint-initdb" to "/docker-entrypoint-initdb.d/"
 All .sql scripts in this directory are executed, once the container starts.
+
+
+"redis" service
+---------------
+
+There's an optional way to implement a cache layer between the data from the devices and MAD itself. To add that to your stack, just add the following lines to your compose file:
+
+.. code-block:: yaml
+
+  redis:
+    container_name: pokemon_cache
+    image: redis:latest
+
+Make sure to set :code:`cache_host` to :code:`redis` in the MAD config.ini. The port can stay on default. 
 
 Database deployment
 -------------------
@@ -429,4 +443,4 @@ Some useful commands to maintain MAD + DB
 Further steps
 -------------
 
-Review and implement anything related to the `security section <./security>`_
+Review and implement anything related to the `security section <../security>`_

@@ -148,20 +148,18 @@ Copy config.ini.example (from the configs folder in the MAD repo) to "config.ini
 
   cp configs/config.ini.example configs/config.ini
 
-and then edit the config file accordingly.
+and then edit the config file accordingly. 
 
-The next step is to configure MAD in config mode. This will only start MAD's web frontend called MADmin.
+The next step is to configure MAD. This will only start MAD's web frontend called MADmin.
 
 .. warning::
  MAD will not actually scan in configmode! The mode is for the first configuration only. Remove the :code:`-cm` when you are done.
 
 .. code-block:: bash
 
-  python3 start.py -cm
+  python3 start.py 
 
 By default MADmin will be available on http://your_server_ip:5000.
-
-Uncomment :code:`with_madmin` in config.ini to start MADmin without using :code:`-cm`.
 
 .. _sec_manual_running:
 
