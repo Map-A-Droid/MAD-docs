@@ -25,3 +25,15 @@ Good alternatives are:
 - ADB (:code:`adb install -r app.apk`)
 - Simple MADmin job (Jobs --> Create APK install job)
 - Shell scripts like `update_mad.sh <https://github.com/Map-A-Droid/MAD-ATV/blob/master/update_mad.sh>`_
+
+
+Docker
+------
+
+When using Docker for hosting MAD you can just pull newer Docker images for every container from the hub:
+
+.. code-block:: bash
+
+  docker-compose pull
+
+Make sure to restart the stack afterwards.

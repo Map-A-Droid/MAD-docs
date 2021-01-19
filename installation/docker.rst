@@ -40,8 +40,6 @@ You can just copy & paste this to do what is written below:
   mkdir rocketdb && \
   touch rocketdb/my.cnf && \
   touch docker-compose.yml && \
-  mkdir docker-entrypoint-initdb && \
-  wget -O docker-entrypoint-initdb/rocketmap.sql https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql && \
   cd mad/configs/ && \
   wget -O config.ini https://raw.githubusercontent.com/Map-A-Droid/MAD/master/configs/config.ini.example && \
   cd ../../
@@ -52,9 +50,7 @@ This will:
 #. Create a file `docker-compose.yml`.
 #. Create a directory `MAD-docker/mad`. (here we store MAD related stuff)
 #. Create a directory `MAD-docker/mad/configs`. (here we store config files for MAD). Here you store your `config.ini`.
-#. Create a directory `MAD-docker/rocketdb`. (here we store config files for mariaDb). Here you store your `my.cnf`.
-#. Create a directory `MAD-docker/docker-entrypoint-initdb`
-#. Download the RocketMAD Database Schema: https://raw.githubusercontent.com/Map-A-Droid/MAD/master/SQL/rocketmap.sql and store it in the directory `docker-entrypoint-initdb`.
+#. Create a directory `MAD-docker/rocketdb`. (here we store config files for MariaDB). Here you store your `my.cnf`.
 
 Your directory should now look like this:
 
@@ -62,15 +58,13 @@ Your directory should now look like this:
 
   MAD-docker/
     docker-compose.yml
-    docker-entrypoint-initdb/
-      rocketmap.sql
     mad/
     rocketdb/
       my.cnf
     configs/
       config.ini
 
-Writing the mariadb config file
+Writing the MariaDB config file
 -------------------------------
 Fill rocketdb/my.cnf file with the following content.
 
@@ -137,7 +131,6 @@ Fill docker-compose.yml with the following content. Below we explain the details
         TZ: Europe/Berlin
       volumes:
         - ./volumes/rocketdb:/var/lib/mysql
-        - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
         - ./rocketdb:/etc/mysql/mariadb.conf.d
       networks:
         - default
@@ -147,9 +140,9 @@ The docker-compose file defines a set of services.
 "mad" service
 -------------
 
-The "mad" service is a docker-container based on the image `mapadroid/map-a-droid <https://hub.docker.com/r/mapadroid/map-a-droid>`_ , which is automatically built by dockerhub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/Dockerfile>`_.
+The "mad" service is a docker-container based on the image `mapadroid/map-a-droid <https://hub.docker.com/r/mapadroid/map-a-droid>`_ , which is automatically built by dockerhub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/docker/Dockerfile>`_.
 
-In the docker image, the whole MAD repository is located in "/usr/src/app".
+In the docker image, the whole MAD repository is located in :code:`/usr/src/app`.
 
 **Volumes:**
 
@@ -166,7 +159,7 @@ In the docker image, the whole MAD repository is located in "/usr/src/app".
 ------------------
 
 The "rocketdb" service is docker-container based on `mariadb:10.4 <https://hub.docker.com/_/mariadb>`_.
-It will start a mariadb database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
+It will start a MariaDB database server and automatically create the defined used :code:`MYSQL_USER` with password :code:`MYSQL_PASSWORD`.
 
 Your job here is to set secure passwords for :code:`MYSQL_ROOT_PASSWORD` and :code:`MYSQL_PASSWORD`.
 
@@ -434,6 +427,14 @@ Some useful commands to maintain MAD + DB
 .. code-block:: bash
 
   docker-compose exec rocketdb /usr/bin/mysql -uroot -pStrongPassword rocketdb
+
+**Restarting every container:**
+
+.. code-block:: bash
+
+  docker-compose down && docker-compose up -d && docker-compose logs -f
+
+That will first stop every running container and then start the whole stack again in detached mode (:code:`-d`). The last command is showing the logs.
 
 **Further useful Docker tools:**
 
