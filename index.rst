@@ -48,6 +48,7 @@ To preview your changes, make sure to install the requirements (:code:`pip insta
   installation/index
   device_setup/index
   madmin/index
+  updating/index
   api/index
   extras/index
   faq
