@@ -37,7 +37,7 @@ Can I use multiple area fences in one area?
 
 Yes. Just add the second area to the same geofence like this:
 
-.. code-block::
+.. code-block:: bash
 
   [area1]
   51.123, 9.234
