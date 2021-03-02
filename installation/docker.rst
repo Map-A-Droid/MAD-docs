@@ -108,9 +108,11 @@ Fill docker-compose.yml with the following content. Below we explain the details
         - /etc/timezone:/etc/timezone:ro
         - /etc/localtime:/etc/localtime:ro
         - ./mad/configs/config.ini:/usr/src/app/configs/config.ini
+        - ./volumes/mad/personal_commands:/usr/src/app/personal_commands
         - ./volumes/mad/files:/usr/src/app/files
         - ./volumes/mad/logs:/usr/src/app/logs
-        - ./personal_commands:/usr/src/app/personal_commands
+        - ./volumes/mad/apks:/usr/src/app/temp/mad_apk
+        - ./volumes/mad/plugins:/usr/src/app/plugins
       depends_on:
         - rocketdb
       ports:
@@ -172,9 +174,6 @@ The database is reachable in the default network as `rocketdb`, so in your confi
   dbpassword: AnotherStrongPassword    # Password for that username
   dbname: rocketdb                     # Name of the database
 
-You can see that we mount the directory "docker-entrypoint-initdb" to "/docker-entrypoint-initdb.d/"
-All .sql scripts in this directory are executed, once the container starts.
-
 
 "redis" service
 ---------------
@@ -199,8 +198,7 @@ Just execute:
 
   docker-compose up -d rocketdb
 
-This will start the "rocketdb" service and execute rocketmap.sql in docker-entrypoint-initdb.
-Take a look at the logs:
+This will start the "rocketdb" service, take a look at the logs:
 
 .. code-block:: bash
 
@@ -374,7 +372,6 @@ We define the labels as follows:
         TZ: Europe/Berlin
       volumes:
         - ./volumes/rocketdb:/var/lib/mysql
-        - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
       networks:
         - default
 
