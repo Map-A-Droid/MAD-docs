@@ -202,7 +202,7 @@ Step 4
 
 Copy-paste (right mouse click in PuTTy) below content into that file and save it (:code:`CTRL-o`, :code:`enter`, :code:`CTRL-x`)
 
-.. code-block:: 
+.. code-block:: console
 
   [mysqld]
   sql_mode="NO_ENGINE_SUBSTITUTION"
