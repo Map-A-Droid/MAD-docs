@@ -33,7 +33,7 @@ MariaDB
 
 You need a Database with full permissions. That DB can be located on a different Server, but needs to be accessible by your MAD server.
 
-If you are plan to use `PMSF <https://github.com/whitewillem/PMSF>`_ as a webfrontend: use at least MariaDB 10.2 or higher!
+If you are plan to use `PMSF <https://github.com/pmsf/PMSF>`_ as a webfrontend: use at least MariaDB 10.2 or higher!
 
 .. code-block:: bash
 

@@ -19,9 +19,9 @@ PMSF
 ----
 
 PMSF or PokeMap Standalone Frontend is a powerful map written in PHP. Right now, there's one fork
-that is being activately developed by whitewillem which does support MAD.
+that is being activately developed by whitewillem and wheel which does support MAD.
 
-`PMSF on Github <https://github.com/whitewillem/PMSF>`_
+`PMSF on Github <https://github.com/pmsf/PMSF>`_
 
 Webhook tools
 =============
