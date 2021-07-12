@@ -14,7 +14,7 @@ MAD requires the following things to be installed available on your server:
 - A server/computer running Linux. RaspberryPis do work, but aren't recommended
 - A 64-bit CPU for MAD is also highly recommended since some optional parts of MAD do require to run on 64-bit. It does have a fallback for 32-bit CPUs though
 - MariaDB server
-- Python 3.6 (or higher) and Python's package manager command line tool :code:`pip`. Current tested and working versions are 3.6, 3.7 and 3.8.
+- Python 3.7 (or higher) and Python's package manager command line tool :code:`pip`. Current tested and working versions are 3.7 and 3.8.
 - Use a :code:`virtualenv` to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
 
 .. _sec_manual_system_prep:
@@ -81,10 +81,10 @@ Since Ubuntu 18.04 does comes with a pre-installed python3.6 version but without
 
   apt install python3-pip python3-wheel
 
-Make sure you have the right version installed, since even if python3.6 is installed, the `python3` command could still point to `python3.5` or below!
-Check if `pip` and `python` is installed correctly by running:
+Make sure you have the right version installed, since even if python3.7 is installed, the `python3` command could still point to `python3.5` or below!
+Check if `pip3` and `python3` is installed correctly by running:
 
-- :code:`python3 --version` - should return 3.6.x
+- :code:`python3 --version` - should return 3.7.x
 - :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
 
 .. _sec_manual_py_venv:
@@ -96,13 +96,13 @@ A virtual environment is a way to install python packages in a different locatio
 
 .. code-block:: bash
 
-  apt install python-virtualenv
+  apt install python-virtualenv python3-venv
 
 And create a new virtual environment called :code:`mad_env` in your home directory:
 
 .. code-block:: bash
 
-  virtualenv -p python3 ~/mad_env
+  python3 -m venv ~/mad_env
 
 Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
 
