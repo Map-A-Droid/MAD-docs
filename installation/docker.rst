@@ -102,7 +102,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
   services:
     mad:
       container_name: pokemon_mad
-      image: mapadroid/map-a-droid
+      image: ghcr.io/map-a-droid/mad:master
       restart: always
       volumes:
         - /etc/timezone:/etc/timezone:ro
@@ -142,7 +142,7 @@ The docker-compose file defines a set of services.
 "mad" service
 -------------
 
-The "mad" service is a docker-container based on the image `mapadroid/map-a-droid <https://hub.docker.com/r/mapadroid/map-a-droid>`_ , which is automatically built by dockerhub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/docker/Dockerfile>`_.
+The "mad" service is a docker-container based on the image `ghcr.io/map-a-droid/mad:master <https://github.com/map-a-droid/MAD/pkgs/container/mad>`_ , which is automatically built by GitHub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/docker/Dockerfile>`_.
 
 In the docker image, the whole MAD repository is located in :code:`/usr/src/app`.
 
@@ -332,7 +332,7 @@ We define the labels as follows:
   services:
     mad:
       container_name: pokemon_mad
-      image: mapadroid/map-a-droid
+      image: ghcr.io/map-a-droid/mad:master
       init: true
       restart: always
       volumes:
