@@ -221,13 +221,12 @@ RocketMAD
 
       rocket-mad:
         container_name: pokemon_rocketmad
-        build:
-            context: ./RocketMAD
+        image: ghcr.io/cecpk/rocketmad:master
         restart: always
         volumes:
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
-            - ./RocketMAD/config/config.ini:/usr/src/app/config/config.ini
+            - ./RocketMAD/config/:/usr/src/app/config/
         depends_on:
             - rocketdb
         networks:
@@ -235,7 +234,7 @@ RocketMAD
         ports:
             - "5500:5000"
 
-Clone the project into the MAD-docker directory: :code:`git clone https://github.com/cecpk/RocketMAD`. This docker-compose file will expose RocketMAD on port :code:`5500`, but the internal routing is still on port :code:`5000`, so don't change that in the config. Make sure to re-build the container after updating RocketMAD: :code:`docker-compose build rocket-mad`.
+Create a new directory and download the basic config file into it: :code:`mkdir RocketMAD && cd RocketMAD && wget -O config.ini https://raw.githubusercontent.com/cecpk/RocketMAD/master/config/config.ini.example`. This docker-compose file will expose RocketMAD on port :code:`5500`, but the internal routing is still on port :code:`5000`, so don't change that in the config.
 
 PMSF
 ^^^^
