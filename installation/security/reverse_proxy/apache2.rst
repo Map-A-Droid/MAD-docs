@@ -53,7 +53,7 @@ RGC
 
 Please install the websocket apache module: :code:`a2enmod proxy_wstunnel`
 
-RGC URL: :code:`https://rgc.example.com`
+RGC URL: :code:`wss://rgc.example.com`
 
 .. code-block:: bash
 
