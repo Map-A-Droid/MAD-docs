@@ -21,7 +21,7 @@ Refer to `ATV Installation <https://github.com/Map-A-Droid/MAD-ATV/blob/master/R
 
 64-bit
 ---------
-The official 64-bit MADRom supports either manual or automatic configuration. Initial instillation will install Magisk on firt boot. Flashing smali mock location module is not required when using an official MADRom. 
+The official 64-bit MADRom supports either manual or automatic configuration. Initial instillation will install Magisk on first boot. Flashing smali mock location module is not required when using an official MADRom. 
 
 The recommended installation configuration path is using the :ref:`Auto-Configuration wizard <sec_auto_conf>`.
 
