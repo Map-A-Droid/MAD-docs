@@ -16,5 +16,5 @@ A device must be rootable for it to be able to perform the mapping functions. Th
 
 For a list of confirmed devices that working with MAD, check out `this list <https://github.com/Map-A-Droid/MAD-device-list>`_. Below are links to the configuration guides:
 
- * :ref:`Android TV<Android TV>`
+ * :ref:`Android TV (ATV)<Android TV (ATV)>`
  * :ref:`Android Device<Android Device>`
