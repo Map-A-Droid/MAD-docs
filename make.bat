@@ -37,7 +37,7 @@ else (
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 
 :auto
-sphinx-autobuild . _build -H 0.0.0.0
+sphinx-autobuild . _build --host 0.0.0.0
 goto end
 
 :end
