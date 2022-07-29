@@ -410,7 +410,7 @@ Some useful commands to maintain MAD + DB
 
 .. code-block:: bash
 
-  docker-compose exec -T rocketdb /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
+  docker exec -t rocketdb /usr/bin/mysqldump -uroot -pStrongPassword rocketdb  > $(date +"%Y-%m-%d")_rocketmap_backup.sql
 
 **Restore DB:**
 
