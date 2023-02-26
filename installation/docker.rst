@@ -41,7 +41,7 @@ You can just copy & paste this to do what is written below:
   touch rocketdb/my.cnf && \
   touch docker-compose.yml && \
   cd mad/configs/ && \
-  wget -O config.ini https://raw.githubusercontent.com/Map-A-Droid/MAD/master/configs/config.ini.example && \
+  wget -O config.ini https://raw.githubusercontent.com/Map-A-Droid/MAD/async/configs/config.ini.example && \
   cd ../../
 
 This will:
@@ -102,7 +102,7 @@ Fill docker-compose.yml with the following content. Below we explain the details
   services:
     mad:
       container_name: pokemon_mad
-      image: ghcr.io/map-a-droid/mad:master
+      image: ghcr.io/map-a-droid/mad:async
       restart: always
       volumes:
         - /etc/timezone:/etc/timezone:ro
@@ -142,7 +142,7 @@ The docker-compose file defines a set of services.
 "mad" service
 -------------
 
-The "mad" service is a docker-container based on the image `ghcr.io/map-a-droid/mad:master <https://github.com/map-a-droid/MAD/pkgs/container/mad>`_ , which is automatically built by GitHub whenever a push to the `master` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/master/docker/Dockerfile>`_.
+The "mad" service is a docker-container based on the image `ghcr.io/map-a-droid/mad:async <https://github.com/map-a-droid/MAD/pkgs/container/mad>`_ , which is automatically built by GitHub whenever a push to the `async` happens, using this `Dockerfile <https://github.com/Map-A-Droid/MAD/blob/async/Dockerfile>`_.
 
 In the docker image, the whole MAD repository is located in :code:`/usr/src/app`.
 
@@ -331,7 +331,7 @@ We define the labels as follows:
   services:
     mad:
       container_name: pokemon_mad
-      image: ghcr.io/map-a-droid/mad:master
+      image: ghcr.io/map-a-droid/mad:async
       init: true
       restart: always
       volumes:

@@ -14,7 +14,7 @@ MAD requires the following things to be installed available on your server:
 - A server/computer running Linux. RaspberryPis do work, but aren't recommended
 - A 64-bit CPU for MAD is also highly recommended since some optional parts of MAD do require to run on 64-bit. It does have a fallback for 32-bit CPUs though
 - MariaDB server
-- Python 3.8 or 3.8 and Python's package manager command line tool :code:`pip`. 3.9 is currently not supported!
+- Python 3.9 or newer and Python's package manager command line tool :code:`pip`.
 - Use a :code:`virtualenv` to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
 
 .. _sec_manual_system_prep:
@@ -33,7 +33,7 @@ MariaDB
 
 You need a Database with full permissions. That DB can be located on a different Server, but needs to be accessible by your MAD server.
 
-If you are plan to use `PMSF <https://github.com/pmsf/PMSF>`_ as a webfrontend: use at least MariaDB 10.2 or higher!
+If you are planning to use `PMSF <https://github.com/pmsf/PMSF>`_ as a webfrontend: use at least MariaDB 10.2 or higher!
 
 .. code-block:: bash
 
@@ -67,7 +67,10 @@ Install client libraries
 Database schema
 ^^^^^^^^^^^^^^^^
 
-MAD will install the latest database schema automatically on initial boot and no additional steps are required. If you encounter any issues the up-to-date schema can be found `here <https://raw.githubusercontent.com/Map-A-Droid/MAD/master/scripts/SQL/rocketmap.sql>`_.
+MAD will install the latest database schema automatically on initial boot and no additional steps are required.
+If you encounter any issues the base schema can be found `here <https://github.com/Map-A-Droid/MAD/blob/async/scripts/SQL/mad.sql>`_.
+
+The up-to-date models used by MAD can viewed in `mapadroid/db/model.py <https://github.com/Map-A-Droid/MAD/blob/async/mapadroid/db/model.py>`_.
 
 
 .. _sec_manual_python:
@@ -81,10 +84,12 @@ Since Ubuntu 20.04 does comes with a pre-installed python3.8 version but without
 
   apt install python3-pip python3-wheel
 
-Make sure you have the right version installed, since even if python3.8 is installed, the `python3` command could still point to `python3.5` or below!
+Make sure you have the right version installed, since even if python3.9 is installed, the `python3` command could still point to `python3.5` or below!
+:code:`ls -lah $(which python3)` will show the current symlink of Python
+
 Check if `pip` and `python` is installed correctly by running:
 
-- :code:`python3 --version` - should return 3.8.x
+- :code:`python3 --version` - should return 3.9.x or newer (3.10.X etc)
 - :code:`pip3 --version` - If it returns a version that is related to your python version, it is working.
 
 .. _sec_manual_py_venv:

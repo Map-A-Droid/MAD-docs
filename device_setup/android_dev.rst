@@ -56,7 +56,7 @@ Install the latest supported game version from the Play Store or download it fro
 Remote GPS Controller
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Download Remote GPS Controller (RGC) <https://github.com/Map-A-Droid/MAD/blob/master/APK/RemoteGpsController.apk>`_ first.
+`Download Remote GPS Controller (RGC) <https://github.com/Map-A-Droid/MAD/blob/async/APK/RemoteGpsController.apk>`_ first.
 
 RGC must be converted to a system app after it is installed. There are two ways to do this, Link2sd or Systemizer Magisk Module. Link2sd is a bit easier to use but sometimes fails, the Magsisk Module is more reliable but a little bit more complex to use. Choose option #2 (priv-app) when using the Module.
 
