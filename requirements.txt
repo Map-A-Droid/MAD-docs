@@ -1,3 +1,4 @@
 recommonmark
 sphinx-markdown-tables
 guzzle_sphinx_theme 
+sphinx<6
