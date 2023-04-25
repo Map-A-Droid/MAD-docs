@@ -63,7 +63,8 @@ There are some (a lot!) of changes between versions and migrations are sometimes
 - Step 9: Install new requirmements in python3.9 (`virtualenv </en/async/installation/manual/#virtual-environment>`_)
 - Step 10: Start ``start.py`` via python3.9 venv manually (not crontab, systemd, supervisor or any type of script) - just for first time to see if there are any errors/problems and to make sure you will see everything.
 - Step 11: If everything working go to **Pogo Auth** in MADmin and edit level of your accounts to real level (so 30+)
-- Step 12: Update PD and RGC on all devices - ``async`` have dedicated version of those programs. You can do it via Wizzard/MADMin Packages (if ATV), Jobs, manually - whatever you like more. `Links to apks <https://github.com/Map-A-Droid/MAD/blob/async/mapadroid/utils/global_variables.py#L6>`_
+- Step 12: Password protect MADMin if not running via VPN/LAN `MADmin password/login`_
+- Step 13: Update PD and RGC on all devices - ``async`` have dedicated version of those programs. You can do it via Wizzard/MADMin Packages (if ATV), Jobs, manually - whatever you like more. `Links to apks <https://github.com/Map-A-Droid/MAD/blob/async/mapadroid/utils/global_variables.py#L6>`_
 
 
 Multiply MITM RECEIVERS
@@ -109,6 +110,46 @@ Maintenance/Flag/Hourglass
 
 Accounts hit by BSOD / maintenance screen have current timestamp saved into database and they are deemed **not valid to use** for next 24 hours - this is for how long (most of the times, Niantic) accounts are not usuable at all. There are some icons you can hover/click in **Pogo Auth** section to give you an idea when it happen/what is the status.
 
+
+
+MADmin password/login
+----
+
+Old system using ``madmin_password`` and ``madmin_login`` is gone - you should remove those entries from ``config.ini``. You can now password-protect MADmin via built-in auth levels or externally via nginx/apache2. 
+Both systems have pros and cons, so you should decide on one, there is no "better" system, but personally because I don't share my MADMin or don't have a public quest page I prefer the nginx/apache2 proxy.
+
+- Using MAD built-in auth system:
+If you decided to use built-in MAD system you need to add new user via MADMin Settings -> Auth with ``MADMIN_ADMIN`` permissions and enable/uncomment ``madmin_enable_auth`` in ``config.ini``. Restart MAD and it's all done.
+
+- Using nginx/apache2 proxy:
+You need to use standard Basic Authentication for nginx/apache2. Example config for nginx is included in https://github.com/Map-A-Droid/MAD/blob/async/configs/examples/nginx/foo.conf#L56
+::
+
+        auth_basic "Restricted";
+        # Please to use basic auth...
+        auth_basic_user_file /etc/nginx/.htpasswd_mad;
+
+
+For apache2 it's very similar:
+::
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+        Authtype Basic
+        Authname "Password Required"
+        AuthUserFile /etc/apache2/.htpasswd_mad
+        Require valid-user
+    </Proxy>
+
+To create .htpasswd_mad file you use ``htpasswd`` program (from ``apache2-utils`` system repository package) via
+::
+
+   [sudo] htpasswd  -c /etc/apache2/.htpasswd_mad USERNAME_HERE
+   [sudo] htpasswd  -c /etc/nginx/.htpasswd_mad USERNAME_HERE
+it will ask for password twice and then create a file for you.
+
+Remember to restart nginx/apache2 after changes.
 
 
 Common problems
