@@ -159,7 +159,8 @@ I can't find X in config.ini, I am missing settings, where is madmin_enable_auth
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please open ``config.ini.example`` to see everything it's there and then copy-paste specific section/settings to ``config.ini`.
-``git pull` cannot overwrite **yours** config.ini because it would be a total mess and you would need to restore that file every update.
+
+``git pull`` cannot overwrite **yours** config.ini because it would be a total mess and you would need to restore that file every update.
 
 
 init mode
