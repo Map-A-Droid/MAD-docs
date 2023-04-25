@@ -53,3 +53,4 @@ To preview your changes, make sure to install the requirements (:code:`pip insta
   extras/index
   faq
   glossary
+  async_quick_faq
