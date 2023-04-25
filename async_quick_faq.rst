@@ -17,7 +17,7 @@ async/architecture changes
 
 If you running more than **15 (your mileage may vary) devices** you probably need to run some extra MITM Receivers. If you are not near this number you can skip reading this point here - as you will just use single ``start.py`` and everything will be easier. 
 MAD is now split into 4 parts:
- - ``start_core.py`` this is main part of MAD that handles websockets/login flow/routes/madmin etc.
+ - ``start_core.py`` this is main part of MAD that handles websockets/login flow/routes/MADmin etc.
  - ``start_mitmreceiver.py`` this is part of MAD that process data received from PD and puts that in MySQL/database. This is the heaviest (CPU usage) part of MAD as it runs 24/7 and do a lot. 
  - ``start_mitmapper.py`` this is helper part
  - ``start_statshandler.py`` this is just stats part
@@ -49,7 +49,7 @@ Migration
 There are some (a lot!) of changes between versions and migrations are sometimes funky - please take a look at `Common problems`_ if you hit any error/problem. All the ports and endpoints (ws:// http://) stays the same.
 
 - Step 1: Create Backup. Backup - first point in this Quick FAQ.
-- Step 2: There are breaking `PogoAuth changes`_ so before running migration make sure there is only one (currently logged in on device) account mapped to single device in MADMin **Pogo Auth** section.
+- Step 2: There are breaking `PogoAuth changes`_ so before running migration make sure there is only one (currently logged in on device) account mapped to single device in MADmin **Pogo Auth** section.
 - Step 3: Stop current legacy/master MAD.
 - Step 4: You don't want to waste 30 minutes on MAD/MySQL changing the ``pokemon`` and ``pokemon_display`` tables because you have 17851758 / 6 months of mons history there! Clear those up: ``TRUNCATE`` or ``DELETE FROM`` if you don't do it already automagically.
 - Step 5: Remove ``update_log.json`` file from MAD master/legacy main directory.
@@ -63,8 +63,9 @@ There are some (a lot!) of changes between versions and migrations are sometimes
 - Step 9: Install new requirmements in python3.9 (`virtualenv </en/async/installation/manual/#virtual-environment>`_)
 - Step 10: Start ``start.py`` via python3.9 venv manually (not crontab, systemd, supervisor or any type of script) - just for first time to see if there are any errors/problems and to make sure you will see everything.
 - Step 11: If everything working go to **Pogo Auth** in MADmin and edit level of your accounts to real level (so 30+)
-- Step 12: Password protect MADMin if not running via VPN/LAN `MADmin password/login`_
-- Step 13: Update PD and RGC on all devices - ``async`` have dedicated version of those programs. You can do it via Wizzard/MADMin Packages (if ATV), Jobs, manually - whatever you like more. `Links to apks <https://github.com/Map-A-Droid/MAD/blob/async/mapadroid/utils/global_variables.py#L6>`_
+- Step 12: Password protect MADmin if not running via VPN/LAN `MADmin password/login`_
+- Step 13: Update PD and RGC on all devices - ``async`` have dedicated version of those programs. You can do it via Wizzard/MADmin Packages (if ATV), Jobs, manually - whatever you like more. `Links to apks <https://github.com/Map-A-Droid/MAD/blob/async/mapadroid/utils/global_variables.py#L6>`_
+- Step 14: Make sure ``screendetection`` is set to ``True`` in every Devices settings in MADmin (and in Shared settings/settings pools if using). Crucial for PTC/Google login process.
 
 
 Multiply MITM RECEIVERS
@@ -80,7 +81,7 @@ This part is little more tricky as you need to start muliply mitm receivers and 
 PogoAuth changes
 ----
 Due to latest N behavior changes (BSOD / maintenance screen) and limiting number of mon encounters per account within some <time period> there is now a need for changing accounts on devices. MAD can fully handle PTC accounts and semi-handle Google accounts.
-PogoAuth section is now a list/repository of all accounts you have. MAD uses this list to automagically select valid (non banned/non maintenance/non cooldown) accounts. You need to have proper account levels there - if you are just migrating it was imported with levels 0/1 and MAD won't login into those accounts when running `mon_mitm/iv_mitm/raids_mitm` - those need higher (30/8) levels. Please adjust those levels manually via MADMin or SQL query.
+PogoAuth section is now a list/repository of all accounts you have. MAD uses this list to automagically select valid (non banned/non maintenance/non cooldown) accounts. You need to have proper account levels there - if you are just migrating it was imported with levels 0/1 and MAD won't login into those accounts when running `mon_mitm/iv_mitm/raids_mitm` - those need higher (30/8) levels. Please adjust those levels manually via MADmin or SQL query (``UPDATE settings_pogoauth SET level = 30``).
 
 PTC only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +159,7 @@ Common problems
 I can't find X in config.ini, I am missing settings, where is madmin_enable_auth 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please open ``config.ini.example`` to see everything it's there and then copy-paste specific section/settings to ``config.ini`.
+Please open ``config.ini.example`` to see everything it's there and then copy-paste specific section/settings to ``config.ini``.
 
 ``git pull`` cannot overwrite **yours** config.ini because it would be a total mess and you would need to restore that file every update.
 
@@ -166,7 +167,7 @@ Please open ``config.ini.example`` to see everything it's there and then copy-pa
 init mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**init mode settings?** - init mode have a dedicated type now - just create new area using **Init scanner ``init``mode.
+**init mode settings?** - init mode have a dedicated type now - just create new area using **Init scanner ``init``** mode.
 You can specify what **type** you are interested - ``forts`` will jump every ~500 meters and add all pokestops/gyms to database and hardly any spawnpoints as those are visibly only within ~50 meters. ``mons`` will jump every ~50 meters and add a lot of more spawnpoints, but it will have a lot of more jumps/stops/position on route.
 
 unrecognized argument
