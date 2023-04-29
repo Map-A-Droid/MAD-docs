@@ -92,6 +92,7 @@ Google only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MAD (atm) does not handle directly login into Google Accounts so you either had them logged in earlier via autoconfig or you did it manually. It's like that mostly because Google is picky with security and there is a lot of different things that can go wrong if you decided to login multply account within short period of time - some extra checks, temp bans etc. Because of those limitations MAD now need to know **which account is on which device** so on top of having your accounts listed in **Pogo Auth** (with correct level!) you also need to tell MAD how to map does - go to MADmin Settings -> Devices and fill the ``ggl_login_mail`` with correct accounts. You don't do it via **Pogo Auth** section, you do it via ``ggl_login_mail`` in specific Device settings. Yes, you can have multiply accounts in ``ggl_login_mail``, but those **need** to be already logged in on device. Remember about setting correct levels on those accounts.
+If you don't remember your Google password then just type anything in password box - PogoAuth does not support login via those passwords and MAD picks accountns by username - only autoconfig need valid Google Account password.
 
 
 Mixed (PTC and Google)
