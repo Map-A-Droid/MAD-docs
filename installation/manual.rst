@@ -24,7 +24,13 @@ System preparation
 
 .. note::
 
-  This whole article assumes a fresh installed `Ubuntu 20.04 Server <https://www.ubuntu.com/download/server>`_. If you're running a more recent version of Ubuntu or another Linux distribution - that's totally fine, but keep in mind there may be some difference in your setup.
+  This whole article assumes a fresh installed `Ubuntu 22.04 Server <https://www.ubuntu.com/download/server>`_. If you're running a more recent version of Ubuntu or another Linux distribution - that's totally fine, but keep in mind there may be some difference in your setup.
+First let's install all the needed packages from Ubuntu repository - there will be more description later what they do, but for now let's just install everything in one go to save time - if future `apt install` commands returns `XXX is already the newest version` then it's good - we already have that one.
+
+.. code-block:: bash
+
+  sudo apt update
+  sudo apt install mariadb-server default-libmysqlclient-dev mariadb-client python3-venv python3-pip python3-wheel python3-dev tesseract-ocr python3-opencv redis  build-essential pkg-config
 
 .. _sec_manual_database:
 
@@ -37,8 +43,7 @@ If you are planning to use `PMSF <https://github.com/pmsf/PMSF>`_ as a webfronte
 
 .. code-block:: bash
 
-  sudo apt update
-  sudo apt install mariadb-server
+  sudo apt install mariadb-server mariadb-client
   sudo mysql_secure_installation
 
 Log in to your Database and create a dedicated user for MAD. To create a new database and grant permissions for your
@@ -78,11 +83,11 @@ The up-to-date models used by MAD can viewed in `mapadroid/db/model.py <https://
 Python
 --------
 
-Since Ubuntu 20.04 does comes with a pre-installed python3.8 version but without a pip3 installation, run this command to install it:
+Install additional python dependencies:
 
 .. code-block:: bash
 
-  apt install python3-pip python3-wheel
+  apt install python3-pip python3-wheel python3-dev
 
 Make sure you have the right version installed, since even if python3.9 is installed, the `python3` command could still point to `python3.5` or below!
 :code:`ls -lah $(which python3)` will show the current symlink of Python
@@ -101,13 +106,13 @@ A virtual environment is a way to install python packages in a different locatio
 
 .. code-block:: bash
 
-  apt install python-virtualenv
+  apt install python3-venv
 
 And create a new virtual environment called :code:`mad_env` in your home directory:
 
 .. code-block:: bash
 
-  virtualenv -p python3 ~/mad_env
+  python3 -m venv ~/mad_env
 
 Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
 
@@ -117,6 +122,11 @@ You can activate the virtual environment via `source ~/mad_env/bin/activate`. Th
 
 MAD
 ----
+MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
+
+.. code-block:: bash
+
+  sudo apt-get install tesseract-ocr python3-opencv
 
 Next Step is to clone this repository and install all the required pip packages:
 
@@ -129,12 +139,6 @@ Change into in the directory of MAD and run:
 .. code-block:: bash
 
   pip3 install -r requirements.txt
-
-MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
-
-.. code-block:: bash
-
-  sudo apt-get install tesseract-ocr python3-opencv
 
 Another but optional dependency you may want to install is `ortools <https://developers.google.com/optimization>`_. MAD utilizes ortools to generate more optimized routes for your areas and it is as quick as MAD's built-in routing algorithm if not even faster. The downside of this as states in :ref:`the requirements<Requirements>` is, that you need a 64-bit server.
 
