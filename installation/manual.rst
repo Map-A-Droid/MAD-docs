@@ -30,7 +30,7 @@ First let's install all the needed packages from Ubuntu repository - there will 
 .. code-block:: bash
 
   sudo apt update
-  sudo apt install mariadb-server default-libmysqlclient-dev mariadb-client python3-venv python3-pip python3-wheel python3-dev tesseract-ocr python3-opencv redis  build-essential pkg-config
+  sudo apt install mariadb-server default-libmysqlclient-dev mariadb-client python3-venv python3-pip python3-wheel python3-dev tesseract-ocr python3-opencv redis build-essential pkg-config
 
 .. _sec_manual_database:
 
@@ -122,7 +122,7 @@ You can activate the virtual environment via `source ~/mad_env/bin/activate`. Th
 
 MAD
 ----
-MAD will also check the screen on your phone every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
+MAD will also check the screen on your device every now and then to check for errors. Make sure you have the required dependencies installed on your system. Unfortunately, there's no package for opencv on RaspberryPi which means you have to build it on your own. You should be able to find out how with a quick search on the web.
 
 .. code-block:: bash
 
