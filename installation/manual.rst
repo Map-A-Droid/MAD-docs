@@ -14,8 +14,8 @@ MAD requires the following things to be installed available on your server:
 - A server/computer running Linux. RaspberryPis do work, but aren't recommended
 - A 64-bit CPU for MAD is also highly recommended since some optional parts of MAD do require to run on 64-bit. It does have a fallback for 32-bit CPUs though
 - MariaDB server
-- Python 3.9 or newer and Python's package manager command line tool :code:`pip`.
-- Use a :code:`virtualenv` to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
+- Python 3.9 or newer and Python's package manager command line tool :code:`pip3`.
+- Use a :code:`venv` (:code:`virtualenv`) to install dependencies. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ and `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ if you're new to :code:`virtualenv`
 
 .. _sec_manual_system_prep:
 
@@ -87,7 +87,7 @@ Install additional python dependencies:
 
 .. code-block:: bash
 
-  apt install python3-pip python3-wheel python3-dev
+  sudo apt install python3-pip python3-wheel python3-dev
 
 Make sure you have the right version installed, since even if python3.9 is installed, the `python3` command could still point to `python3.5` or below!
 :code:`ls -lah $(which python3)` will show the current symlink of Python
@@ -106,17 +106,7 @@ A virtual environment is a way to install python packages in a different locatio
 
 .. code-block:: bash
 
-  apt install python3-venv
-
-And create a new virtual environment called :code:`mad_env` in your home directory:
-
-.. code-block:: bash
-
-  python3 -m venv ~/mad_env
-
-Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python tools.
-
-You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ link for more information.
+  sudo apt install python3-venv
 
 .. _sec_manual_mad:
 
@@ -126,9 +116,20 @@ MAD will also check the screen on your device every now and then to check for er
 
 .. code-block:: bash
 
-  sudo apt-get install tesseract-ocr python3-opencv
+  sudo apt install tesseract-ocr python3-opencv
 
-Next Step is to clone this repository and install all the required pip packages:
+Steps below should be run as normal, non-privileged user. It's a bad practice to run everything as :code:`root` (Administrator in Windows world).
+Create a new virtual environment called :code:`mad_env` in your home directory:
+
+.. code-block:: bash
+
+  python3 -m venv ~/mad_env
+
+Whenever you see :code:`python3` or :code:`pip3` in the documentation, use :code:`~/mad_env/bin/python3` and :code:`~/mad_env/bin/pip3` instead. And, of course, use a different environment location for different python projects. For example if you are also using RocketMAD - have additional dedicated virtual environment for RocketMAD like :code:`~/rm_env`.
+
+You can activate the virtual environment via `source ~/mad_env/bin/activate`. This makes sure you can simply call `python3` or `pip3` wherever you are and it will perform all commands with the Python version and the dependencies form your virtualenvironment. Have a look at `this <https://docs.python.org/3/tutorial/venv.html>`_ or `this <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_ link for more information.
+
+Next Step is to clone this repository and install all the required :code:`pip3` packages:
 
 .. code-block:: bash
 
