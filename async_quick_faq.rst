@@ -38,7 +38,7 @@ Software needed before
 - redis-server installed (``apt install redis``) - it's required now, this does not any configuration by default, just install.
 - `venv, python-venv, virtualenv` - use venv, not local packages, not global packages, use venv, really, it makes life easier for everyone. TODO_LINK_HERE_TO_MANUAL_INSTALL_MAD_DOCS_VENV
 - ``tesseract``, database ``MariaDB/MySQL`` is still there and if you are just updating you should have all of this.
-- list of packages needed for Debian 11 clean install - do NOT blindly-copy paste this - this is just for reference ``python3-dev python3-venv mariadb-server redis mariadb-client build-essential git default-libmysqlclient-dev python3-opencv tesseract-ocr``
+- list of packages needed for Debian 11 clean install - do NOT blindly-copy paste this - this is just for reference ``python3-dev python3-venv mariadb-server redis mariadb-client build-essential git default-libmysqlclient-dev python3-opencv tesseract-ocr pkg-config``
  
 Migration
 ----
